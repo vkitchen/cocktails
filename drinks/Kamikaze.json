@@ -1,0 +1,28 @@
+{
+	"name": "Kamikaze",
+	"IBA": true,
+	"class": "New Era Drinks",
+	"serve": "Straight up",
+	"garnish": [
+		"Lime slice"
+	],
+	"drinkware": "Cocktail glass",
+	"ingredients": [
+		{
+			"name": "Vodka",
+			"measure": "3",
+			"unit": "cl"
+		},
+		{
+			"name": "Triple sec",
+			"measure": "3",
+			"unit": "cl"
+		},
+		{
+			"name": "Lime juice",
+			"measure": "3",
+			"unit": "cl"
+		}
+	],
+	"method": "Shake all ingredients together with ice. Strain into glass, garnish and serve."
+}

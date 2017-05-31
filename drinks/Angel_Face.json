@@ -1,0 +1,26 @@
+{
+	"name": "Angel Face",
+	"IBA": true,
+	"class": "Unforgettables",
+	"serve": "Straight up",
+	"garnish": [],
+	"drinkware": "Cocktail glass",
+	"ingredients": [
+		{
+			"name": "Gin",
+			"measure": "3",
+			"unit": "cl"
+		},
+		{
+			"name": "Apricot Brandy",
+			"measure": "3",
+			"unit": "cl"
+		},
+		{
+			"name": "Calvados",
+			"measure": "3",
+			"unit": "cl"
+		}
+	],
+	"method": "Shake all ingredients with ice and strain contents into a cocktail glass."
+}

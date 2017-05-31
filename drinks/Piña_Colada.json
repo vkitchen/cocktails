@@ -1,0 +1,29 @@
+{
+	"name": "Piña Colada",
+	"IBA": true,
+	"class": "Contemporary Classics",
+	"serve": "Blended",
+	"garnish": [
+		"Pineapple slice",
+		"Maraschino cherry"
+	],
+	"drinkware": "Poco",
+	"ingredients": [
+		{
+			"name": "White rum",
+			"measure": "3",
+			"unit": "cl"
+		},
+		{
+			"name": "Coconut milk",
+			"measure": "3",
+			"unit": "cl"
+		},
+		{
+			"name": "Pineapple juice",
+			"measure": "9",
+			"unit": "cl"
+		}
+	],
+	"method": "Mix with crushed ice in blender until smooth. Pour into chilled glass, garnish and serve."
+}

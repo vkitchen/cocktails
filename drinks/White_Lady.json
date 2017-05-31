@@ -1,0 +1,26 @@
+{
+	"name": "White Lady",
+	"IBA": true,
+	"class": "Unforgettables",
+	"serve": "Straight up",
+	"garnish": [],
+	"drinkware": "Cocktail glass",
+	"ingredients": [
+		{
+			"name": "Gin",
+			"measure": "4",
+			"unit": "cl"
+		},
+		{
+			"name": "Triple sec",
+			"measure": "3",
+			"unit": "cl"
+		},
+		{
+			"name": "Lemon juice",
+			"measure": "2",
+			"unit": "cl"
+		}
+	],
+	"method": "Add all ingredients into cocktail shaker filled with ice. Shake well and strain into large cocktail glass."
+}

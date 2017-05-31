@@ -1,0 +1,58 @@
+{
+	"name": "Vampiro",
+	"IBA": true,
+	"class": "New Era Drinks",
+	"serve": "On the rocks",
+	"garnish": [
+		"Chili pepper"
+	],
+	"drinkware": "Highball glass",
+	"ingredients": [
+		{
+			"name": "Tequila (silver)",
+			"measure": "5",
+			"unit": "cl"
+		},
+		{
+			"name": "Tomato juice",
+			"measure": "7",
+			"unit": "cl"
+		},
+		{
+			"name": "Orange juice",
+			"measure": "3",
+			"unit": "cl"
+		},
+		{
+			"name": "Lime juice",
+			"measure": "1",
+			"unit": "cl"
+		},
+		{
+			"name": "Clear honey",
+			"measure": "1",
+			"unit": "tsp"
+		},
+		{
+			"name": "Half slice onion finely chopped",
+			"measure": "1",
+			"unit": "none"
+		},
+		{
+			"name": "Few slices red hot chili peppers",
+			"measure": "1",
+			"unit": "none"
+		},
+		{
+			"name": "Worchestershire sauve",
+			"measure": "3-4",
+			"unit": "drop"
+		},
+		{
+			"name": "Salt",
+			"measure": "1",
+			"unit": "none"
+		}
+	],
+	"method": "Stirring gently, pour all ingredients into highball glass. Garnish."
+}

@@ -1,0 +1,23 @@
+{
+	"name": "Screwdriver",
+	"IBA": true,
+	"class": "Unforgettables",
+	"serve": "On the rocks",
+	"garnish": [
+		"Orange slice"
+	],
+	"drinkware": "Highball glass",
+	"ingredients": [
+		{
+			"name": "Vodka",
+			"measure": "5",
+			"unit": "cl"
+		},
+		{
+			"name": "Orange juice",
+			"measure": "10",
+			"unit": "cl"
+		}
+	],
+	"method": "Mix in a highball glass with ice. Garnish and serve."
+}

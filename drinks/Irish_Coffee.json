@@ -1,0 +1,31 @@
+{
+	"name": "Irish Coffee",
+	"IBA": true,
+	"class": "Contemporary Classics",
+	"serve": "Hot",
+	"garnish": [],
+	"drinkware": "Irish Coffee mug",
+	"ingredients": [
+		{
+			"name": "Irish whiskey",
+			"measure": "4",
+			"unit": "cl"
+		},
+		{
+			"name": "Hot coffee",
+			"measure": "8",
+			"unit": "cl"
+		},
+		{
+			"name": "Cream",
+			"measure": "3",
+			"unit": "cl"
+		},
+		{
+			"name": "Brown sugar",
+			"measure": "1",
+			"unit": "tsp"
+		}
+	],
+	"method": "Heat the coffee, whiskey and sugar; do not boil. Pour into glass and top with cream; serve hot."
+}
