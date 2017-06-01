@@ -1,5 +1,6 @@
 module Update exposing (update)
 
+import Http
 import Model exposing (Model)
 import Msg exposing (Msg(..))
 import Types exposing (..)
@@ -7,6 +8,12 @@ import Types exposing (..)
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
+    UrlChange location ->
+      let
+        newUrl = Maybe.withDefault "" (Http.decodeUri (String.dropLeft 1 location.hash))
+      in
+      ({model | url = newUrl }, Model.getPage ("/" ++ getDrinkPath newUrl model.index))
+
     UpdateIndex (Ok drinksList) ->
       ({ model | index = drinksList }, Cmd.none)
 
@@ -18,9 +25,6 @@ update msg model =
 
     UpdatePage (Err _) ->
       (model, Cmd.none)
-
-    ChangePage newUrl ->
-      ({ model | url = newUrl }, Model.getPage ("/" ++ getDrinkPath newUrl model.index))
 
 getDrinkPath : String -> List DrinkPath -> String
 getDrinkPath name l =

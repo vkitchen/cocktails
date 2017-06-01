@@ -1,12 +1,13 @@
 import Html exposing (program)
 import Model exposing (Model)
 import Msg exposing (..)
+import Navigation
 import Update
 import View
 
 
 main =
-  Html.program
+  Navigation.program UrlChange
     { init = Model.init
     , view = View.view
     , update = Update.update

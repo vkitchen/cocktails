@@ -12,7 +12,7 @@ import Types exposing (..)
 
 view : Model -> Html Msg
 view model =
-  if model.url == "index" then
+  if model.url == "" then
     index model
   else
     drink model
@@ -39,4 +39,4 @@ ingredient v =
 index : Model -> Html Msg
 index model =
   ul []
-    (List.map (\v -> li [] [ a [ onClick (Msg.ChangePage v.name), href ("#" ++ v.name) ] [ text v.name ] ]) model.index)
+    (List.map (\v -> li [] [ a [ href ("#" ++ v.name) ] [ text v.name ] ]) model.index)

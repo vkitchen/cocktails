@@ -3,6 +3,7 @@ module Model exposing (Model, init, getPage)
 import Http
 import Json.Decode as Decode
 import Msg exposing (Msg)
+import Navigation
 import Task
 import Types exposing (..)
 
@@ -12,15 +13,15 @@ type alias Model =
   , drink : Maybe Drink
   }
 
-init : ( Model, Cmd Msg )
-init =
-  ( Model "index" [] Nothing, getPage "/index.json" )
+init : Navigation.Location -> ( Model, Cmd Msg )
+init location =
+  ( Model "" [] Nothing, getPage "" )
 
 
 getPage : String -> Cmd Msg
 getPage url =
-  if url == "/index.json" then
-    Http.send Msg.UpdateIndex (Http.get url decodeIndex)
+  if url == "" then
+    Http.send Msg.UpdateIndex (Http.get "/index.json" decodeIndex)
   else
     Http.send Msg.UpdatePage (Http.get url decodePage)
 
