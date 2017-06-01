@@ -8,12 +8,12 @@ import Types exposing (..)
 
 type alias Model =
   { page : String
-  , url : String
+  , drinks : List Drink
   }
 
 init : ( Model, Cmd Msg )
 init =
-  ( Model "index" "", getPage "index" )
+  ( Model "index" [], getPage "index" )
 
 
 getPage : String -> Cmd Msg
@@ -24,6 +24,9 @@ getPage topic =
   in
     Http.send Msg.NewPage (Http.get url decodePage)
 
-decodePage : Decode.Decoder String
+decodePage : Decode.Decoder (List Drink)
 decodePage =
-  Decode.at ["data", "image_url"] Decode.string
+  Decode.list
+    <| Decode.map2 Drink
+        (Decode.field "file" Decode.string)
+        (Decode.field "name" Decode.string)

@@ -1,4 +1,6 @@
 module Types exposing (..)
 
-type alias Tab =
-  String
+type alias Drink =
+  { file : String
+  , name : String
+  }
