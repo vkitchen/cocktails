@@ -4,4 +4,6 @@ import Http
 import Types exposing (..)
 
 type Msg
-  = NewPage (Result Http.Error (List Drink))
+  = UpdateIndex (Result Http.Error (List DrinkPath))
+  | UpdatePage (Result Http.Error Drink)
+  | ChangePage String
