@@ -1,6 +1,7 @@
 module Msg exposing (Msg(..))
 
+import Http
 import Types exposing (..)
 
 type Msg
-  = NoOp
+  = NewPage (Result Http.Error String)

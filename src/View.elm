@@ -9,4 +9,4 @@ import Msg exposing (Msg)
 
 view : Model -> Html Msg
 view model =
-  text "Hello, World!"
+  text model.url
