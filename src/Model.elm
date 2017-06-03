@@ -1,4 +1,4 @@
-module Model exposing (Model, init, getPage)
+module Model exposing (Model, init, getPage, getSearch)
 
 import Http
 import Json.Decode as Decode
@@ -10,12 +10,13 @@ import Types exposing (..)
 type alias Model =
   { url : String
   , index : List DrinkPath
+  , query : String
   , drink : Maybe Drink
   }
 
 init : Navigation.Location -> ( Model, Cmd Msg )
 init location =
-  ( Model "" [] Nothing, getPage "" )
+  ( Model "" [] "" Nothing, getPage "" )
 
 
 getPage : String -> Cmd Msg
@@ -24,6 +25,13 @@ getPage url =
     Http.send Msg.UpdateIndex (Http.get "/index.json" decodeIndex)
   else
     Http.send Msg.UpdatePage (Http.get url decodePage)
+
+getSearch : String -> Cmd Msg
+getSearch query =
+  if query == "" then
+    Http.send Msg.UpdateIndex (Http.get "/index.json" decodeIndex)
+  else
+    Http.send Msg.UpdateIndex (Http.get ("/filter/" ++ query) decodeIndex)
 
 decodeIndex : Decode.Decoder (List DrinkPath)
 decodeIndex =

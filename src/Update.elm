@@ -26,6 +26,9 @@ update msg model =
     UpdatePage (Err _) ->
       (model, Cmd.none)
 
+    FilterDrinks query ->
+      ({ model | query = query }, Model.getSearch query)
+
 getDrinkPath : String -> List DrinkPath -> String
 getDrinkPath name l =
   (Maybe.withDefault (DrinkPath "" "") (List.head (List.filter (\v -> v.name == name) l))).file

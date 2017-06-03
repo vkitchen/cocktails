@@ -1,8 +1,8 @@
 module View exposing (view)
 
 import Html exposing (..)
-import Html.Attributes exposing (href)
-import Html.Events exposing (onClick)
+import Html.Attributes exposing (href, type_)
+import Html.Events exposing (onClick, onInput)
 import Model exposing (Model)
 import Msg exposing (Msg)
 import Types exposing (..)
@@ -38,5 +38,9 @@ ingredient v =
 
 index : Model -> Html Msg
 index model =
-  ul []
-    (List.map (\v -> li [] [ a [ href ("#" ++ v.name) ] [ text v.name ] ]) model.index)
+  div []
+    [ text "Filter:"
+    , input [ type_ "text", onInput Msg.FilterDrinks ] []
+    , ul []
+        (List.map (\v -> li [] [ a [ href ("#" ++ v.name) ] [ text v.name ] ]) model.index)
+    ]
