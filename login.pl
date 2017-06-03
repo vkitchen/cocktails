@@ -57,23 +57,6 @@ plugin 'authentication', {
 
 plugin 'proxy';
 
-get '/app/' => sub {
-    my $c = shift;
-    if (! $c->is_user_authenticated) {
-        $c->redirect_to('/login');
-    }
-    $c->proxy_to('http://localhost:8081/')
-};
-
-get '/app/*params' => sub {
-    my $c = shift;
-    if (! $c->is_user_authenticated) {
-        $c->redirect_to('/login');
-    }
-    my $params = $c->stash('params');
-    $c->proxy_to("http://localhost:8081/$params")
-};
-
 get '/' => sub {
     my $c = shift;
     if (! $c->is_user_authenticated) {
@@ -107,6 +90,23 @@ get '/logout' => sub {
 
     $c->logout();
     $c->redirect_to('/');
+};
+
+get '/app/' => sub {
+    my $c = shift;
+    if (! $c->is_user_authenticated) {
+        $c->redirect_to('/login');
+    }
+    $c->proxy_to('http://localhost:8081/')
+};
+
+get '/*params' => sub {
+    my $c = shift;
+    if (! $c->is_user_authenticated) {
+        $c->redirect_to('/login');
+    }
+    my $params = $c->stash('params');
+    $c->proxy_to("http://localhost:8081/$params")
 };
 
 app->start;
