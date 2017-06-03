@@ -19,6 +19,7 @@ my $log = Mojo::Log->new;
 sub parse_file($file, $query) {
     my $contents = read_file $file;
     my %drink = %{decode_json $contents};
+    $file =~ s/^public\///;
 
     if (any { index(lc %{$_}{'name'}, lc $query) != -1 } @{$drink{'ingredients'}}) {
         return { file => $file, name => $drink{'name'} }
