@@ -57,21 +57,21 @@ plugin 'authentication', {
 
 plugin 'proxy';
 
-get '/tadpole/' => sub {
+get '/app/' => sub {
     my $c = shift;
     if (! $c->is_user_authenticated) {
         $c->redirect_to('/login');
     }
-    $c->proxy_to('http://localhost:8000/')
+    $c->proxy_to('http://localhost:8081/')
 };
 
-get '/tadpole/*params' => sub {
+get '/app/*params' => sub {
     my $c = shift;
     if (! $c->is_user_authenticated) {
         $c->redirect_to('/login');
     }
     my $params = $c->stash('params');
-    $c->proxy_to("http://localhost:8000/$params")
+    $c->proxy_to("http://localhost:8081/$params")
 };
 
 get '/' => sub {

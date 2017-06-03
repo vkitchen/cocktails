@@ -8,7 +8,7 @@
     <p>Welcome <%= %$user{'username'} %></p>
     <a href="/logout">logout</a>
     <ul>
-        <li><a href="/tadpole/">tadpole</a></li>
+        <li><a href="/app/">app</a></li>
     </ul>
 </body>
 </html>
