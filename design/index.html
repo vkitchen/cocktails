@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Main</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+	html, head, body {
+		margin: 0;
+	}
+
+	.logo:link, .logo:visited, .logo:hover, .logo:active {
+		font-size: 42px;
+		font-family: Open Sans, sans-serif;
+		font-weight: bold;
+		color: #000;
+		text-decoration: none;
+		line-height: 40px
+	}
+
+	#search-btn {
+		border: 0;
+		padding: 0;
+		float: right;
+		height: 44px;
+		background: #f8f8f8;
+		color: #333;
+		display: inline-block;
+		border: solid 1px #d3d3d3;
+		border-left: 0;
+		vertical-align: middle;
+		white-space: nowrap;
+	}
+
+	#yt-masthead-container {
+		border-bottom: 2px solid #000;
+		min-width: 0;
+		padding-bottom: 8px;
+		padding-top: 7px;
+		position: relative;
+		padding-left: 30px;
+		padding-right: 30px;
+		margin: 0 5px;
+	}
+
+	#yt-masthead-logo-container {
+		float: left;
+		margin-top: 3px;
+		position: relative;
+		width: 200px;
+	}
+
+	#yt-masthead-user {
+		color: #555;
+		float: right;
+		margin-left: 50px;
+		margin-top: 3px;
+	}
+
+	#masthead-search {
+		max-width: 650px;
+		overflow: hidden;
+		padding: 0;
+		position: relative;
+		margin: 0;
+		border: 0;
+	}
+
+	#masthead-search-term {
+		color: #767676;
+		display: inline-block;
+		border: 0;
+		height: 100%;
+		left: 0;
+		margin: 0;
+		padding: 2px 6px;
+		position: absolute;
+		width: 100%;
+		box-sizing: border-box;
+		font-size: 14px;
+	}
+
+	#masthead-search-terms {
+		background-color: #fff;
+		height: 44px;
+		line-height: 30px;
+		margin: 0 0 2px;
+		overflow: hidden;
+		position: relative;
+		box-sizing: border-box;
+		border: 1px solid #ccc;
+	}
+
+	.yt-uix-button-content {
+		display: block;
+		height: 24px;
+		margin: 0 25px;
+	}
+	</style>
+</head>
+<body>
+	<div id="yt-masthead-container" class="clearfix">
+		<div id="yt-masthead-logo-container">
+			<a href="/" class="logo">Tophat</a>
+		</div>
+		<div id="yt-masthead-user">
+			<img src="avatar.jpg">
+		</div>
+		<div>
+			<form id="masthead-search">
+				<button id="search-btn">
+					<span class="material-icons yt-uix-button-content">search</span>
+				</button>
+				<div id="masthead-search-terms">
+					<input id="masthead-search-term">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
