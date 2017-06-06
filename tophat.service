@@ -6,6 +6,8 @@ After=network.target
 Type=simple
 WorkingDirectory=/var/www/tophat.nz
 ExecStart=/var/www/tophat.nz/server.pl daemon -m production -l http://*:8081
+User=webd
+Group=webd
 
 [Install]
 WantedBy=multi-user.target
