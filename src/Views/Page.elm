@@ -37,11 +37,9 @@ viewFooter : Html msg
 viewFooter =
     footer []
         [ div [ class "container" ]
-            [ a [ class "logo-font", href "/" ] [ text "conduit" ]
+            [ a [ class "logo-font", href "/" ] [ text "Tophat" ]
             , span [ class "attribution" ]
-                [ text "An interactive learning project from "
-                , a [ href "https://thinkster.io" ] [ text "Thinkster" ]
-                , text ". Code & design licensed under MIT."
+                [ text "© 2017"
                 ]
             ]
         ]
