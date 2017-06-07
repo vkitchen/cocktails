@@ -4,7 +4,7 @@ module Views.Page exposing (frame)
 -}
 
 import Html exposing (..)
-import Html.Attributes exposing (..)
+import Html.Attributes exposing (class, href, type_, src)
 import Route exposing (Route)
 
 {-| Take a page's Html and frame it with a header and footer.
@@ -18,28 +18,29 @@ frame isLoading content =
     div [ class "page-frame" ]
         [ viewHeader isLoading
         , content
-        , viewFooter
         ]
 
 
 
 viewHeader : Bool -> Html msg
 viewHeader isLoading =
-    nav [ class "navbar navbar-light" ]
-        [ div [ class "container" ]
-            [ a [ class "navbar-brand", Route.href Route.Home ]
-                [ text "Tophat" ]
-            ]
+  nav [ class "masthead-container" ]
+    [ div [ class "logo-container" ]
+        [ a [ class "navbar-brand", Route.href Route.Home, class "logo" ] [ text "Tophat" ] ]
+    , div [ class "masthead-user" ]
+        -- [ span [ class "material-icons" ] [ text "notifications" ]
+        [ img [ src "/user/avatar.jpg" ] []
+        -- , span [ class "material-icons" ] [ text "arrow_drop_down" ]
         ]
+    , viewSearchBar
+    ]
 
-
-viewFooter : Html msg
-viewFooter =
-    footer []
-        [ div [ class "container" ]
-            [ a [ class "logo-font", href "/" ] [ text "Tophat" ]
-            , span [ class "attribution" ]
-                [ text "© 2017"
-                ]
-            ]
+viewSearchBar : Html msg
+viewSearchBar =
+  div []
+    [ form [ class "masthead-search" ]
+        [ button [ class "search-btn" ] [ span [ class "material-icons button-content" ] [ text "search" ] ]
+        , div [ class "search-terms" ]
+            [ input [ class "search-input", type_ "text" ] [] ]
         ]
+    ]

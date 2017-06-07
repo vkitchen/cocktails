@@ -7,3 +7,82 @@ html, head, body {
 	color: #000;
 	text-decoration: none;
 }
+
+.masthead-container {
+	border-bottom: 2px solid #000;
+	min-width: 0;
+	padding-bottom: 8px;
+	padding-top: 7px;
+	position: relative;
+	padding-left: 30px;
+	padding-right: 30px;
+	margin: 0 5px;
+}
+
+.logo-container {
+	float: left;
+	margin-top: 3px;
+	position: relative;
+	width: 200px;
+}
+
+.masthead-user {
+	color: #555;
+	float: right;
+	margin-left: 50px;
+	margin-top: 3px;
+}
+
+.search-btn {
+	border: 0;
+	padding: 0;
+	float: right;
+	height: 44px;
+	background: #f8f8f8;
+	color: #333;
+	display: inline-block;
+	border: solid 1px #d3d3d3;
+	border-left: 0;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.search-input {
+	color: #767676;
+	display: inline-block;
+	border: 0;
+	height: 100%;
+	left: 0;
+	margin: 0;
+	padding: 2px 6px;
+	position: absolute;
+	width: 100%;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+.button-content {
+	display: block;
+	height: 24px;
+	margin: 0 25px;
+}
+
+.search-terms {
+	background-color: #fff;
+	height: 44px;
+	line-height: 30px;
+	margin: 0 0 2px;
+	overflow: hidden;
+	position: relative;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+}
+
+.masthead-search {
+	max-width: 650px;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	margin: 0;
+	border: 0;
+}
