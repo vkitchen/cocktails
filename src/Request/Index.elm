@@ -12,4 +12,4 @@ import Request.Helpers exposing (apiUrl)
 index : Http.Request (List DrinkPath)
 index =
   Decode.list Index.drinkPathDecoder
-    |> Http.get (apiUrl "/index")
+    |> Http.get (apiUrl "/drinks")

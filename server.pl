@@ -41,9 +41,40 @@ sub filter($query) {
     return \@drinks;
 }
 
+sub parse_drink($file) {
+	my $contents = read_file $file;
+	my %drink = %{decode_json $contents};
+
+	return { file => $file, name => $drink{'name'} }
+}
+
+sub index_drinks() {
+    my @files = glob("public/drinks/*.json");
+
+    my @drinks;
+    foreach my $file (@files) {
+        push @drinks, parse_drink $file;
+    }
+
+    return \@drinks;
+}
+
 get '/' => sub {
     my $c = shift;
     $c->reply->static('index.html');
+};
+
+get '/api/v1/drinks' => sub {
+    my $c = shift;
+    my $result = index_drinks;
+
+    $c->render(json => $result);
+};
+
+get '/api/v1/drinks/:query' => sub {
+    my $c = shift;
+    my $query = $c->param('query');
+    $c->reply->static("drinks/$query.json");
 };
 
 get '/filter/:query' => sub {
