@@ -1,14 +1,16 @@
-module Page.Home exposing (view, update, Model, Msg, init)
+module Page.Home exposing (view, update, Model, Msg(..), init)
 
 {-| The homepage.
 -}
 
+import ClickHandler exposing (onPreventDefaultClick)
 import Data.Index exposing (DrinkPath)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Http
 import Page.Errored as Errored exposing (PageLoadError, pageLoadError)
 import Request.Index
+import Route exposing (Route)
 import Task exposing (Task)
 
 
@@ -46,7 +48,7 @@ view model =
             [ div [ class "row" ]
                 [ div [ class "col-md-9" ]
                     [ ul []
-                        (List.map (\v -> li [] [ a [ href ("#/drinks/" ++ v.name) ] [ text v.name ] ]) model.index)
+                        (List.map (\v -> li [] [ a [ Route.href (Route.Drink v.name), onPreventDefaultClick (UpdateUrl (Route.Drink v.name)) ] [ text v.name ] ]) model.index)
                     ]
                 , div [ class "col-md-3" ]
                     [ div [ class "sidebar" ]
@@ -62,10 +64,14 @@ view model =
 
 type Msg
     = NoOp
+    | UpdateUrl Route
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
   case msg of
     NoOp ->
+      model => Cmd.none
+
+    _ ->
       model => Cmd.none

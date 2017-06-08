@@ -1,9 +1,9 @@
-module Route exposing (Route(..), href, fromLocation)
+module Route exposing (Route(..), href, modifyUrl, newUrl, fromLocation)
 
 import Html exposing (Attribute)
 import Html.Attributes as Attr
 import Navigation exposing (Location)
-import UrlParser as Url exposing (parseHash, s, (</>), string, oneOf, Parser)
+import UrlParser as Url exposing (parsePath, s, (</>), string, oneOf, Parser)
 
 type Route
     = Home
@@ -25,7 +25,7 @@ routeToString page =
           []
 
         Drink slug ->
-          [ "article", slug ]
+          [ "drinks", slug ]
 
   in
   "/" ++ (String.join "/" pieces)
@@ -34,8 +34,19 @@ routeToString page =
 
 href : Route -> Attribute msg
 href route =
-    Attr.href (routeToString route)
+  Attr.href (routeToString route)
+
+
+modifyUrl : Route -> Cmd msg
+modifyUrl =
+  routeToString >> Navigation.modifyUrl
+
+
+newUrl : Route -> Cmd msg
+newUrl =
+  routeToString >> Navigation.newUrl
+
 
 fromLocation : Location -> Maybe Route
 fromLocation location =
-    parseHash route location
+  parsePath route location

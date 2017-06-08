@@ -64,6 +64,11 @@ get '/' => sub {
     $c->reply->static('index.html');
 };
 
+get '/drinks/*' => sub {
+    my $c = shift;
+    $c->reply->static('index.html');
+};
+
 get '/api/v1/drinks' => sub {
     my $c = shift;
     my $result = index_drinks;

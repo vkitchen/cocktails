@@ -138,6 +138,9 @@ updatePage page msg model =
     ( DrinkLoaded (Err error), _ ) ->
       { model | pageState = Loaded (Errored error) } => Cmd.none
 
+    ( HomeMsg (Home.UpdateUrl route), _ ) ->
+      model => Route.newUrl route
+
     ( HomeMsg subMsg, Home subModel ) ->
       toPage Home HomeMsg Home.update subMsg subModel
 
