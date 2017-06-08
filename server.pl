@@ -41,19 +41,14 @@ sub filter($query) {
     return \@drinks;
 }
 
-sub parse_drink($file) {
-	my $contents = read_file $file;
-	my %drink = %{decode_json $contents};
-
-	return { file => $file, name => $drink{'name'} }
-}
-
 sub index_drinks() {
     my @files = glob("public/drinks/*.json");
 
     my @drinks;
     foreach my $file (@files) {
-        push @drinks, parse_drink $file;
+        my $contents = read_file $file;
+    	my %drink = %{decode_json $contents};
+        push @drinks, \%drink;
     }
 
     return \@drinks;

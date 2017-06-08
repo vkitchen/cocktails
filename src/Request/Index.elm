@@ -1,6 +1,6 @@
 module Request.Index exposing (index)
 
-import Data.Index as Index exposing (DrinkPath)
+import Data.Drink as Drink exposing (Drink)
 import Http
 import Json.Decode as Decode
 import Request.Helpers exposing (apiUrl)
@@ -9,7 +9,7 @@ import Request.Helpers exposing (apiUrl)
 -- INDEX --
 
 
-index : Http.Request (List DrinkPath)
+index : Http.Request (List Drink)
 index =
-  Decode.list Index.drinkPathDecoder
+  Decode.list Drink.drinkDecoder
     |> Http.get (apiUrl "/drinks")

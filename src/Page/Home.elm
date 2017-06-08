@@ -4,7 +4,7 @@ module Page.Home exposing (view, update, Model, Msg(..), init)
 -}
 
 import ClickHandler exposing (onPreventDefaultClick)
-import Data.Index exposing (DrinkPath)
+import Data.Drink exposing (Drink)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Http
@@ -22,7 +22,7 @@ import Task exposing (Task)
 
 
 type alias Model =
-    { index : List DrinkPath
+    { index : List Drink
     }
 
 init : Task PageLoadError Model
