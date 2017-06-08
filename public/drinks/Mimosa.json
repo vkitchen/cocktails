@@ -1,11 +1,14 @@
 {
 	"name": "Mimosa",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "Neat",
-	"garnish": [
-		"Orange twist"
+	"img": [
+		"Mimosa.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "Neat",
+	"garnish": "Orange twist",
 	"drinkware": "Champagne flute",
 	"ingredients": [
 		{

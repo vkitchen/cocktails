@@ -1,12 +1,12 @@
 {
 	"name": "John Collins",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "On the rocks",
-	"garnish": [
-		"Lemon slice",
-		"Maraschino cherry"
+	"img": [],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
 	],
+	"serve": "On the rocks",
+	"garnish": "Lemon slice, Maraschino cherry",
 	"drinkware": "Collins glass",
 	"ingredients": [
 		{

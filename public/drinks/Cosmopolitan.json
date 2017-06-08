@@ -1,12 +1,14 @@
 {
 	"name": "Cosmopolitan",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "Straight up",
-	"garnish": [
-		"Lemon slice",
-		"Lime wedge"
+	"img": [
+		"Cosmopolitan.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "Straight up",
+	"garnish": "Lemon slice, Lime wedge",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

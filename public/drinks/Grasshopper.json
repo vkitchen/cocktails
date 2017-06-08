@@ -1,9 +1,14 @@
 {
 	"name": "Grasshopper",
-	"IBA": true,
-	"class": "Contemporary Classics",
+	"img": [
+		"Grasshopper.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

@@ -1,9 +1,14 @@
 {
 	"name": "Sidecar",
-	"IBA": true,
-	"class": "Unforgettables",
+	"img": [
+		"Sidecar.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

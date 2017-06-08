@@ -1,11 +1,14 @@
 {
 	"name": "Vesper",
-	"IBA": true,
-	"class": "New Era Drinks",
-	"serve": "Straight up",
-	"garnish": [
-		"Lemon peel"
+	"img": [
+		"Vesper.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA New Era Drinks"
+	],
+	"serve": "Straight up",
+	"garnish": "Lemon peel",
 	"drinkware": "Champagne coupe",
 	"ingredients": [
 		{

@@ -1,9 +1,14 @@
 {
 	"name": "Between the Sheets",
-	"IBA": true,
-	"class": "Unforgettables",
+	"img": [
+		"Between the Sheets.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

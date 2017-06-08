@@ -1,9 +1,14 @@
 {
 	"name": "Godfather",
-	"IBA": true,
-	"class": "Contemporary Classics",
+	"img": [
+		"Godfather.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
 	"serve": "On the rocks",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Old Fashioned glass",
 	"ingredients": [
 		{

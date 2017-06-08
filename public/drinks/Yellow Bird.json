@@ -1,9 +1,12 @@
 {
 	"name": "Yellow Bird",
-	"IBA": true,
-	"class": "New Era Drinks",
+	"img": [],
+	"lists": [
+		"IBA",
+		"IBA New Era Drinks"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

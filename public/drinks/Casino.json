@@ -1,12 +1,12 @@
 {
 	"name": "Casino",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "Straight up",
-	"garnish": [
-		"Lemon twist",
-		"Cherry"
+	"img": [],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
 	],
+	"serve": "Straight up",
+	"garnish": "Lemon twist, Cherry",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

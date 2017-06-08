@@ -1,11 +1,14 @@
 {
 	"name": "Espresso Martini",
-	"IBA": true,
-	"class": "New Era Drinks",
-	"serve": "Straight up",
-	"garnish": [
-		"3 Coffee beans"
+	"img": [
+		"Espresso Martini.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA New Era Drinks"
+	],
+	"serve": "Straight up",
+	"garnish": "3 Coffee beans",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

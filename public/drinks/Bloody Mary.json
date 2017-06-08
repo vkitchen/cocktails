@@ -1,12 +1,14 @@
 {
 	"name": "Bloody Mary",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "On the rocks",
-	"garnish": [
-		"Celery stalk",
-		"Lemon wedge"
+	"img": [
+		"Bloody Mary.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "On the rocks",
+	"garnish": "Celery stalk, Lemon wedge",
 	"drinkware": "Highball glass",
 	"ingredients": [
 		{

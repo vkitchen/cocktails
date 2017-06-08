@@ -1,13 +1,14 @@
 {
 	"name": "Mai Tai",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "On the rocks",
-	"garnish": [
-		"Pineapple spear",
-		"Mint leaves",
-		"Lime peel"
+	"img": [
+		"Mai Tai.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "On the rocks",
+	"garnish": "Pineapple spear, Mint leaves, Lime peel",
 	"drinkware": "Highball glass",
 	"ingredients": [
 		{

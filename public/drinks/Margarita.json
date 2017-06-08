@@ -1,11 +1,14 @@
 {
 	"name": "Margarita",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "On the rocks",
-	"garnish": [
-		"Salt on the rim"
+	"img": [
+		"Margarita.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "On the rocks",
+	"garnish": "Salt on the rim",
 	"drinkware": "Margarita glass",
 	"ingredients": [
 		{

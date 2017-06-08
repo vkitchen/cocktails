@@ -1,9 +1,14 @@
 {
 	"name": "Daiquiri",
-	"IBA": true,
-	"class": "Unforgettables",
+	"img": [
+		"Daiquiri.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

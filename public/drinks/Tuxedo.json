@@ -1,12 +1,12 @@
 {
 	"name": "Tuxedo",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "Straight up",
-	"garnish": [
-		"Maraschino cherry",
-		"Lemon zest"
+	"img": [],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
 	],
+	"serve": "Straight up",
+	"garnish": "Maraschino cherry, Lemon zest",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

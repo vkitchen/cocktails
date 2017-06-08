@@ -1,12 +1,14 @@
 {
 	"name": "Old Fashioned",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "On the rocks",
-	"garnish": [
-		"Orange twist",
-		"Maraschino cherry"
+	"img": [
+		"Old Fashioned.png"
 	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
+	"serve": "On the rocks",
+	"garnish": "Orange twist, Maraschino cherry",
 	"drinkware": "Old Fashioned glass",
 	"ingredients": [
 		{

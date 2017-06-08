@@ -1,11 +1,14 @@
 {
 	"name": "Spritz Veneziano",
-	"IBA": true,
-	"class": "New Era Drinks",
-	"serve": "On the rocks",
-	"garnish": [
-		"Orange wedge"
+	"img": [
+		"Spritz Veneziano.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA New Era Drinks"
+	],
+	"serve": "On the rocks",
+	"garnish": "Orange wedge",
 	"drinkware": "Old Fashioned glass",
 	"ingredients": [
 		{

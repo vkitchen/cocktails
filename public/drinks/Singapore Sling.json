@@ -1,12 +1,14 @@
 {
 	"name": "Singapore Sling",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "Straight up",
-	"garnish": [
-		"Maraschino cherry",
-		"Pineapple wedge"
+	"img": [
+		"Singapore Sling.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "Straight up",
+	"garnish": "Maraschino cherry, Pineapple wedge",
 	"drinkware": "Hurricane glass",
 	"ingredients": [
 		{

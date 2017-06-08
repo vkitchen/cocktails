@@ -1,12 +1,14 @@
 {
 	"name": "Caipirinha",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "On the rocks",
-	"garnish": [
-		"Sugar cane",
-		"Lime"
+	"img": [
+		"Caipirinha.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "On the rocks",
+	"garnish": "Sugar cane, Lime",
 	"drinkware": "Old Fashioned glass",
 	"ingredients": [
 		{

@@ -1,9 +1,14 @@
 {
 	"name": "Black Russian",
-	"IBA": true,
-	"class": "Contemporary Classics",
+	"img": [
+		"Black Russian.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
 	"serve": "On the rocks",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Old Fashioned glass",
 	"ingredients": [
 		{

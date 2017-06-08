@@ -1,12 +1,14 @@
 {
 	"name": "Harvey Wallbanger",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "On the rocks",
-	"garnish": [
-		"Orange slice",
-		"Cherry"
+	"img": [
+		"Harvey Wallbanger.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "On the rocks",
+	"garnish": "Orange slice, Cherry",
 	"drinkware": "Highball glass",
 	"ingredients": [
 		{

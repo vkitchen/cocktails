@@ -1,9 +1,14 @@
 {
 	"name": "Stinger",
-	"IBA": true,
-	"class": "Unforgettables",
+	"img": [
+		"Stinger.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

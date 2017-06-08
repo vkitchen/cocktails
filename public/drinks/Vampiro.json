@@ -1,11 +1,12 @@
 {
 	"name": "Vampiro",
-	"IBA": true,
-	"class": "New Era Drinks",
-	"serve": "On the rocks",
-	"garnish": [
-		"Chili pepper"
+	"img": [],
+	"lists": [
+		"IBA",
+		"IBA New Era Drinks"
 	],
+	"serve": "On the rocks",
+	"garnish": "Chili pepper",
 	"drinkware": "Highball glass",
 	"ingredients": [
 		{

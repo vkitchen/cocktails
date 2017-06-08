@@ -1,9 +1,12 @@
 {
 	"name": "Mary Pickford",
-	"IBA": true,
-	"class": "Unforgettables",
+	"img": [],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

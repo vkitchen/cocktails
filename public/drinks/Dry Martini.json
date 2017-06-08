@@ -1,12 +1,14 @@
 {
 	"name": "Dry Martini",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "Straight up",
-	"garnish": [
-		"Olive",
-		"Lemon twist"
+	"img": [
+		"Martini.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
+	"serve": "Straight up",
+	"garnish": "Olive or Lemon twist",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

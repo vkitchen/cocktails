@@ -1,9 +1,12 @@
 {
 	"name": "French Connection",
-	"IBA": true,
-	"class": "Contemporary Classics",
+	"img": [],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
 	"serve": "On the rocks",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Old Fashioned glass",
 	"ingredients": [
 		{

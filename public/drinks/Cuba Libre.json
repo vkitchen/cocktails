@@ -1,11 +1,14 @@
 {
 	"name": "Cuba Libre",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "On the rocks",
-	"garnish": [
-		"Lime wedge"
+	"img": [
+		"Cuba Libre.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "On the rocks",
+	"garnish": "Lime wedge",
 	"drinkware": "Collins glass",
 	"ingredients": [
 		{

@@ -1,12 +1,12 @@
 {
 	"name": "Champagne Cocktail",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "Straight up",
-	"garnish": [
-		"Orange slice",
-		"Cherry"
+	"img": [],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
 	],
+	"serve": "Straight up",
+	"garnish": "Orange slice, Cherry",
 	"drinkware": "Champagne flute",
 	"ingredients": [
 		{

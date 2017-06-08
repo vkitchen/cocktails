@@ -1,11 +1,12 @@
 {
 	"name": "Rusty Nail",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "On the rocks",
-	"garnish": [
-		"Lemon twist"
+	"img": [],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
 	],
+	"serve": "On the rocks",
+	"garnish": "Lemon twist",
 	"drinkware": "Old Fashioned glass",
 	"ingredients": [
 		{

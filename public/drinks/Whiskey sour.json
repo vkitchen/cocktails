@@ -1,12 +1,14 @@
 {
 	"name": "Whiskey sour",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "On the rocks",
-	"garnish": [
-		"Maraschino cherry",
-		"Half orange slice"
+	"img": [
+		"Whiskey sour.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
+	"serve": "On the rocks",
+	"garnish": "Maraschino cherry, Half orange slice",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

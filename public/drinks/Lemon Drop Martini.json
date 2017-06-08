@@ -1,11 +1,14 @@
 {
 	"name": "Lemon Drop Martini",
-	"IBA": true,
-	"class": "New Era Drinks",
-	"serve": "Straight up",
-	"garnish": [
-		"Lemon slice"
+	"img": [
+		"Lemon Drop Martini.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA New Era Drinks"
+	],
+	"serve": "Straight up",
+	"garnish": "Lemon slice",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

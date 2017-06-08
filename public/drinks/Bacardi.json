@@ -1,11 +1,14 @@
 {
 	"name": "Bacardi",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "Straight up",
-	"garnish": [
-		"Lime"
+	"img": [
+		"Bacardi.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
+	"serve": "Straight up",
+	"garnish": "Lime",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

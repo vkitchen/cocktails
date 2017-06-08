@@ -1,11 +1,15 @@
 {
 	"name": "Mint Julep",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "On the rocks",
-	"garnish": [
-		"Mint sprig"
+	"img": [
+		"Mint Julep.jpg",
+		"Mint Julep Highball.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "On the rocks",
+	"garnish": "Mint sprig",
 	"drinkware": "Highball glass",
 	"ingredients": [
 		{

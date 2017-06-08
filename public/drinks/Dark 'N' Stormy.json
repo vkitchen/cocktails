@@ -1,11 +1,14 @@
 {
 	"name": "Dark 'N' Stormy",
-	"IBA": true,
-	"class": "New Era Drinks",
-	"serve": "On the rocks",
-	"garnish": [
-		"Lime wedge"
+	"img": [
+		"Dark 'N' Stormy"
 	],
+	"lists": [
+		"IBA",
+		"IBA New Era Drinks"
+	],
+	"serve": "On the rocks",
+	"garnish": "Lime wedge",
 	"drinkware": "Highball glass",
 	"ingredients": [
 		{

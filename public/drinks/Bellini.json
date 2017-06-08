@@ -1,9 +1,14 @@
 {
 	"name": "Bellini",
-	"IBA": true,
-	"class": "Contemporary Classics",
+	"img": [
+		"Bellini.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Champagne flute",
 	"ingredients": [
 		{

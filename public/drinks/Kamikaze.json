@@ -1,11 +1,14 @@
 {
 	"name": "Kamikaze",
-	"IBA": true,
-	"class": "New Era Drinks",
-	"serve": "Straight up",
-	"garnish": [
-		"Lime slice"
+	"img": [
+		"Kamikaze.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA New Era Drinks"
+	],
+	"serve": "Straight up",
+	"garnish": "Lime slice",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

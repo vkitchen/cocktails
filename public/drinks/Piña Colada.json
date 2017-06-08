@@ -1,12 +1,14 @@
 {
 	"name": "Piña Colada",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "Blended",
-	"garnish": [
-		"Pineapple slice",
-		"Maraschino cherry"
+	"img": [
+		"Piña Colada.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "Blended",
+	"garnish": "Pineapple slice, Maraschino cherry",
 	"drinkware": "Poco",
 	"ingredients": [
 		{

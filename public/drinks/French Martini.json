@@ -1,9 +1,12 @@
 {
 	"name": "French Martini",
-	"IBA": true,
-	"class": "New Era Drinks",
+	"img": [],
+	"class": [
+		"IBA",
+		"IBA New Era Drinks"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

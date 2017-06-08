@@ -1,11 +1,14 @@
 {
 	"name": "Sazerac",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "Straight up",
-	"garnish": [
-		"Lemon peel"
+	"img": [
+		"Sazerac.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
+	"serve": "Straight up",
+	"garnish": "Lemon peel",
 	"drinkware": "Old Fashioned glass",
 	"ingredients": [
 		{

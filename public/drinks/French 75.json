@@ -1,9 +1,14 @@
 {
 	"name": "French 75",
-	"IBA": true,
-	"class": "Contemporary Classics",
+	"img": [
+		"French 75.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Champagne flute",
 	"ingredients": [
 		{

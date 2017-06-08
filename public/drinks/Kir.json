@@ -1,9 +1,14 @@
 {
 	"name": "Kir",
-	"IBA": true,
-	"class": "Contemporary Classics",
+	"img": [
+		"Kir.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Wine glass (white)",
 	"ingredients": [
 		{

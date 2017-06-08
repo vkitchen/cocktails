@@ -1,9 +1,12 @@
 {
 	"name": "Russian Spring Punch",
-	"IBA": true,
-	"class": "New Era Drinks",
+	"img": [],
+	"lists": [
+		"IBA",
+		"IBA New Era Drinks"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Highball glass",
 	"ingredients": [
 		{

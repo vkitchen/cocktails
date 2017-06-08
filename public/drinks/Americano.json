@@ -1,11 +1,15 @@
 {
 	"name": "Americano",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "On the rocks",
-	"garnish": [
-		"Half an orange slice"
+	"img": [
+		"Americano.jpg",
+		"Americano Highball.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
+	"serve": "On the rocks",
+	"garnish": "Half an orange slice",
 	"drinkware": "Old Fashioned glass",
 	"ingredients": [
 		{

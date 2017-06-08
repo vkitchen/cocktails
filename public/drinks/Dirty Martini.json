@@ -1,11 +1,12 @@
 {
 	"name": "Dirty Martini",
-	"IBA": true,
-	"class": "New Era Drinks",
-	"serve": "Straight up",
-	"garnish": [
-		"Olive"
+	"img": [],
+	"lists": [
+		"IBA",
+		"IBA New Era Drinks"
 	],
+	"serve": "Straight up",
+	"garnish": "Olive",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

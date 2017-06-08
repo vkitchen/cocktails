@@ -1,9 +1,14 @@
 {
 	"name": "Irish Coffee",
-	"IBA": true,
-	"class": "Contemporary Classics",
+	"img": [
+		"Irish Coffee.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
 	"serve": "Hot",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Irish Coffee mug",
 	"ingredients": [
 		{

@@ -1,12 +1,14 @@
 {
 	"name": "Tequila Sunrise",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "On the rocks",
-	"garnish": [
-		"Orange slice",
-		"Maraschino cherry"
+	"img": [
+		"Tequila Sunrise.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "On the rocks",
+	"garnish": "Orange slice, Maraschino cherry",
 	"drinkware": "Collins glass",
 	"ingredients": [
 		{

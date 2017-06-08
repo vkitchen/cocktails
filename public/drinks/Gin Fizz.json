@@ -1,11 +1,14 @@
 {
 	"name": "Gin Fizz",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "On the rocks",
-	"garnish": [
-		"Lemon slice"
+	"img": [
+		"Gin Fizz.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
+	"serve": "On the rocks",
+	"garnish": "Lemon slice",
 	"drinkware": "Old Fashioned glass",
 	"ingredients": [
 		{

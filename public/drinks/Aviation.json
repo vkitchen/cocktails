@@ -1,11 +1,14 @@
 {
 	"name": "Aviation",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "Straight up",
-	"garnish": [
-		"Cherry"
+	"img": [
+		"Aviation.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
+	"serve": "Straight up",
+	"garnish": "Cherry",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

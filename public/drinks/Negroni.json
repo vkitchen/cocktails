@@ -1,11 +1,14 @@
 {
 	"name": "Negroni",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "On the rocks",
-	"garnish": [
-		"Orange slice"
+	"img": [
+		"Negroni.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
+	"serve": "On the rocks",
+	"garnish": "Orange slice",
 	"drinkware": "Old Fashioned glass",
 	"ingredients": [
 		{

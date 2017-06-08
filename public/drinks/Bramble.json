@@ -1,12 +1,14 @@
 {
 	"name": "Bramble",
-	"IBA": true,
-	"class": "New Era Drinks",
-	"serve": "On the rocks",
-	"garnish": [
-		"Blackberry",
-		"Lemon slice"
+	"img": [
+		"Bramble.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA New Era Drinks"
+	],
+	"serve": "On the rocks",
+	"garnish": "Blackberry, Lemon slice",
 	"drinkware": "Old Fashioned glass",
 	"ingredients": [
 		{

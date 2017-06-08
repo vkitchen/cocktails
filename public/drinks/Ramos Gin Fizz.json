@@ -1,9 +1,14 @@
 {
 	"name": "Ramos Gin Fizz",
-	"IBA": true,
-	"class": "Unforgettables",
+	"img": [
+		"Ramos Gin Fizz.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Collins glass",
 	"ingredients": [
 		{

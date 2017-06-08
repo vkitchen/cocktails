@@ -1,11 +1,14 @@
 {
 	"name": "Long Island Iced Tea",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "On the rocks",
-	"garnish": [
-		"Lemon spiral"
+	"img": [
+		"Long Island Iced Tea.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "On the rocks",
+	"garnish": "Lemon spiral",
 	"drinkware": "Highball glass",
 	"ingredients": [
 		{

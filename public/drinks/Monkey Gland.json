@@ -1,9 +1,14 @@
 {
 	"name": "Monkey Gland",
-	"IBA": true,
-	"class": "Unforgettables",
+	"img": [
+		"Monkey Gland.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

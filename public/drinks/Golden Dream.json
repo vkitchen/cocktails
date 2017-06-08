@@ -1,9 +1,14 @@
 {
 	"name": "Golden Dream",
-	"IBA": true,
-	"class": "Contemporary Classics",
+	"img": [
+		"Golden Dream.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

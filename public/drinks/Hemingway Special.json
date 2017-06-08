@@ -1,9 +1,14 @@
 {
 	"name": "Hemingway Special",
-	"IBA": true,
-	"class": "Contemporary Classics",
+	"img": [
+		"Hemingway Special.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
 	"serve": "Straight up",
-	"garnish": [],
+	"garnish": "",
 	"drinkware": "Double Cocktail glass",
 	"ingredients": [
 		{

@@ -1,11 +1,14 @@
 {
 	"name": "Sex on the Beach",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "On the rocks",
-	"garnish": [
-		"Orange slice"
+	"img": [
+		"Sex on the Beach.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "On the rocks",
+	"garnish": "Orange slice",
 	"drinkware": "Highball glass",
 	"ingredients": [
 		{

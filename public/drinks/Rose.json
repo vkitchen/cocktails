@@ -1,11 +1,14 @@
 {
 	"name": "Rose",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "Straight up",
-	"garnish": [
-		"Maraschino cherry"
+	"img": [
+		"Rose.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "Straight up",
+	"garnish": "Maraschino cherry",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

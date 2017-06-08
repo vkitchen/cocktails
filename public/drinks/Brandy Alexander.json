@@ -1,11 +1,12 @@
 {
 	"name": "Brandy Alexander",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "Straight up",
-	"garnish": [
-		"Nutmeg"
+	"img": [],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
 	],
+	"serve": "Straight up",
+	"garnish": "Nutmeg",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{

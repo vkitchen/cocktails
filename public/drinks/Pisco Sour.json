@@ -1,11 +1,14 @@
 {
 	"name": "Pisco Sour",
-	"IBA": true,
-	"class": "New Era Drinks",
-	"serve": "Straight up",
-	"garnish": [
-		"Angostura bitters (1 dash)"
+	"img": [
+		"Pisco Sour.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA New Era Drinks"
+	],
+	"serve": "Straight up",
+	"garnish": "Angostura bitters (1 dash)",
 	"drinkware": "Old Fashioned glass",
 	"ingredients": [
 		{

@@ -1,11 +1,14 @@
 {
 	"name": "Sea Breeze",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "On the rocks",
-	"garnish": [
-		"Lime slice"
+	"img": [
+		"Sea Breeze.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "On the rocks",
+	"garnish": "Lime slice",
 	"drinkware": "Highball glass",
 	"ingredients": [
 		{

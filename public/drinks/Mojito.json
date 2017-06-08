@@ -1,12 +1,15 @@
 {
 	"name": "Mojito",
-	"IBA": true,
-	"class": "Contemporary Classics",
-	"serve": "On the rocks",
-	"garnish": [
-		"Mint sprig",
-		"Lemon slice"
+	"img": [
+		"Mojito.jpg",
+		"Mojito Lowball.jpg"
 	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "On the rocks",
+	"garnish": "Mint sprig, Lemon slice",
 	"drinkware": "Collins glass",
 	"ingredients": [
 		{

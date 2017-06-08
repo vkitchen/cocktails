@@ -1,11 +1,12 @@
 {
 	"name": "Manhattan",
-	"IBA": true,
-	"class": "Unforgettables",
-	"serve": "Straight up",
-	"garnish": [
-		"Maraschino cherry"
+	"img": [],
+	"lists": [
+		"IBA",
+		"IBA Unforgettables"
 	],
+	"serve": "Straight up",
+	"garnish": "Maraschino cherry",
 	"drinkware": "Cocktail glass",
 	"ingredients": [
 		{
