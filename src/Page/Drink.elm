@@ -50,7 +50,7 @@ view model =
                     [ h1 [] [ text model.drink.name ]
                     , p [] [ text ("Drinkware: " ++ model.drink.drinkware) ]
                     , p [] [ text ("Serve: " ++ model.drink.serve) ]
-                    , p [] [ text ("Garnish: " ++ if model.drink.garnish == [] then "None" else String.join ", " model.drink.garnish) ]
+                    , p [] [ text ("Garnish: " ++ if model.drink.garnish == "" then "None" else model.drink.garnish) ]
                     , ul []
                         (List.map (\v -> li [] [ viewIngredient v ]) model.drink.ingredients)
                     , p [] [ text model.drink.method ]

@@ -12,10 +12,10 @@ type alias DrinkIngredient =
 
 type alias Drink =
   { name : String
-  , iba : Bool
-  , class : String
+  , img : List String
+  , lists : List String
   , serve : String
-  , garnish : List String
+  , garnish : String
   , drinkware : String
   , ingredients : List DrinkIngredient
   , method : String
@@ -37,10 +37,10 @@ drinkDecoder : Decoder Drink
 drinkDecoder =
   Decode.map8 Drink
     (Decode.field "name" Decode.string)
-    (Decode.field "IBA" Decode.bool)
-    (Decode.field "class" Decode.string)
+    (Decode.field "img" (Decode.list Decode.string))
+    (Decode.field "lists" (Decode.list Decode.string))
     (Decode.field "serve" Decode.string)
-    (Decode.field "garnish" (Decode.list Decode.string))
+    (Decode.field "garnish" Decode.string)
     (Decode.field "drinkware" Decode.string)
     (Decode.field "ingredients" (Decode.list decodeIngredients))
     (Decode.field "method" Decode.string)
