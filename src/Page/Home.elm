@@ -48,7 +48,7 @@ view model =
             [ div [ class "row" ]
                 [ div [ class "col-md-9" ]
                     [ ul []
-                        (List.map (\v -> li [] [ a [ Route.href (Route.Drink v.name), onPreventDefaultClick (UpdateUrl (Route.Drink v.name)) ] [ text v.name ] ]) model.index)
+                        (List.map viewDrink model.index)
                     ]
                 , div [ class "col-md-3" ]
                     [ div [ class "sidebar" ]
@@ -58,6 +58,20 @@ view model =
                 ]
             ]
         ]
+
+
+viewDrink : Drink -> Html Msg
+viewDrink drink =
+  li []
+    [ case List.head drink.img of
+        Nothing -> div [ style [ "width" => "50px", "height" => "50px", "display" => "inline-block" ] ] [ text "? :'(" ]
+        Just img_ ->
+          img [ style [ "width" => "50px", "height" => "50px" ], src ("/img/" ++ img_) ]
+            []
+    , a [ Route.href (Route.Drink drink.name), onPreventDefaultClick (UpdateUrl (Route.Drink drink.name)) ]
+        [ text drink.name ]
+    ]
+
 
 -- UPDATE --
 
