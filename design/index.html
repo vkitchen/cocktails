@@ -8,6 +8,7 @@
   <style>
 	html, head, body {
 		margin: 0;
+    font-family: Open Sans, sans-serif;
 	}
 
 	.logo:link, .logo:visited, .logo:hover, .logo:active {
@@ -97,15 +98,51 @@
 		height: 24px;
 		margin: 0 25px;
 	}
+
+  .content {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .drink {
+    margin: 20px 0;
+  }
+
+  .drink img {
+    margin-right: 20px;
+  }
+
+  .drinks-list {
+    list-style: none;
+  }
+
+  .recipe {
+    display: inline-block;
+    height: 250px;
+    vertical-align: top;
+    color: #525252;
+  }
+
+  .recipe-link {
+    color: #383838;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .recipe-link:hover {
+    color: #525252;
+  }
+
+  .recipe-link:active {
+    color: #727272;
+  }
 	</style>
 </head>
 <body>
 	<div id="yt-masthead-container" class="clearfix">
 		<div id="yt-masthead-logo-container">
 			<a href="/" class="logo">Tophat</a>
-		</div>
-		<div id="yt-masthead-user">
-			<img src="avatar.jpg">
 		</div>
 		<div>
 			<form id="masthead-search">
@@ -118,5 +155,56 @@
 			</form>
 		</div>
 	</div>
+  <div class="content">
+    <h3>IBA Unforgettables</h3>
+    <ul class="drinks-list">
+      <li class="drink">
+        <img src="Americano.jpg">
+        <div class="recipe">
+          <h3><a href="#" class="recipe-link">Americano</a></h3>
+          <ul>
+            <li>4 cl Gin</li>
+            <li>1.5 cl Lemon juice</li>
+            <li>1 cl Simple syrup</li>
+            <li>1.5 cl Crème de Mure</li>
+          </ul>
+        </div>
+      </li>
+      <li class="drink">
+        <img src="Aviation.jpg">
+        <div class="recipe">
+          <h3><a href="#" class="recipe-link">Aviation</a></h3>
+          <ul>
+            <li>3 cl White Rum</li>
+            <li>3 cl Cognac</li>
+            <li>2 cl Triple sec</li>
+            <li>2 cl Lemon juice</li>
+          </ul>
+        </div>
+      </li>
+      <li class="drink">
+        <img src="Between the Sheets.jpg">
+        <div class="recipe">
+          <h3><a href="#" class="recipe-link">Between the Sheets</a></h3>
+          <ul>
+            <li>4.5 cl Gin</li>
+            <li>1.5 cl Lemon juice</li>
+            <li>1.5 cl Maraschino liqueur</li>
+          </ul>
+        </div>
+      </li>
+      <li class="drink">
+        <img src="Bramble.jpg">
+        <div class="recipe">
+          <h3><a href="#" class="recipe-link">Bramble</a></h3>
+          <ul>
+            <li>3 cl Campari</li>
+            <li>3 cl Red Vermouth</li>
+            <li>A splash of Soda Water</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
 </body>
 </html>
