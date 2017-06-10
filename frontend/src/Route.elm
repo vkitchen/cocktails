@@ -2,18 +2,33 @@ module Route exposing (Route(..), href, modifyUrl, newUrl, fromLocation)
 
 import Html exposing (Attribute)
 import Html.Attributes as Attr
+import Http exposing (decodeUri)
 import Navigation exposing (Location)
-import UrlParser as Url exposing (parsePath, s, (</>), string, oneOf, Parser)
+import UrlParser as Url exposing (parsePath, s, (</>), custom, oneOf, Parser)
 
 type Route
     = Home
     | Drink String
+    | Search String
+
+
+decodedString =
+  custom "STRING" <|
+    \encoded ->
+      case decodeUri encoded of
+        Nothing ->
+          Ok encoded
+
+        Just decoded ->
+          Ok decoded
+
 
 route : Parser (Route -> a) a
 route =
     oneOf
         [ Url.map Home Url.top
-        , Url.map Drink (s "drinks" </> string)
+        , Url.map Drink (s "drinks" </> decodedString)
+        , Url.map Search (s "search" </> decodedString)
         ]
 
 routeToString : Route -> String
@@ -26,6 +41,9 @@ routeToString page =
 
         Drink slug ->
           [ "drinks", slug ]
+
+        Search slug ->
+          [ "search", slug ]
 
   in
   "/" ++ (String.join "/" pieces)

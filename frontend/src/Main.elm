@@ -2,12 +2,14 @@ module Main exposing (main)
 
 import Html exposing (..)
 import Json.Decode as Decode exposing (Value)
+import Model exposing (Page(..), PageState(..), Model)
 import Msg exposing (Msg(..))
 import Navigation exposing (Location)
 import Page.Drink as Drink
 import Page.Errored as Errored exposing (PageLoadError)
 import Page.Home as Home
 import Page.NotFound as NotFound
+import Page.Search as Search
 import Ports
 import Route exposing (Route)
 import Task
@@ -18,28 +20,11 @@ import Views.Page as Page
   (,)
 
 
-type Page
-  = Blank
-  | NotFound
-  | Errored PageLoadError
-  | Home Home.Model
-  | Drink Drink.Model
-
-
-type PageState
-  = Loaded Page
-  | TransitioningFrom Page
-
-
-type alias Model =
-  { pageState : PageState
-  }
-
-
 init : Value -> Location -> ( Model, Cmd Msg )
 init _ location =
   setRoute (Route.fromLocation location)
     { pageState = Loaded Blank
+    , query = ""
     }
 
 
@@ -59,19 +44,17 @@ getPage pageState =
 
 view : Model -> Html Msg
 view model =
-  case model.pageState of
-    Loaded page ->
-      viewPage False page
-
-    TransitioningFrom page ->
-      viewPage True page
-
-
-viewPage : Bool -> Page -> Html Msg
-viewPage isLoading page =
   let
+    (page, isLoading) =
+      case model.pageState of
+        Loaded page ->
+          (page, False)
+
+        TransitioningFrom page ->
+          (page, True)
+
     frame =
-      Page.frame isLoading
+      Page.frame isLoading model
   in
   case page of
     NotFound ->
@@ -96,6 +79,10 @@ viewPage isLoading page =
         |> Html.map DrinkMsg
         |> frame
 
+    Search subModel ->
+      Search.view subModel
+        |> Html.map SearchMsg
+        |> frame
 
 
 -- UPDATE --
@@ -122,6 +109,9 @@ updatePage page msg model =
     ( UpdateUrl route, _ ) ->
       model => Route.newUrl route
 
+    ( UpdateQuery newQuery, _ ) ->
+      { model | query = newQuery } => Cmd.none
+
     ( HomeLoaded (Ok subModel), _ ) ->
       { model | pageState = Loaded (Home subModel) } => Ports.title "All Drinks - Tophat"
 
@@ -134,6 +124,12 @@ updatePage page msg model =
     ( DrinkLoaded (Err error), _ ) ->
       { model | pageState = Loaded (Errored error) } => Cmd.none
 
+    ( SearchLoaded (Ok subModel), _ ) ->
+      { model | pageState = Loaded (Search subModel) } => Ports.title (Search.title subModel ++ " - Tophat")
+
+    ( SearchLoaded (Err error), _ ) ->
+      { model | pageState = Loaded (Errored error) } => Cmd.none
+
     ( HomeMsg (Home.UpdateUrl route), _ ) ->
       model => Route.newUrl route
 
@@ -142,6 +138,12 @@ updatePage page msg model =
 
     ( DrinkMsg subMsg, Drink subModel ) ->
       toPage Drink DrinkMsg Drink.update subMsg subModel
+
+    ( SearchMsg (Search.UpdateUrl route), _ ) ->
+      model => Route.newUrl route
+
+    ( SearchMsg subMsg, Search subModel ) ->
+      toPage Search SearchMsg Search.update subMsg subModel
 
     ( _, _ ) ->
         -- Disregard incoming messages that arrived for the wrong page
@@ -163,10 +165,18 @@ setRoute maybeRoute model =
       { model | pageState = Loaded NotFound } => Cmd.none
 
     Just Route.Home ->
-        transition HomeLoaded Home.init
+      transition HomeLoaded Home.init
 
     Just (Route.Drink slug) ->
-        transition DrinkLoaded (Drink.init slug)
+      transition DrinkLoaded (Drink.init slug)
+
+    -- Update global state as well
+    Just (Route.Search slug) ->
+      { model
+          | pageState = TransitioningFrom (getPage model.pageState)
+          , query = slug
+      }
+        => Task.attempt SearchLoaded (Search.init slug)
 
 
 pageErrored : Model -> String -> ( Model, Cmd msg )

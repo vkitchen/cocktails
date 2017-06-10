@@ -5,7 +5,9 @@ module Views.Page exposing (frame)
 
 import ClickHandler exposing (onPreventDefaultClick)
 import Html exposing (..)
-import Html.Attributes exposing (class, href, type_, src)
+import Html.Attributes exposing (class, href, type_, src, value)
+import Html.Events exposing (onInput)
+import Model exposing (Model)
 import Msg exposing (Msg(..))
 import Route exposing (Route)
 
@@ -15,17 +17,16 @@ isLoading is for determining whether we should show a loading spinner
 in the header. (This comes up during slow page transitions.)
 
 -}
-frame : Bool -> Html Msg -> Html Msg
-frame isLoading content =
+frame : Bool -> Model -> Html Msg -> Html Msg
+frame isLoading model content =
     div [ class "page-frame" ]
-        [ viewHeader isLoading
+        [ viewHeader isLoading model
         , content
         ]
 
 
-
-viewHeader : Bool -> Html Msg
-viewHeader isLoading =
+viewHeader : Bool -> Model -> Html Msg
+viewHeader isLoading model =
   nav [ class "masthead-container" ]
     [ div [ class "logo-container" ]
         [ a [ class "logo", Route.href Route.Home, onPreventDefaultClick (UpdateUrl Route.Home) ] [ text "Tophat" ] ]
@@ -34,15 +35,17 @@ viewHeader isLoading =
     --     , img [ src "/user/avatar.jpg" ] []
     --     , span [ class "material-icons" ] [ text "arrow_drop_down" ]
     --     ]
-    , viewSearchBar
+    , viewSearchBar model
     ]
 
-viewSearchBar : Html Msg
-viewSearchBar =
+
+viewSearchBar : Model -> Html Msg
+viewSearchBar model =
   div []
     [ form [ class "masthead-search" ]
-        [ button [ class "search-btn" ] [ span [ class "material-icons search-btn-icon" ] [ text "search" ] ]
+        [ button [ class "search-btn", onPreventDefaultClick (UpdateUrl (Route.Search model.query)) ]
+            [ span [ class "material-icons search-btn-icon" ] [ text "search" ] ]
         , div [ class "masthead-search-terms" ]
-            [ input [ class "masthead-search-term", type_ "text" ] [] ]
+            [ input [ class "masthead-search-term", type_ "text", value model.query, onInput UpdateQuery ] [] ]
         ]
     ]

@@ -19,10 +19,10 @@ my $log = Mojo::Log->new;
 sub parse_file($file, $query) {
     my $contents = read_file $file;
     my %drink = %{decode_json $contents};
-    $file =~ s/^public\///;
 
-    if (any { index(lc %{$_}{'name'}, lc $query) != -1 } @{$drink{'ingredients'}}) {
-        return { file => $file, name => $drink{'name'} }
+    if (any { index(lc %{$_}{'name'}, lc $query) != -1 } @{$drink{'ingredients'}}
+            or index(lc $drink{'name'}, lc $query) != -1) {
+        return \%drink;
     }
     return undef;
 }
@@ -54,6 +54,8 @@ sub index_drinks() {
     return \@drinks;
 }
 
+## ROUTES ##
+
 get '/' => sub {
     my $c = shift;
     $c->reply->static('index.html');
@@ -63,6 +65,14 @@ get '/drinks/*' => sub {
     my $c = shift;
     $c->reply->static('index.html');
 };
+
+get '/search/*' => sub {
+    my $c = shift;
+    $c->reply->static('index.html');
+};
+
+
+## API ##
 
 get '/api/v1/drinks' => sub {
     my $c = shift;
@@ -77,7 +87,14 @@ get '/api/v1/drinks/:query' => sub {
     $c->reply->static("drinks/$query.json");
 };
 
-get '/filter/:query' => sub {
+get '/api/v1/search' => sub {
+    my $c = shift;
+    my $result = index_drinks;
+
+    $c->render(json => $result);
+};
+
+get '/api/v1/search/:query' => sub {
     my $c = shift;
     my $query = $c->param('query');
     my $result = filter $query;
