@@ -1,7 +1,7 @@
 ### CUSTOM ###
 
-public/*.js
-public/*.css
+/backend/public/*.js
+/backend/public/*.css
 
 #### PERL ####
 
