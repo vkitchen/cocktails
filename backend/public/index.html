@@ -2,13 +2,18 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Main</title>
+  <title>Tophat</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
   <script src="/tophat.js"></script>
-  <script type="text/javascript">Elm.Main.fullscreen()</script>
+  <script type="text/javascript">
+    var app = Elm.Main.fullscreen();
+    app.ports.title.subscribe(function(title) {
+      document.title = title;
+    });
+  </script>
 </body>
 </html>

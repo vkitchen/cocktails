@@ -8,6 +8,7 @@ import Page.Drink as Drink
 import Page.Errored as Errored exposing (PageLoadError)
 import Page.Home as Home
 import Page.NotFound as NotFound
+import Ports
 import Route exposing (Route)
 import Task
 import Views.Page as Page
@@ -122,13 +123,13 @@ updatePage page msg model =
       model => Route.newUrl route
 
     ( HomeLoaded (Ok subModel), _ ) ->
-      { model | pageState = Loaded (Home subModel) } => Cmd.none
+      { model | pageState = Loaded (Home subModel) } => Ports.title "All Drinks - Tophat"
 
     ( HomeLoaded (Err error), _ ) ->
-      { model | pageState = Loaded (Errored error) } => Cmd.none
+      { model | pageState = Loaded (Errored error) } => Ports.title "All Drinks - Tophat"
 
     ( DrinkLoaded (Ok subModel), _ ) ->
-      { model | pageState = Loaded (Drink subModel) } => Cmd.none
+      { model | pageState = Loaded (Drink subModel) } => Ports.title (Drink.title subModel ++ " - Tophat")
 
     ( DrinkLoaded (Err error), _ ) ->
       { model | pageState = Loaded (Errored error) } => Cmd.none

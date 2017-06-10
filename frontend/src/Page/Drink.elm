@@ -1,4 +1,4 @@
-module Page.Drink exposing (view, update, Model, Msg, init)
+module Page.Drink exposing (view, update, Model, Msg, init, title)
 
 {-| The homepage.
 -}
@@ -24,6 +24,7 @@ type alias Model =
     { drink : Drink
     }
 
+
 init : String -> Task PageLoadError Model
 init slug =
   let
@@ -36,6 +37,11 @@ init slug =
   in
   Task.map Model loadDrink
     |> Task.mapError handleLoadError
+
+
+title : Model -> String
+title model =
+  model.drink.name
 
 
 
