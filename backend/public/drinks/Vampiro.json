@@ -35,23 +35,23 @@
 			"unit": "tsp"
 		},
 		{
-			"name": "Half slice onion finely chopped",
+			"name": "half slice onion finely chopped",
 			"measure": "1",
 			"unit": "none"
 		},
 		{
-			"name": "Few slices red hot chili peppers",
+			"name": "few slices red hot chili peppers",
 			"measure": "1",
 			"unit": "none"
 		},
 		{
-			"name": "Worchestershire sauve",
+			"name": "Worchestershire sauce",
 			"measure": "3-4",
 			"unit": "drop"
 		},
 		{
 			"name": "Salt",
-			"measure": "1",
+			"measure": "0",
 			"unit": "none"
 		}
 	],

@@ -9908,6 +9908,70 @@ var _user$project$ClickHandler$onPreventDefaultClick = function (message) {
 };
 
 var _user$project$Data_Drink$renderIngredient = function (ingredient) {
+	var _p0 = {ctor: '_Tuple2', _0: ingredient.measure, _1: ingredient.unit};
+	_v0_14:
+	do {
+		switch (_p0._1) {
+			case 'splash':
+				switch (_p0._0) {
+					case '0':
+						return ingredient.name;
+					case '1':
+						return A2(_elm_lang$core$Basics_ops['++'], 'A splash of ', ingredient.name);
+					default:
+						return A2(
+							_elm_lang$core$Basics_ops['++'],
+							ingredient.measure,
+							A2(_elm_lang$core$Basics_ops['++'], ' splashes ', ingredient.name));
+				}
+			case 'dash':
+				switch (_p0._0) {
+					case '0':
+						return ingredient.name;
+					case '1':
+						return A2(_elm_lang$core$Basics_ops['++'], 'A dash of ', ingredient.name);
+					default:
+						return A2(
+							_elm_lang$core$Basics_ops['++'],
+							ingredient.measure,
+							A2(_elm_lang$core$Basics_ops['++'], ' dashes ', ingredient.name));
+				}
+			case 'drop':
+				switch (_p0._0) {
+					case '0':
+						return ingredient.name;
+					case '1':
+						return A2(_elm_lang$core$Basics_ops['++'], 'A drop of ', ingredient.name);
+					default:
+						return A2(
+							_elm_lang$core$Basics_ops['++'],
+							ingredient.measure,
+							A2(_elm_lang$core$Basics_ops['++'], ' drops ', ingredient.name));
+				}
+			case 'top':
+				return A2(_elm_lang$core$Basics_ops['++'], 'Top with ', ingredient.name);
+			case 'taste':
+				if (_p0._0 === '1') {
+					return A2(_elm_lang$core$Basics_ops['++'], ingredient.name, ' to taste');
+				} else {
+					break _v0_14;
+				}
+			case 'none':
+				switch (_p0._0) {
+					case '0':
+						return ingredient.name;
+					case '1':
+						return A2(_elm_lang$core$Basics_ops['++'], 'A ', ingredient.name);
+					default:
+						return A2(
+							_elm_lang$core$Basics_ops['++'],
+							ingredient.measure,
+							A2(_elm_lang$core$Basics_ops['++'], ' ', ingredient.name));
+				}
+			default:
+				break _v0_14;
+		}
+	} while(false);
 	return A2(
 		_elm_lang$core$Basics_ops['++'],
 		ingredient.measure,
