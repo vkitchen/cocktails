@@ -5,6 +5,7 @@ module Page.Home exposing (view, update, Model, Msg(..), init)
 
 import ClickHandler exposing (onPreventDefaultClick)
 import Data.Drink as Drink exposing (Drink)
+import Data.Image as Image
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Http
@@ -56,11 +57,15 @@ view model =
 viewDrink : Drink -> Html Msg
 viewDrink drink =
   li [ class "drink" ]
-    [ case List.head drink.img of
-        Nothing -> div [ style [ "width" => "250px", "height" => "250px", "display" => "inline-block" ] ] [ text "? :'(" ]
-        Just img_ ->
-          img [ src ("/img/" ++ img_) ]
-            []
+    [ div [ class "drink-img" ]
+        [ case List.head drink.img of
+            Nothing ->
+              img [ src (Image.missing drink.drinkware) ]
+                []
+            Just img_ ->
+              img [ src ("/img/" ++ img_) ]
+                []
+        ]
     , div [ class "recipe" ]
         [ h3 []
             [ a [ class "recipe-link", Route.href (Route.Drink drink.name), onPreventDefaultClick (UpdateUrl (Route.Drink drink.name)) ]

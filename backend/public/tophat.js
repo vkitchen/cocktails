@@ -9954,6 +9954,24 @@ var _user$project$Data_Drink$drinkDecoder = A9(
 		_elm_lang$core$Json_Decode$list(_user$project$Data_Drink$decodeIngredients)),
 	A2(_elm_lang$core$Json_Decode$field, 'method', _elm_lang$core$Json_Decode$string));
 
+var _user$project$Data_Image$missing = function (img) {
+	var _p0 = img;
+	switch (_p0) {
+		case 'Cocktail glass':
+			return '/img/Cocktail Glass.svg';
+		case 'Highball glass':
+			return '/img/Highball Glass.svg';
+		case 'Hurricane glass':
+			return '/img/Hurrican Glass.svg';
+		case 'Old Fashioned glass':
+			return '/img/Old Fashioned Glass.svg';
+		case 'Shot glass':
+			return '/img/Shot Glass.svg';
+		default:
+			return '/img/Missing.jpg';
+	}
+};
+
 var _user$project$Page_Errored$view = function (_p0) {
 	var _p1 = _p0;
 	return A2(
@@ -10327,46 +10345,41 @@ var _user$project$Page_Home$viewDrink = function (drink) {
 		},
 		{
 			ctor: '::',
-			_0: function () {
-				var _p2 = _elm_lang$core$List$head(drink.img);
-				if (_p2.ctor === 'Nothing') {
-					return A2(
-						_elm_lang$html$Html$div,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$style(
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('drink-img'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: function () {
+						var _p2 = _elm_lang$core$List$head(drink.img);
+						if (_p2.ctor === 'Nothing') {
+							return A2(
+								_elm_lang$html$Html$img,
 								{
 									ctor: '::',
-									_0: A2(_user$project$Page_Home_ops['=>'], 'width', '250px'),
-									_1: {
-										ctor: '::',
-										_0: A2(_user$project$Page_Home_ops['=>'], 'height', '250px'),
-										_1: {
-											ctor: '::',
-											_0: A2(_user$project$Page_Home_ops['=>'], 'display', 'inline-block'),
-											_1: {ctor: '[]'}
-										}
-									}
-								}),
-							_1: {ctor: '[]'}
-						},
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text('? :\'('),
-							_1: {ctor: '[]'}
-						});
-				} else {
-					return A2(
-						_elm_lang$html$Html$img,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$src(
-								A2(_elm_lang$core$Basics_ops['++'], '/img/', _p2._0)),
-							_1: {ctor: '[]'}
-						},
-						{ctor: '[]'});
-				}
-			}(),
+									_0: _elm_lang$html$Html_Attributes$src(
+										_user$project$Data_Image$missing(drink.drinkware)),
+									_1: {ctor: '[]'}
+								},
+								{ctor: '[]'});
+						} else {
+							return A2(
+								_elm_lang$html$Html$img,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$src(
+										A2(_elm_lang$core$Basics_ops['++'], '/img/', _p2._0)),
+									_1: {ctor: '[]'}
+								},
+								{ctor: '[]'});
+						}
+					}(),
+					_1: {ctor: '[]'}
+				}),
 			_1: {
 				ctor: '::',
 				_0: A2(
