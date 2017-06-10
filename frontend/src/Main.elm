@@ -2,6 +2,7 @@ module Main exposing (main)
 
 import Html exposing (..)
 import Json.Decode as Decode exposing (Value)
+import Msg exposing (Msg(..))
 import Navigation exposing (Location)
 import Page.Drink as Drink
 import Page.Errored as Errored exposing (PageLoadError)
@@ -86,26 +87,17 @@ viewPage isLoading page =
 
     Home subModel ->
       Home.view subModel
-        |> frame
         |> Html.map HomeMsg
+        |> frame
 
     Drink subModel ->
       Drink.view subModel
-        |> frame
         |> Html.map DrinkMsg
+        |> frame
 
 
 
 -- UPDATE --
-
-
-type Msg
-    = SetRoute (Maybe Route)
-    | HomeLoaded (Result PageLoadError Home.Model)
-    | DrinkLoaded (Result PageLoadError Drink.Model)
-    | HomeMsg Home.Msg
-    | DrinkMsg Drink.Msg
-
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -125,6 +117,9 @@ updatePage page msg model =
   case ( msg, page ) of
     ( SetRoute route, _ ) ->
       setRoute route model
+
+    ( UpdateUrl route, _ ) ->
+      model => Route.newUrl route
 
     ( HomeLoaded (Ok subModel), _ ) ->
       { model | pageState = Loaded (Home subModel) } => Cmd.none
