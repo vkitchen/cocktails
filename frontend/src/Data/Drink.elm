@@ -1,4 +1,4 @@
-module Data.Drink exposing (Drink, DrinkIngredient, drinkDecoder)
+module Data.Drink exposing (Drink, DrinkIngredient, drinkDecoder, renderIngredient)
 
 import Json.Decode as Decode exposing (Decoder)
 
@@ -44,3 +44,7 @@ drinkDecoder =
     (Decode.field "drinkware" Decode.string)
     (Decode.field "ingredients" (Decode.list decodeIngredients))
     (Decode.field "method" Decode.string)
+
+renderIngredient : DrinkIngredient -> String
+renderIngredient ingredient =
+  ingredient.measure ++ " " ++ ingredient.unit ++ " " ++ ingredient.name

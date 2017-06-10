@@ -9907,6 +9907,18 @@ var _user$project$ClickHandler$onPreventDefaultClick = function (message) {
 			_user$project$ClickHandler$preventDefault2));
 };
 
+var _user$project$Data_Drink$renderIngredient = function (ingredient) {
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		ingredient.measure,
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			' ',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				ingredient.unit,
+				A2(_elm_lang$core$Basics_ops['++'], ' ', ingredient.name))));
+};
 var _user$project$Data_Drink$DrinkIngredient = F3(
 	function (a, b, c) {
 		return {name: a, measure: b, unit: c};
@@ -10308,7 +10320,11 @@ var _user$project$Page_Home$UpdateUrl = function (a) {
 var _user$project$Page_Home$viewDrink = function (drink) {
 	return A2(
 		_elm_lang$html$Html$li,
-		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('drink'),
+			_1: {ctor: '[]'}
+		},
 		{
 			ctor: '::',
 			_0: function () {
@@ -10321,10 +10337,10 @@ var _user$project$Page_Home$viewDrink = function (drink) {
 							_0: _elm_lang$html$Html_Attributes$style(
 								{
 									ctor: '::',
-									_0: A2(_user$project$Page_Home_ops['=>'], 'width', '50px'),
+									_0: A2(_user$project$Page_Home_ops['=>'], 'width', '250px'),
 									_1: {
 										ctor: '::',
-										_0: A2(_user$project$Page_Home_ops['=>'], 'height', '50px'),
+										_0: A2(_user$project$Page_Home_ops['=>'], 'height', '250px'),
 										_1: {
 											ctor: '::',
 											_0: A2(_user$project$Page_Home_ops['=>'], 'display', 'inline-block'),
@@ -10344,22 +10360,9 @@ var _user$project$Page_Home$viewDrink = function (drink) {
 						_elm_lang$html$Html$img,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$style(
-								{
-									ctor: '::',
-									_0: A2(_user$project$Page_Home_ops['=>'], 'width', '50px'),
-									_1: {
-										ctor: '::',
-										_0: A2(_user$project$Page_Home_ops['=>'], 'height', '50px'),
-										_1: {ctor: '[]'}
-									}
-								}),
-							_1: {
-								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$src(
-									A2(_elm_lang$core$Basics_ops['++'], '/img/', _p2._0)),
-								_1: {ctor: '[]'}
-							}
+							_0: _elm_lang$html$Html_Attributes$src(
+								A2(_elm_lang$core$Basics_ops['++'], '/img/', _p2._0)),
+							_1: {ctor: '[]'}
 						},
 						{ctor: '[]'});
 				}
@@ -10367,23 +10370,69 @@ var _user$project$Page_Home$viewDrink = function (drink) {
 			_1: {
 				ctor: '::',
 				_0: A2(
-					_elm_lang$html$Html$a,
+					_elm_lang$html$Html$div,
 					{
 						ctor: '::',
-						_0: _user$project$Route$href(
-							_user$project$Route$Drink(drink.name)),
-						_1: {
-							ctor: '::',
-							_0: _user$project$ClickHandler$onPreventDefaultClick(
-								_user$project$Page_Home$UpdateUrl(
-									_user$project$Route$Drink(drink.name))),
-							_1: {ctor: '[]'}
-						}
+						_0: _elm_lang$html$Html_Attributes$class('recipe'),
+						_1: {ctor: '[]'}
 					},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html$text(drink.name),
-						_1: {ctor: '[]'}
+						_0: A2(
+							_elm_lang$html$Html$h3,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$a,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('recipe-link'),
+										_1: {
+											ctor: '::',
+											_0: _user$project$Route$href(
+												_user$project$Route$Drink(drink.name)),
+											_1: {
+												ctor: '::',
+												_0: _user$project$ClickHandler$onPreventDefaultClick(
+													_user$project$Page_Home$UpdateUrl(
+														_user$project$Route$Drink(drink.name))),
+												_1: {ctor: '[]'}
+											}
+										}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text(drink.name),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$ul,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('ingredient-list'),
+									_1: {ctor: '[]'}
+								},
+								A2(
+									_elm_lang$core$List$map,
+									function (v) {
+										return A2(
+											_elm_lang$html$Html$li,
+											{ctor: '[]'},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text(
+													_user$project$Data_Drink$renderIngredient(v)),
+												_1: {ctor: '[]'}
+											});
+									},
+									drink.ingredients)),
+							_1: {ctor: '[]'}
+						}
 					}),
 				_1: {ctor: '[]'}
 			}
@@ -10394,7 +10443,7 @@ var _user$project$Page_Home$view = function (model) {
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('home-page'),
+			_0: _elm_lang$html$Html_Attributes$class('content'),
 			_1: {ctor: '[]'}
 		},
 		{
@@ -10403,7 +10452,7 @@ var _user$project$Page_Home$view = function (model) {
 				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('container page'),
+					_0: _elm_lang$html$Html_Attributes$class('content-inner'),
 					_1: {ctor: '[]'}
 				},
 				{
@@ -10412,62 +10461,33 @@ var _user$project$Page_Home$view = function (model) {
 						_elm_lang$html$Html$div,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$class('row'),
+							_0: _elm_lang$html$Html_Attributes$class('content-title'),
 							_1: {ctor: '[]'}
 						},
 						{
 							ctor: '::',
 							_0: A2(
-								_elm_lang$html$Html$div,
+								_elm_lang$html$Html$h3,
+								{ctor: '[]'},
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$class('col-md-9'),
-									_1: {ctor: '[]'}
-								},
-								{
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$ul,
-										{ctor: '[]'},
-										A2(_elm_lang$core$List$map, _user$project$Page_Home$viewDrink, model.index)),
+									_0: _elm_lang$html$Html$text('All Drinks'),
 									_1: {ctor: '[]'}
 								}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$div,
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$class('col-md-3'),
-										_1: {ctor: '[]'}
-									},
-									{
-										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$div,
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html_Attributes$class('sidebar'),
-												_1: {ctor: '[]'}
-											},
-											{
-												ctor: '::',
-												_0: A2(
-													_elm_lang$html$Html$p,
-													{ctor: '[]'},
-													{
-														ctor: '::',
-														_0: _elm_lang$html$Html$text('Popular Tags'),
-														_1: {ctor: '[]'}
-													}),
-												_1: {ctor: '[]'}
-											}),
-										_1: {ctor: '[]'}
-									}),
-								_1: {ctor: '[]'}
-							}
+							_1: {ctor: '[]'}
 						}),
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$ul,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('drinks-list'),
+								_1: {ctor: '[]'}
+							},
+							A2(_elm_lang$core$List$map, _user$project$Page_Home$viewDrink, model.index)),
+						_1: {ctor: '[]'}
+					}
 				}),
 			_1: {ctor: '[]'}
 		});
@@ -10529,7 +10549,7 @@ var _user$project$Views_Page$viewSearchBar = A2(
 							_elm_lang$html$Html$span,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$class('material-icons button-content'),
+								_0: _elm_lang$html$Html_Attributes$class('material-icons search-btn-icon'),
 								_1: {ctor: '[]'}
 							},
 							{
@@ -10545,7 +10565,7 @@ var _user$project$Views_Page$viewSearchBar = A2(
 						_elm_lang$html$Html$div,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$class('search-terms'),
+							_0: _elm_lang$html$Html_Attributes$class('masthead-search-terms'),
 							_1: {ctor: '[]'}
 						},
 						{
@@ -10554,7 +10574,7 @@ var _user$project$Views_Page$viewSearchBar = A2(
 								_elm_lang$html$Html$input,
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$class('search-input'),
+									_0: _elm_lang$html$Html_Attributes$class('masthead-search-term'),
 									_1: {
 										ctor: '::',
 										_0: _elm_lang$html$Html_Attributes$type_('text'),
@@ -10592,7 +10612,7 @@ var _user$project$Views_Page$viewHeader = function (isLoading) {
 						_elm_lang$html$Html$a,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$class('navbar-brand'),
+							_0: _elm_lang$html$Html_Attributes$class('logo'),
 							_1: {
 								ctor: '::',
 								_0: _user$project$Route$href(_user$project$Route$Home),
@@ -10612,30 +10632,8 @@ var _user$project$Views_Page$viewHeader = function (isLoading) {
 				}),
 			_1: {
 				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$div,
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$class('masthead-user'),
-						_1: {ctor: '[]'}
-					},
-					{
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$img,
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$src('/user/avatar.jpg'),
-								_1: {ctor: '[]'}
-							},
-							{ctor: '[]'}),
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: _user$project$Views_Page$viewSearchBar,
-					_1: {ctor: '[]'}
-				}
+				_0: _user$project$Views_Page$viewSearchBar,
+				_1: {ctor: '[]'}
 			}
 		});
 };

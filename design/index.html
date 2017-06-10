@@ -5,206 +5,78 @@
   <title>Main</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <style>
-	html, head, body {
-		margin: 0;
-    font-family: Open Sans, sans-serif;
-	}
-
-	.logo:link, .logo:visited, .logo:hover, .logo:active {
-		font-size: 42px;
-		font-family: Open Sans, sans-serif;
-		font-weight: bold;
-		color: #000;
-		text-decoration: none;
-		line-height: 40px
-	}
-
-	#search-btn {
-		border: 0;
-		padding: 0;
-		float: right;
-		height: 44px;
-		background: #f8f8f8;
-		color: #333;
-		display: inline-block;
-		border: solid 1px #d3d3d3;
-		border-left: 0;
-		vertical-align: middle;
-		white-space: nowrap;
-	}
-
-	#yt-masthead-container {
-		border-bottom: 2px solid #000;
-		min-width: 0;
-		padding-bottom: 8px;
-		padding-top: 7px;
-		position: relative;
-		padding-left: 30px;
-		padding-right: 30px;
-		margin: 0 5px;
-	}
-
-	#yt-masthead-logo-container {
-		float: left;
-		margin-top: 3px;
-		position: relative;
-		width: 200px;
-	}
-
-	#yt-masthead-user {
-		color: #555;
-		float: right;
-		margin-left: 50px;
-		margin-top: 3px;
-	}
-
-	#masthead-search {
-		max-width: 650px;
-		overflow: hidden;
-		padding: 0;
-		position: relative;
-		margin: 0;
-		border: 0;
-	}
-
-	#masthead-search-term {
-		color: #767676;
-		display: inline-block;
-		border: 0;
-		height: 100%;
-		left: 0;
-		margin: 0;
-		padding: 2px 6px;
-		position: absolute;
-		width: 100%;
-		box-sizing: border-box;
-		font-size: 14px;
-	}
-
-	#masthead-search-terms {
-		background-color: #fff;
-		height: 44px;
-		line-height: 30px;
-		margin: 0 0 2px;
-		overflow: hidden;
-		position: relative;
-		box-sizing: border-box;
-		border: 1px solid #ccc;
-	}
-
-	.yt-uix-button-content {
-		display: block;
-		height: 24px;
-		margin: 0 25px;
-	}
-
-  .content {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .drink {
-    margin: 20px 0;
-  }
-
-  .drink img {
-    margin-right: 20px;
-  }
-
-  .drinks-list {
-    list-style: none;
-  }
-
-  .recipe {
-    display: inline-block;
-    height: 250px;
-    vertical-align: top;
-    color: #525252;
-  }
-
-  .recipe-link {
-    color: #383838;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .recipe-link:hover {
-    color: #525252;
-  }
-
-  .recipe-link:active {
-    color: #727272;
-  }
-	</style>
+  <link href="main.css" rel="stylesheet">
 </head>
 <body>
-	<div id="yt-masthead-container" class="clearfix">
-		<div id="yt-masthead-logo-container">
+	<div class="masthead-container" class="clearfix">
+		<div class="logo-container">
 			<a href="/" class="logo">Tophat</a>
 		</div>
 		<div>
-			<form id="masthead-search">
-				<button id="search-btn">
-					<span class="material-icons yt-uix-button-content">search</span>
+			<form class="masthead-search">
+				<button class="search-btn">
+					<span class="material-icons search-btn-icon">search</span>
 				</button>
-				<div id="masthead-search-terms">
-					<input id="masthead-search-term">
+				<div class="masthead-search-terms">
+					<input class="masthead-search-term">
 				</div>
 			</form>
 		</div>
 	</div>
   <div class="content">
-    <h3>IBA Unforgettables</h3>
-    <ul class="drinks-list">
-      <li class="drink">
-        <img src="Americano.jpg">
-        <div class="recipe">
-          <h3><a href="#" class="recipe-link">Americano</a></h3>
-          <ul>
-            <li>4 cl Gin</li>
-            <li>1.5 cl Lemon juice</li>
-            <li>1 cl Simple syrup</li>
-            <li>1.5 cl Crème de Mure</li>
-          </ul>
-        </div>
-      </li>
-      <li class="drink">
-        <img src="Aviation.jpg">
-        <div class="recipe">
-          <h3><a href="#" class="recipe-link">Aviation</a></h3>
-          <ul>
-            <li>3 cl White Rum</li>
-            <li>3 cl Cognac</li>
-            <li>2 cl Triple sec</li>
-            <li>2 cl Lemon juice</li>
-          </ul>
-        </div>
-      </li>
-      <li class="drink">
-        <img src="Between the Sheets.jpg">
-        <div class="recipe">
-          <h3><a href="#" class="recipe-link">Between the Sheets</a></h3>
-          <ul>
-            <li>4.5 cl Gin</li>
-            <li>1.5 cl Lemon juice</li>
-            <li>1.5 cl Maraschino liqueur</li>
-          </ul>
-        </div>
-      </li>
-      <li class="drink">
-        <img src="Bramble.jpg">
-        <div class="recipe">
-          <h3><a href="#" class="recipe-link">Bramble</a></h3>
-          <ul>
-            <li>3 cl Campari</li>
-            <li>3 cl Red Vermouth</li>
-            <li>A splash of Soda Water</li>
-          </ul>
-        </div>
-      </li>
-    </ul>
+    <div class="content-inner">
+      <div class="content-title">
+        <h3>IBA Unforgettables</h3>
+      </div>
+      <ul class="drinks-list">
+        <li class="drink">
+          <img src="Americano.jpg">
+          <div class="recipe">
+            <h3><a href="#" class="recipe-link">Americano</a></h3>
+            <ul class="ingredient-list">
+              <li>4 cl Gin</li>
+              <li>1.5 cl Lemon juice</li>
+              <li>1 cl Simple syrup</li>
+              <li>1.5 cl Crème de Mure</li>
+            </ul>
+          </div>
+        </li>
+        <li class="drink">
+          <img src="Aviation.jpg">
+          <div class="recipe">
+            <h3><a href="#" class="recipe-link">Aviation</a></h3>
+            <ul class="ingredient-list">
+              <li>3 cl White Rum</li>
+              <li>3 cl Cognac</li>
+              <li>2 cl Triple sec</li>
+              <li>2 cl Lemon juice</li>
+            </ul>
+          </div>
+        </li>
+        <li class="drink">
+          <img src="Between the Sheets.jpg">
+          <div class="recipe">
+            <h3><a href="#" class="recipe-link">Between the Sheets</a></h3>
+            <ul class="ingredient-list">
+              <li>4.5 cl Gin</li>
+              <li>1.5 cl Lemon juice</li>
+              <li>1.5 cl Maraschino liqueur</li>
+            </ul>
+          </div>
+        </li>
+        <li class="drink">
+          <img src="Bramble.jpg">
+          <div class="recipe">
+            <h3><a href="#" class="recipe-link">Bramble</a></h3>
+            <ul class="ingredient-list">
+              <li>3 cl Campari</li>
+              <li>3 cl Red Vermouth</li>
+              <li>A splash of Soda Water</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </body>
 </html>
