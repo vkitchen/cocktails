@@ -67,13 +67,15 @@ viewDrink : Drink -> Html Msg
 viewDrink drink =
   li [ class "drink" ]
     [ div [ class "drink-img" ]
-        [ case List.head drink.img of
-            Nothing ->
-              img [ src (Image.missing drink.drinkware) ]
-                []
-            Just img_ ->
-              img [ src ("/img/250x250/" ++ img_) ]
-                []
+        [ a [ class "recipe-link", Route.href (Route.Drink drink.name), onPreventDefaultClick (UpdateUrl (Route.Drink drink.name)) ]
+            [ case List.head drink.img of
+                Nothing ->
+                  img [ src (Image.missing drink.drinkware) ]
+                    []
+                Just img_ ->
+                  img [ src ("/img/250x250/" ++ img_) ]
+                    []
+            ]
         ]
     , div [ class "recipe" ]
         [ h3 []
