@@ -142,6 +142,7 @@ body {
 .recipe {
   display: inline-block;
   vertical-align: top;
+  max-width: 540px;
   color: var(--lightgrey);
 }
 
