@@ -22,4 +22,4 @@ missing img =
       "/img/Shot Glass.svg"
 
     _ ->
-      "/img/Missing.jpg"
+      "/img/250x250/Missing.jpg"

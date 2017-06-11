@@ -63,7 +63,7 @@ viewDrink drink =
               img [ src (Image.missing drink.drinkware) ]
                 []
             Just img_ ->
-              img [ src ("/img/" ++ img_) ]
+              img [ src ("/img/250x250/" ++ img_) ]
                 []
         ]
     , div [ class "recipe" ]
