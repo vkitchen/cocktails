@@ -1,6 +1,8 @@
 {
 	"name": "Manhattan",
-	"img": [],
+	"img": [
+		"Manhattan.jpg"
+	],
 	"lists": [
 		"IBA",
 		"IBA Unforgettables"
