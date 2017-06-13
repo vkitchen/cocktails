@@ -1,0 +1,26 @@
+{
+	"name": "Blue Lagoon",
+	"img": [],
+	"lists": [],
+	"serve": "On the rocks",
+	"garnish": "Lemon or Orange slice",
+	"drinkware": "Highball glass",
+	"ingredients": [
+		{
+			"name": "Vodka",
+			"measure": "50",
+			"unit": "ml"
+		},
+		{
+			"name": "Blue Curaçao",
+			"measure": "20",
+			"unit": "ml"
+		},
+		{
+			"name": "Lemonade",
+			"measure": "100",
+			"unit": "ml"
+		}
+	],
+	"method": "Pour vodka and blue curacao in a shaker with ice, shake well & strain into ice filled highball glass, top with lemonade, garnish and serve."
+}

@@ -1,0 +1,21 @@
+{
+	"name": "Cape Codder",
+	"img": [],
+	"lists": [],
+	"serve": "On the rocks",
+	"garnish": "Lime slice",
+	"drinkware": "Highball glass",
+	"ingredients": [
+		{
+			"name": "Vodka",
+			"measure": "1",
+			"unit": "part"
+		},
+		{
+			"name": "Cranberry juice",
+			"measure": "4",
+			"unit": "part"
+		}
+	],
+	"method": "Build all ingredients in a highball glass filled with ice. Garnish with lime wedge."
+}
