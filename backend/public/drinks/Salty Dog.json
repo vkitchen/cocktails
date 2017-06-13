@@ -1,6 +1,8 @@
 {
 	"name": "Salty Dog",
-	"img": [],
+	"img": [
+		"Salty Dog.jpg"
+	],
 	"lists": [],
 	"serve": "Straight up",
 	"garnish": "Salted glass",

@@ -1,6 +1,8 @@
 {
 	"name": "Blue Lagoon",
-	"img": [],
+	"img": [
+		"Blue Lagoon.jpg"
+	],
 	"lists": [],
 	"serve": "On the rocks",
 	"garnish": "Lemon or Orange slice",

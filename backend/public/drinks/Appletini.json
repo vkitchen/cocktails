@@ -1,6 +1,8 @@
 {
 	"name": "Appletini",
-	"img": [],
+	"img": [
+		"Appletini.jpg"
+	],
 	"lists": [],
 	"serve": "Straight up",
 	"garnish": "Apple slice, cherry",

@@ -1,6 +1,8 @@
 {
 	"name": "Blue Hawaii",
-	"img": [],
+	"img": [
+		"Blue Hawaii.jpg"
+	],
 	"lists": [],
 	"serve": "On the rocks",
 	"garnish": "Pineapple or orange quarter slice, maraschino cherry",

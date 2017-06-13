@@ -1,6 +1,8 @@
 {
 	"name": "El Presidente",
-	"img": [],
+	"img": [
+		"El Presidente.jpg"
+	],
 	"lists": [],
 	"serve": "Straight up",
 	"garnish": "Orange twist",

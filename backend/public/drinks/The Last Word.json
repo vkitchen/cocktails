@@ -1,6 +1,8 @@
 {
 	"name": "The Last Word",
-	"img": [],
+	"img": [
+		"The Last Word.jpg"
+	],
 	"lists": [],
 	"serve": "Straight up",
 	"garnish": "Lemon twist",

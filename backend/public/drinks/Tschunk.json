@@ -1,6 +1,8 @@
 {
 	"name": "Tschunk",
-	"img": [],
+	"img": [
+		"Tschunk.jpg"
+	],
 	"lists": [],
 	"serve": "On the rocks",
 	"garnish": "Lime slice",

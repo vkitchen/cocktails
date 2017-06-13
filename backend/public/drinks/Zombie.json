@@ -1,6 +1,8 @@
 {
 	"name": "Zombie",
-	"img": [],
+	"img": [
+		"Zombie.jpg"
+	],
 	"lists": [],
 	"serve": "On the rocks",
 	"garnish": "Mint sprig",

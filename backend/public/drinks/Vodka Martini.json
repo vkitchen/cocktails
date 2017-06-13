@@ -1,6 +1,8 @@
 {
 	"name": "Vodka Martini",
-	"img": [],
+	"img": [
+		"Vodka Martini.jpg"
+	],
 	"lists": [],
 	"serve": "Straight up",
 	"garnish": "Olive or Lemon twist",

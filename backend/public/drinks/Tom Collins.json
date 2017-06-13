@@ -1,6 +1,9 @@
 {
 	"name": "Tom Collins",
-	"img": [],
+	"img": [
+		"Tom Collins.jpg",
+		"Tom Collins 2.jpg"
+	],
 	"lists": [],
 	"serve": "On the rocks",
 	"garnish": "Lemon slice, Maraschino cherry",

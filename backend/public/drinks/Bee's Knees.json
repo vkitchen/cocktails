@@ -1,6 +1,9 @@
 {
 	"name": "Bee's Knees",
-	"img": [],
+	"img": [
+		"Bee's Knees.jpg",
+		"Bee's Knees 2.jpg"
+	],
 	"lists": [],
 	"serve": "Straight up",
 	"garnish": "Lemon peel",

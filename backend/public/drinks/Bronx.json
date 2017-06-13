@@ -1,6 +1,8 @@
 {
 	"name": "Bronx",
-	"img": [],
+	"img": [
+		"Bronx.jpg"
+	],
 	"lists": [],
 	"serve": "Straight up",
 	"garnish": "Orange twist",

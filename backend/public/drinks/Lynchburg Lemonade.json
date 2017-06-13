@@ -1,6 +1,8 @@
 {
 	"name": "Lynchburg Lemonade",
-	"img": [],
+	"img": [
+		"Lynchburg Lemonade.jpg"
+	],
 	"lists": [],
 	"serve": "On the rocks",
 	"garnish": "Lemon wedge, maraschino cherry",

@@ -1,6 +1,8 @@
 {
 	"name": "Gibson",
-	"img": [],
+	"img": [
+		"Gibson.jpg"
+	],
 	"lists": [],
 	"serve": "Straight up",
 	"garnish": "Silverskin onion",

@@ -9,6 +9,9 @@ missing img =
     "Cocktail glass" ->
       "/img/Cocktail Glass.svg"
 
+    "Champagne flute" ->
+      "/img/Champagne Flute.svg"
+
     "Highball glass" ->
       "/img/Highball Glass.svg"
 

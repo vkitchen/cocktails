@@ -1,6 +1,8 @@
 {
 	"name": "Caesar",
-	"img": [],
+	"img": [
+		"Caesar.jpg"
+	],
 	"lists": [],
 	"serve": "On the rocks",
 	"garnish": "Stalk of celery, wedge of lime",

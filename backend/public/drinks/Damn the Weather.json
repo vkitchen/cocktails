@@ -1,6 +1,8 @@
 {
 	"name": "Damn the Weather",
-	"img": [],
+	"img": [
+		"Damn the Weather.jpg"
+	],
 	"lists": [],
 	"serve": "Straight up",
 	"garnish": "Slice of orange",

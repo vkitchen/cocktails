@@ -1,6 +1,8 @@
 {
 	"name": "White Russian",
-	"img": [],
+	"img": [
+		"White Russian.jpg"
+	],
 	"lists": [],
 	"serve": "On the rocks",
 	"garnish": "",

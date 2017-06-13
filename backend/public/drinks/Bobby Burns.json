@@ -1,6 +1,8 @@
 {
 	"name": "Bobby Burns",
-	"img": [],
+	"img": [
+		"Bobby Burns.jpg"
+	],
 	"lists": [],
 	"serve": "Straight up",
 	"garnish": "Lemon peel",

@@ -1,6 +1,8 @@
 {
 	"name": "Sake Bomb",
-	"img": [],
+	"img": [
+		"Sake Bomb.jpg"
+	],
 	"lists": [],
 	"serve": "Straight up",
 	"garnish": "",

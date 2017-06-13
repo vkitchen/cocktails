@@ -1,6 +1,8 @@
 {
 	"name": "Greyhound",
-	"img": [],
+	"img": [
+		"Greyhound.jpg"
+	],
 	"lists": [],
 	"serve": "On the rocks",
 	"garnish": "",
