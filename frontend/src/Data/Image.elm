@@ -13,7 +13,7 @@ missing img =
       "/img/Highball Glass.svg"
 
     "Hurricane glass" ->
-      "/img/Hurrican Glass.svg"
+      "/img/Hurricane Glass.svg"
 
     "Old Fashioned glass" ->
       "/img/Old Fashioned Glass.svg"
