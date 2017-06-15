@@ -2,7 +2,7 @@ module Route exposing (Route(..), href, modifyUrl, newUrl, fromLocation)
 
 import Html exposing (Attribute)
 import Html.Attributes as Attr
-import Http exposing (decodeUri)
+import Http exposing (decodeUri, encodeUri)
 import Navigation exposing (Location)
 import UrlParser as Url exposing (parsePath, s, (</>), custom, oneOf, Parser)
 
@@ -46,7 +46,7 @@ routeToString page =
           [ "search", slug ]
 
   in
-  "/" ++ (String.join "/" pieces)
+  "/" ++ (String.join "/" (List.map encodeUri pieces))
 
 -- PUBLIC HELPERS --
 

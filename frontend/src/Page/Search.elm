@@ -8,7 +8,7 @@ import Data.Drink as Drink exposing (Drink)
 import Data.Image as Image
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Http
+import Http exposing (encodeUri)
 import Page.Errored as Errored exposing (PageLoadError, pageLoadError)
 import Request.Search
 import Route exposing (Route)
@@ -73,7 +73,7 @@ viewDrink drink =
                   img [ src (Image.missing drink.drinkware) ]
                     []
                 Just img_ ->
-                  img [ src ("/img/250x250/" ++ img_) ]
+                  img [ src ("/img/250x250/" ++ (encodeUri img_)) ]
                     []
             ]
         ]

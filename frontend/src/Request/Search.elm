@@ -1,7 +1,7 @@
 module Request.Search exposing (search)
 
 import Data.Drink as Drink exposing (Drink)
-import Http
+import Http exposing (encodeUri)
 import Json.Decode as Decode
 import Request.Helpers exposing (apiUrl)
 
@@ -12,4 +12,4 @@ import Request.Helpers exposing (apiUrl)
 search : String -> Http.Request (List Drink)
 search slug =
   Decode.list Drink.drinkDecoder
-    |> Http.get (apiUrl ("/search/" ++ slug))
+    |> Http.get (apiUrl ("/search/" ++ (encodeUri slug)))
