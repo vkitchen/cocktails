@@ -2,8 +2,6 @@ module Main exposing (main)
 
 import Html exposing (..)
 import Json.Decode as Decode exposing (Value)
-import Model exposing (Page(..), PageState(..), Model)
-import Msg exposing (Msg(..))
 import Navigation exposing (Location)
 import Page.Drink as Drink
 import Page.Errored as Errored exposing (PageLoadError)
@@ -18,6 +16,26 @@ import Views.Page as Page
 
 (=>) =
   (,)
+
+
+type Page
+  = Blank
+  | NotFound
+  | Errored PageLoadError
+  | Home Home.Model
+  | Drink Drink.Model
+  | Search Search.Model
+
+
+type PageState
+  = Loaded Page
+  | TransitioningFrom Page
+
+
+type alias Model =
+  { pageState : PageState
+  , query : String
+  }
 
 
 init : Value -> Location -> ( Model, Cmd Msg )
@@ -41,6 +59,13 @@ getPage pageState =
 
 -- VIEW --
 
+pageConfig : Page.Config Msg
+pageConfig =
+  Page.config
+    { pageChange = UpdateUrl
+    , stateChange = UpdateQuery
+    }
+
 
 view : Model -> Html Msg
 view model =
@@ -54,7 +79,7 @@ view model =
           (page, True)
 
     frame =
-      Page.frame isLoading model
+      Page.frame pageConfig model.query
   in
   case page of
     NotFound ->
@@ -86,6 +111,19 @@ view model =
 
 
 -- UPDATE --
+
+
+type Msg
+  = SetRoute (Maybe Route)
+  | UpdateUrl Route
+  | UpdateQuery String
+  | HomeLoaded (Result PageLoadError Home.Model)
+  | DrinkLoaded (Result PageLoadError Drink.Model)
+  | SearchLoaded (Result PageLoadError Search.Model)
+  | HomeMsg Home.Msg
+  | DrinkMsg Drink.Msg
+  | SearchMsg Search.Msg
+
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
