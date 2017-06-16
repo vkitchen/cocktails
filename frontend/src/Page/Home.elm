@@ -1,4 +1,4 @@
-module Page.Home exposing (view, update, Model, Msg(..), init)
+module Page.Home exposing (Config, config, view, update, Model, Msg(..), init)
 
 {-| The homepage.
 -}
@@ -19,12 +19,28 @@ import Task exposing (Task)
   (,)
 
 
+type Config msg =
+  Config
+    { changePage : Route -> msg
+    , toMsg : Msg -> msg
+    }
+
+
+config : { changePage : Route -> msg, toMsg : Msg -> msg } -> Config msg
+config { changePage, toMsg } =
+  Config
+    { changePage = changePage
+    , toMsg = toMsg
+    }
+
+
 -- MODEL --
 
 
 type alias Model =
     { index : List Drink
     }
+
 
 init : Task PageLoadError Model
 init =
@@ -42,23 +58,23 @@ init =
 -- VIEW --
 
 
-view : Model -> Html Msg
-view model =
+view : Config msg -> Model -> Html msg
+view config model =
   div [ class "content" ]
     [ div [ class "content-inner" ]
         [ div [ class "content-title" ]
             [ h3 [] [ text "All Drinks" ] ]
         , ul [ class "drinks-list" ]
-            (List.map viewDrink model.index)
+            (List.map (viewDrink config) model.index)
         ]
     ]
 
 
-viewDrink : Drink -> Html Msg
-viewDrink drink =
+viewDrink : Config msg -> Drink -> Html msg
+viewDrink (Config { changePage, toMsg }) drink =
   li [ class "drink" ]
     [ div [ class "drink-img" ]
-        [ a [ class "recipe-link", Route.href (Route.Drink drink.name), onPreventDefaultClick (UpdateUrl (Route.Drink drink.name)) ]
+        [ a [ class "recipe-link", Route.href (Route.Drink drink.name), onPreventDefaultClick (changePage (Route.Drink drink.name)) ]
             [ case List.head drink.img of
                 Nothing ->
                   img [ src (Image.missing drink.drinkware) ]
@@ -70,7 +86,7 @@ viewDrink drink =
         ]
     , div [ class "recipe" ]
         [ h3 []
-            [ a [ class "recipe-link", Route.href (Route.Drink drink.name), onPreventDefaultClick (UpdateUrl (Route.Drink drink.name)) ]
+            [ a [ class "recipe-link", Route.href (Route.Drink drink.name), onPreventDefaultClick (changePage (Route.Drink drink.name)) ]
                 [ text drink.name ]
             ]
         , ul [ class "ingredient-list" ]
@@ -84,14 +100,10 @@ viewDrink drink =
 
 type Msg
     = NoOp
-    | UpdateUrl Route
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
   case msg of
     NoOp ->
-      model => Cmd.none
-
-    _ ->
       model => Cmd.none

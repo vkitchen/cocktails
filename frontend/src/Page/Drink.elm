@@ -1,4 +1,4 @@
-module Page.Drink exposing (view, update, Model, Msg, init, title)
+module Page.Drink exposing (Config, config, view, update, Model, Msg, init, title)
 
 {-| The homepage.
 -}
@@ -10,11 +10,27 @@ import Html.Attributes exposing (..)
 import Http exposing (encodeUri)
 import Page.Errored as Errored exposing (PageLoadError, pageLoadError)
 import Request.Drink
+import Route exposing (Route)
 import Task exposing (Task)
 
 
 (=>) =
   (,)
+
+
+type Config msg =
+  Config
+    { changePage : Route -> msg
+    , toMsg : Msg -> msg
+    }
+
+
+config : { changePage : Route -> msg, toMsg : Msg -> msg } -> Config msg
+config { changePage, toMsg } =
+  Config
+    { changePage = changePage
+    , toMsg = toMsg
+    }
 
 
 -- MODEL --
@@ -48,8 +64,8 @@ title model =
 -- VIEW --
 
 
-view : Model -> Html Msg
-view model =
+view : Config msg -> Model -> Html msg
+view _ model =
   div [ class "content" ]
     [ div [ class "content-inner" ]
         [ div [ class "content-title" ]

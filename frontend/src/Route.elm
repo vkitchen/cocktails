@@ -7,7 +7,8 @@ import Navigation exposing (Location)
 import UrlParser as Url exposing (parsePath, s, (</>), custom, oneOf, Parser)
 
 type Route
-    = Home
+    = None
+    | Home
     | Drink String
     | Search String
 
@@ -36,6 +37,9 @@ routeToString page =
   let
     pieces =
       case page of
+        None ->
+          []
+          
         Home ->
           []
 
@@ -65,6 +69,11 @@ newUrl =
   routeToString >> Navigation.newUrl
 
 
-fromLocation : Location -> Maybe Route
+fromLocation : Location -> Route
 fromLocation location =
-  parsePath route location
+  case parsePath route location of
+    Nothing ->
+      None
+
+    Just route ->
+      route
