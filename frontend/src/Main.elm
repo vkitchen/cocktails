@@ -30,8 +30,8 @@ type Page
 
 type PageState
   = Displaying Page Route
-  | Loaded Page Route Page Route
-  | Transitioning Page Route Route
+  | Loaded Page Route Bool Page Route
+  | Transitioning Page Route Bool Route
 
 
 type alias Model =
@@ -96,16 +96,7 @@ searchConfig =
 view : Model -> Html Msg
 view model =
   let
-    page =
-      case model.pageState of
-        Displaying page _ ->
-          page
-
-        Loaded page _ _ _ ->
-          page
-
-        Transitioning page _ _ ->
-          page
+    page = getPage model.pageState
 
     progressBar =
       Progress.view progressConfig model.progress
@@ -132,66 +123,10 @@ view model =
       Search subModel ->
         Search.view searchConfig subModel
 
-  -- let
-  --   (page, isLoading) =
-  --     case model.pageState of
-  --       Loaded page ->
-  --         (page, False)
-  --
-  --       TransitioningFrom page ->
-  --         (page, True)
-  --
-  --   frame =
-  --     Page.frame pageConfig model.query
-  -- in
-  -- case page of
-  --   NotFound ->
-  --     NotFound.view
-  --       |> frame
-  --
-  --   Blank ->
-  --     Html.text ""
-  --       |> frame
-  --
-  --   Errored subModel ->
-  --     Errored.view subModel
-  --       |> frame
-  --
-  --   Home subModel ->
-  --     Home.view subModel
-  --       |> Html.map HomeMsg
-  --       |> frame
-  --
-  --   Drink subModel ->
-  --     Drink.view subModel
-  --       |> Html.map DrinkMsg
-  --       |> frame
-  --
-  --   Search subModel ->
-  --     Search.view subModel
-  --       |> Html.map SearchMsg
-  --       |> frame
-
 
 -- UPDATE --
 
 
--- type Msg
---   = SetRoute (Maybe Route)
---   | UpdateUrl Route
---   | UpdateQuery String
---   | HomeLoaded (Result PageLoadError Home.Model)
---   | DrinkLoaded (Result PageLoadError Drink.Model)
---   | SearchLoaded (Result PageLoadError Search.Model)
---   | HomeMsg Home.Msg
---   | DrinkMsg Drink.Msg
---   | SearchMsg Search.Msg
-
-
--- type PageState
---   = Displaying Page Route
---   | Loaded Page Route Route
---   | Transitioning Page Route Route
 type Msg
   = ChangePage Route
   | UriUpdate Route
@@ -223,11 +158,11 @@ updatePage page msg model =
           Displaying page route ->
             { model | pageState = Displaying (toModel newModel) route} => Cmd.map toMsg newCmd
 
-          Transitioning page route toRoute ->
-            { model | pageState = Transitioning (toModel newModel) route toRoute } => Cmd.map toMsg newCmd
+          Transitioning page route history toRoute ->
+            { model | pageState = Transitioning (toModel newModel) route history toRoute } => Cmd.map toMsg newCmd
 
-          Loaded page route toPage toRoute ->
-            { model | pageState = Loaded (toModel newModel) route toPage toRoute } => Cmd.map toMsg newCmd
+          Loaded page route history toPage toRoute ->
+            { model | pageState = Loaded (toModel newModel) route history toPage toRoute } => Cmd.map toMsg newCmd
     in
     case (msg, page) of
       -- Internally triggered
@@ -235,21 +170,35 @@ updatePage page msg model =
         case model.pageState of
           Displaying page route ->
             if newRoute /= route then
-              { model | pageState = Transitioning page route newRoute, progress = Progress.start } => Cmd.batch [ loadRoute newRoute, Route.newUrl newRoute ]
+              { model | pageState = Transitioning page route True newRoute, progress = Progress.start } => Cmd.batch [ loadRoute newRoute, Route.newUrl newRoute ]
             else
               -- user wants a page refresh (don't add to history)
-              { model | pageState = Transitioning page route newRoute, progress = Progress.start } => loadRoute newRoute
+              { model | pageState = Transitioning page route False newRoute, progress = Progress.start } => loadRoute newRoute
 
-          Transitioning page route toRoute ->
+          Transitioning page route history toRoute ->
             if newRoute /= toRoute then
-              { model | pageState = Transitioning page route newRoute, progress = Progress.start } => Cmd.batch [ loadRoute newRoute, Route.newUrl newRoute ]
+              { model | pageState = Transitioning page route True newRoute, progress = Progress.start }
+              => Cmd.batch
+                  [ loadRoute newRoute
+                  , if history then
+                      Route.modifyUrl newRoute
+                    else
+                      Route.newUrl newRoute
+                  ]
             else
               -- user probably double clicked
               model => Cmd.none
 
-          Loaded page route _ toRoute ->
+          Loaded page route history _ toRoute ->
             if newRoute /= toRoute then
-              { model | pageState = Transitioning page route newRoute, progress = Progress.start } => Cmd.batch [ loadRoute newRoute, Route.newUrl newRoute ]
+              { model | pageState = Transitioning page route True newRoute, progress = Progress.start }
+              => Cmd.batch
+                  [ loadRoute newRoute
+                  , if history then
+                      Route.modifyUrl newRoute
+                    else
+                      Route.newUrl newRoute
+                  ]
             else
               -- user probably double clicked
               model => Cmd.none
@@ -263,7 +212,7 @@ updatePage page msg model =
 
       (ProgressDone, _) ->
         case model.pageState of
-          Loaded _ _ page route ->
+          Loaded _ _ _ page route ->
             { model | pageState = Displaying page route, progress = Progress.init, frameState = Frame.updateSearch route model.frameState } => Cmd.none
 
           _ ->
@@ -274,25 +223,25 @@ updatePage page msg model =
 
       (HomeLoaded (Ok subModel), _) ->
         case model.pageState of
-          Transitioning page route Route.Home ->
-            { model | pageState = Loaded page route (Home subModel) Route.Home, progress = Progress.done model.progress } => Cmd.none
+          Transitioning page route history Route.Home ->
+            { model | pageState = Loaded page route history (Home subModel) Route.Home, progress = Progress.done model.progress } => Cmd.none
 
           _ ->
             model => Cmd.none
 
       (HomeLoaded (Err error), _) ->
         case model.pageState of
-          Transitioning page route Route.Home ->
-            { model | pageState = Loaded page route (Errored error) Route.Home, progress = Progress.done model.progress } => Cmd.none
+          Transitioning page route history Route.Home ->
+            { model | pageState = Loaded page route history (Errored error) Route.Home, progress = Progress.done model.progress } => Cmd.none
 
           _ ->
             model => Cmd.none
 
       (DrinkLoaded route (Ok subModel), _) ->
         case model.pageState of
-          Transitioning page fromRoute toRoute ->
+          Transitioning page fromRoute history toRoute ->
             if route == toRoute then
-              { model | pageState = Loaded page fromRoute (Drink subModel) toRoute, progress = Progress.done model.progress } => Cmd.none
+              { model | pageState = Loaded page fromRoute history (Drink subModel) toRoute, progress = Progress.done model.progress } => Cmd.none
             else
               model => Cmd.none
 
@@ -301,9 +250,9 @@ updatePage page msg model =
 
       (DrinkLoaded route (Err error), _) ->
         case model.pageState of
-          Transitioning page fromRoute toRoute ->
+          Transitioning page fromRoute history toRoute ->
             if route == toRoute then
-              { model | pageState = Loaded page fromRoute (Errored error) toRoute, progress = Progress.done model.progress } => Cmd.none
+              { model | pageState = Loaded page fromRoute history (Errored error) toRoute, progress = Progress.done model.progress } => Cmd.none
             else
               model => Cmd.none
 
@@ -312,9 +261,9 @@ updatePage page msg model =
 
       (SearchLoaded route (Ok subModel), _) ->
         case model.pageState of
-          Transitioning page fromRoute toRoute ->
+          Transitioning page fromRoute history toRoute ->
             if route == toRoute then
-              { model | pageState = Loaded page fromRoute (Search subModel) toRoute, progress = Progress.done model.progress } => Cmd.none
+              { model | pageState = Loaded page fromRoute history (Search subModel) toRoute, progress = Progress.done model.progress } => Cmd.none
             else
               model => Cmd.none
 
@@ -323,9 +272,9 @@ updatePage page msg model =
 
       (SearchLoaded route (Err error), _) ->
         case model.pageState of
-          Transitioning page fromRoute toRoute ->
+          Transitioning page fromRoute history toRoute ->
             if route == toRoute then
-              { model | pageState = Loaded page fromRoute (Errored error) toRoute, progress = Progress.done model.progress } => Cmd.none
+              { model | pageState = Loaded page fromRoute history (Errored error) toRoute, progress = Progress.done model.progress } => Cmd.none
             else
               model => Cmd.none
 
@@ -352,10 +301,10 @@ getPage pageState =
     Displaying page _ ->
       page
 
-    Transitioning page _ _ ->
+    Transitioning page _ _ _ ->
       page
 
-    Loaded page _ _ _ ->
+    Loaded page _ _ _ _ ->
       page
 
 
@@ -365,10 +314,10 @@ getToRoute pageState =
     Displaying _ _ ->
       Route.None
 
-    Transitioning _ _ toRoute ->
+    Transitioning _ _ _ toRoute ->
       toRoute
 
-    Loaded _ _ _ toRoute ->
+    Loaded _ _ _ _ toRoute ->
       toRoute
 
 
@@ -394,120 +343,27 @@ uriUpdate newRoute model =
   case model.pageState of
     Displaying page route ->
       if newRoute /= route then
-        { model | pageState = Transitioning page route newRoute, progress = Progress.start } => loadRoute newRoute
+        { model | pageState = Transitioning page route False newRoute, progress = Progress.start } => loadRoute newRoute
       else
         model => Cmd.none
 
-    Transitioning page route toRoute ->
-      if newRoute /= toRoute then
-        { model | pageState = Transitioning page route newRoute, progress = Progress.start } => loadRoute newRoute
+    Transitioning page route history toRoute ->
+      if newRoute == route then
+        -- user likely hit back. "finish" loading
+        { model | pageState = Loaded page route history page route, progress = Progress.done model.progress } => Cmd.none
+      else if newRoute /= toRoute then
+        { model | pageState = Transitioning page route history newRoute, progress = Progress.start } => loadRoute newRoute
       else
         model => Cmd.none
 
-    Loaded page route _ toRoute ->
-      if newRoute /= toRoute then
-        { model | pageState = Transitioning page route newRoute, progress = Progress.start } => loadRoute newRoute
+    Loaded page route history _ toRoute ->
+      if newRoute == route then
+        -- user likely hit back. "finish" loading
+        { model | pageState = Loaded page route history page route, progress = Progress.done model.progress } => Cmd.none
+      else if newRoute /= toRoute then
+        { model | pageState = Transitioning page route history newRoute, progress = Progress.start } => loadRoute newRoute
       else
          model => Cmd.none
-
-
--- updatePage : Page -> Msg -> Model -> ( Model, Cmd Msg )
--- updatePage page msg model =
---   let
---     toPage toModel toMsg subUpdate subMsg subModel =
---       let
---         ( newModel, newCmd ) =
---           subUpdate subMsg subModel
---       in
---       ( { model | pageState = Loaded (toModel newModel) }, Cmd.map toMsg newCmd )
---   in
---   case ( msg, page ) of
---     ( SetRoute route, _ ) ->
---       setRoute route model
---
---     ( UpdateUrl route, _ ) ->
---       model => Route.newUrl route
---
---     ( UpdateQuery newQuery, _ ) ->
---       { model | query = newQuery } => Cmd.none
---
---     ( HomeLoaded (Ok subModel), _ ) ->
---       { model | pageState = Loaded (Home subModel) } => Ports.title "All Drinks - Tophat"
---
---     ( HomeLoaded (Err error), _ ) ->
---       { model | pageState = Loaded (Errored error) } => Ports.title "All Drinks - Tophat"
---
---     ( DrinkLoaded (Ok subModel), _ ) ->
---       { model | pageState = Loaded (Drink subModel) } => Ports.title (Drink.title subModel ++ " - Tophat")
---
---     ( DrinkLoaded (Err error), _ ) ->
---       { model | pageState = Loaded (Errored error) } => Cmd.none
---
---     ( SearchLoaded (Ok subModel), _ ) ->
---       { model | pageState = Loaded (Search subModel) } => Ports.title (Search.title subModel ++ " - Tophat")
---
---     ( SearchLoaded (Err error), _ ) ->
---       { model | pageState = Loaded (Errored error) } => Cmd.none
---
---     ( HomeMsg (Home.UpdateUrl route), _ ) ->
---       model => Route.newUrl route
---
---     ( HomeMsg subMsg, Home subModel ) ->
---       toPage Home HomeMsg Home.update subMsg subModel
---
---     ( DrinkMsg subMsg, Drink subModel ) ->
---       toPage Drink DrinkMsg Drink.update subMsg subModel
---
---     ( SearchMsg (Search.UpdateUrl route), _ ) ->
---       model => Route.newUrl route
---
---     ( SearchMsg subMsg, Search subModel ) ->
---       toPage Search SearchMsg Search.update subMsg subModel
---
---     ( _, _ ) ->
---         -- Disregard incoming messages that arrived for the wrong page
---         model => Cmd.none
-
-
--- type PageState
---   = Displaying Page Route
---   | Loaded Page Route Route
---   | Transitioning Page Route Route
-
--- setRoute : Maybe Route -> Model -> ( Model, Cmd Msg )
--- setRoute maybeRoute model =
---   let
---     (
---     transition toMsg task =
---       { model | pageState = TransitioningFrom (getPage model.pageState) }
---         => Task.attempt toMsg task
---   in
---   case maybeRoute of
---     Nothing ->
---       { model | pageState = Displaying NotFound Route.None } => Cmd.none
---
---     Just Route.Home ->
---       transition HomeLoaded Home.init
---
---     Just (Route.Drink slug) ->
---       transition DrinkLoaded (Drink.init slug)
---
---     -- Update global state as well
---     Just (Route.Search slug) ->
---       { model
---           | pageState = TransitioningFrom (getPage model.pageState)
---           , query = slug
---       }
---         => Task.attempt SearchLoaded (Search.init slug)
-
-
--- pageErrored : Model -> String -> ( Model, Cmd msg )
--- pageErrored model errorMessage =
---   let
---     error =
---       Errored.pageLoadError errorMessage
---   in
---   { model | pageState = Loaded (Errored error) } => Cmd.none
 
 
 subscriptions : Model -> Sub Msg
