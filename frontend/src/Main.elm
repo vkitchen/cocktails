@@ -224,7 +224,7 @@ updatePage page msg model =
       (HomeLoaded (Ok subModel), _) ->
         case model.pageState of
           Transitioning page route history Route.Home ->
-            { model | pageState = Loaded page route history (Home subModel) Route.Home, progress = Progress.done model.progress } => Cmd.none
+            { model | pageState = Loaded page route history (Home subModel) Route.Home, progress = Progress.done model.progress } => Ports.title (Home.title subModel ++ " - Tophat")
 
           _ ->
             model => Cmd.none
@@ -232,7 +232,7 @@ updatePage page msg model =
       (HomeLoaded (Err error), _) ->
         case model.pageState of
           Transitioning page route history Route.Home ->
-            { model | pageState = Loaded page route history (Errored error) Route.Home, progress = Progress.done model.progress } => Cmd.none
+            { model | pageState = Loaded page route history (Errored error) Route.Home, progress = Progress.done model.progress } => Ports.title "Loading Error - Tophat"
 
           _ ->
             model => Cmd.none
@@ -241,7 +241,7 @@ updatePage page msg model =
         case model.pageState of
           Transitioning page fromRoute history toRoute ->
             if route == toRoute then
-              { model | pageState = Loaded page fromRoute history (Drink subModel) toRoute, progress = Progress.done model.progress } => Cmd.none
+              { model | pageState = Loaded page fromRoute history (Drink subModel) toRoute, progress = Progress.done model.progress } => Ports.title (Drink.title subModel ++ " - Tophat")
             else
               model => Cmd.none
 
@@ -252,7 +252,7 @@ updatePage page msg model =
         case model.pageState of
           Transitioning page fromRoute history toRoute ->
             if route == toRoute then
-              { model | pageState = Loaded page fromRoute history (Errored error) toRoute, progress = Progress.done model.progress } => Cmd.none
+              { model | pageState = Loaded page fromRoute history (Errored error) toRoute, progress = Progress.done model.progress } => Ports.title "Loading Error - Tophat"
             else
               model => Cmd.none
 
@@ -263,7 +263,7 @@ updatePage page msg model =
         case model.pageState of
           Transitioning page fromRoute history toRoute ->
             if route == toRoute then
-              { model | pageState = Loaded page fromRoute history (Search subModel) toRoute, progress = Progress.done model.progress } => Cmd.none
+              { model | pageState = Loaded page fromRoute history (Search subModel) toRoute, progress = Progress.done model.progress } => Ports.title (Search.title subModel ++ " - Tophat")
             else
               model => Cmd.none
 
@@ -274,7 +274,7 @@ updatePage page msg model =
         case model.pageState of
           Transitioning page fromRoute history toRoute ->
             if route == toRoute then
-              { model | pageState = Loaded page fromRoute history (Errored error) toRoute, progress = Progress.done model.progress } => Cmd.none
+              { model | pageState = Loaded page fromRoute history (Errored error) toRoute, progress = Progress.done model.progress } => Ports.title "Loading Error - Tophat"
             else
               model => Cmd.none
 

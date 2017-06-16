@@ -1,4 +1,4 @@
-module Page.Home exposing (Config, config, view, update, Model, Msg(..), init)
+module Page.Home exposing (Config, config, view, update, Model, Msg(..), init, title)
 
 {-| The homepage.
 -}
@@ -54,6 +54,12 @@ init =
   in
   Task.map Model loadIndex
     |> Task.mapError handleLoadError
+
+
+title : Model -> String
+title _ =
+  "All Drinks"
+
 
 -- VIEW --
 
