@@ -14,6 +14,19 @@
     app.ports.title.subscribe(function(title) {
       document.title = title;
     });
+
+    app.ports.setScroll.subscribe(function(scroll) {
+      window.scrollTo(0, scroll);
+    });
+
+    window.onscroll = function() {
+      var newScroll = window.pageYOffset || document.body.scrollTop;
+      // quick hack to work around a concurrency bug. Browser sends a scroll event immediately
+      // before the url changes for back/forward browser action. this reorders the events
+      setTimeout(function() {
+        app.ports.scroll.send(newScroll);
+      }, 50);
+    };
   </script>
 </body>
 </html>

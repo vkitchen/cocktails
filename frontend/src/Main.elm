@@ -1,5 +1,6 @@
 module Main exposing (main)
 
+import Defer
 import Html exposing (..)
 import Json.Decode as Decode exposing (Value)
 import LruCache as Lru
@@ -22,11 +23,11 @@ import Views.Frame as Frame
 
 type Page
   = Blank
-  | NotFound
-  | Errored PageLoadError
-  | Home Home.Model
-  | Drink Drink.Model
-  | Search Search.Model
+  | NotFound Int
+  | Errored Int PageLoadError
+  | Home Int Home.Model
+  | Drink Int Drink.Model
+  | Search Int Search.Model
 
 
 type PageState
@@ -40,6 +41,7 @@ type alias Model =
   , frameState : Frame.State
   , progress : Progress.State
   , bfcache : Lru.LruCache String Page
+  , defer : Defer.Model
   }
 
 
@@ -50,6 +52,7 @@ init location =
     , frameState = Frame.init
     , progress = Progress.init
     , bfcache = Lru.empty 5
+    , defer = Defer.init []
     }
 
 
@@ -108,22 +111,22 @@ view model =
   in
   frame <|
     case page of
-      NotFound ->
+      NotFound _ ->
         NotFound.view
 
       Blank ->
         Html.text ""
 
-      Errored subModel ->
+      Errored _ subModel ->
         Errored.view subModel
 
-      Home subModel ->
+      Home _ subModel ->
         Home.view homeConfig subModel
 
-      Drink subModel ->
+      Drink _ subModel ->
         Drink.view drinkConfig subModel
 
-      Search subModel ->
+      Search _ subModel ->
         Search.view searchConfig subModel
 
 
@@ -136,6 +139,8 @@ type Msg
   | UpdateProgress
   | ProgressDone
   | UpdateFrameState Frame.State
+  | Scroll Int
+  | DeferMsg Defer.Msg
   | HomeLoaded (Result PageLoadError Home.Model)
   | DrinkLoaded Route (Result PageLoadError Drink.Model)
   | SearchLoaded Route (Result PageLoadError Search.Model)
@@ -228,10 +233,27 @@ updatePage page msg model =
       (UpdateFrameState newState, _) ->
         { model | frameState = newState } => Cmd.none
 
+      (Scroll newScroll, page) ->
+        case model.pageState of
+          Displaying page route ->
+            { model | pageState = Displaying (scrollPage newScroll page) route } => Cmd.none
+
+          Transitioning fromPage fromRoute history toRoute ->
+            { model | pageState = Transitioning (scrollPage newScroll fromPage) fromRoute history toRoute } => Cmd.none
+
+          Loaded fromPage fromRoute history toPage toRoute ->
+            { model | pageState = Loaded (scrollPage newScroll fromPage) fromRoute history toPage toRoute } => Cmd.none
+
+      (DeferMsg deferMsg, _) ->
+        let
+          (deferModel, deferCmd) = Defer.update deferMsg model.defer
+        in
+        { model | defer = deferModel } ! [ Cmd.map DeferMsg deferCmd ]
+
       (HomeLoaded (Ok subModel), _) ->
         case model.pageState of
           Transitioning page route history Route.Home ->
-            { model | pageState = Loaded page route history (Home subModel) Route.Home, progress = Progress.done model.progress } => Ports.title (Home.title subModel ++ " - Tophat")
+            { model | pageState = Loaded page route history (Home 0 subModel) Route.Home, progress = Progress.done model.progress } => Ports.title (Home.title subModel ++ " - Tophat")
 
           _ ->
             model => Cmd.none
@@ -239,7 +261,7 @@ updatePage page msg model =
       (HomeLoaded (Err error), _) ->
         case model.pageState of
           Transitioning page route history Route.Home ->
-            { model | pageState = Loaded page route history (Errored error) Route.Home, progress = Progress.done model.progress } => Ports.title "Loading Error - Tophat"
+            { model | pageState = Loaded page route history (Errored 0 error) Route.Home, progress = Progress.done model.progress } => Ports.title "Loading Error - Tophat"
 
           _ ->
             model => Cmd.none
@@ -248,7 +270,7 @@ updatePage page msg model =
         case model.pageState of
           Transitioning page fromRoute history toRoute ->
             if route == toRoute then
-              { model | pageState = Loaded page fromRoute history (Drink subModel) toRoute, progress = Progress.done model.progress } => Ports.title (Drink.title subModel ++ " - Tophat")
+              { model | pageState = Loaded page fromRoute history (Drink 0 subModel) toRoute, progress = Progress.done model.progress } => Ports.title (Drink.title subModel ++ " - Tophat")
             else
               model => Cmd.none
 
@@ -259,7 +281,7 @@ updatePage page msg model =
         case model.pageState of
           Transitioning page fromRoute history toRoute ->
             if route == toRoute then
-              { model | pageState = Loaded page fromRoute history (Errored error) toRoute, progress = Progress.done model.progress } => Ports.title "Loading Error - Tophat"
+              { model | pageState = Loaded page fromRoute history (Errored 0 error) toRoute, progress = Progress.done model.progress } => Ports.title "Loading Error - Tophat"
             else
               model => Cmd.none
 
@@ -270,7 +292,7 @@ updatePage page msg model =
         case model.pageState of
           Transitioning page fromRoute history toRoute ->
             if route == toRoute then
-              { model | pageState = Loaded page fromRoute history (Search subModel) toRoute, progress = Progress.done model.progress } => Ports.title (Search.title subModel ++ " - Tophat")
+              { model | pageState = Loaded page fromRoute history (Search 0 subModel) toRoute, progress = Progress.done model.progress } => Ports.title (Search.title subModel ++ " - Tophat")
             else
               model => Cmd.none
 
@@ -281,25 +303,69 @@ updatePage page msg model =
         case model.pageState of
           Transitioning page fromRoute history toRoute ->
             if route == toRoute then
-              { model | pageState = Loaded page fromRoute history (Errored error) toRoute, progress = Progress.done model.progress } => Ports.title "Loading Error - Tophat"
+              { model | pageState = Loaded page fromRoute history (Errored 0 error) toRoute, progress = Progress.done model.progress } => Ports.title "Loading Error - Tophat"
             else
               model => Cmd.none
 
           _ ->
             model => Cmd.none
 
-      (HomeMsg subMsg, Home subModel) ->
-        toPage Home HomeMsg Home.update subMsg subModel
+      (HomeMsg subMsg, Home scroll subModel) ->
+        toPage (Home scroll) HomeMsg Home.update subMsg subModel
 
-      (DrinkMsg subMsg, Drink subModel) ->
-        toPage Drink DrinkMsg Drink.update subMsg subModel
+      (DrinkMsg subMsg, Drink scroll subModel) ->
+        toPage (Drink scroll) DrinkMsg Drink.update subMsg subModel
 
-      (SearchMsg subMsg, Search subModel) ->
-        toPage Search SearchMsg Search.update subMsg subModel
+      (SearchMsg subMsg, Search scroll subModel) ->
+        toPage (Search scroll) SearchMsg Search.update subMsg subModel
 
       ( _, _ ) ->
         -- Disregard incoming messages that arrived for the wrong page
         model => Cmd.none
+
+
+scrollPage : Int -> Page -> Page
+scrollPage scroll page =
+  case page of
+    Blank ->
+      Blank
+
+    NotFound _ ->
+      NotFound scroll
+
+    Errored _ subModel ->
+      Errored scroll subModel
+
+    Home _ subModel ->
+      Home scroll subModel
+
+    Drink _ subModel ->
+      Drink scroll subModel
+
+    Search _ subModel ->
+      Search scroll subModel
+
+
+getScroll : Page -> Int
+getScroll page =
+  case page of
+    Blank ->
+      0
+
+    NotFound scroll ->
+      scroll
+
+    Errored scroll _ ->
+      scroll
+
+    Home scroll _ ->
+      scroll
+
+    Drink scroll _ ->
+      scroll
+
+    Search scroll _ ->
+      scroll
 
 
 getPage : PageState -> Page
@@ -362,6 +428,7 @@ uriUpdate newRoute model =
             { model
             | pageState = Displaying toPage newRoute
             , bfcache = Lru.insert (Route.toString route) fromPage model.bfcache
+            , defer = Defer.init [ Ports.setScroll (getScroll toPage) ]
             } => Cmd.none
       else
         model => Cmd.none
@@ -398,7 +465,11 @@ uriUpdate newRoute model =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  Progress.subscriptions progressConfig model.progress
+  Sub.batch
+    [ Progress.subscriptions progressConfig model.progress
+    , Ports.scroll Scroll
+    , Defer.subscriptions model.defer |> Sub.map DeferMsg
+    ]
 
 
 main : Program Never Model Msg
