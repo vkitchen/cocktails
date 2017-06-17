@@ -2,6 +2,7 @@ module Main exposing (main)
 
 import Html exposing (..)
 import Json.Decode as Decode exposing (Value)
+import LruCache as Lru
 import Navigation exposing (Location)
 import Page.Drink as Drink
 import Page.Errored as Errored exposing (PageLoadError)
@@ -38,6 +39,7 @@ type alias Model =
   { pageState : PageState
   , frameState : Frame.State
   , progress : Progress.State
+  , bfcache : Lru.LruCache String Page
   }
 
 
@@ -47,6 +49,7 @@ init location =
     { pageState = Displaying Blank Route.None
     , frameState = Frame.init
     , progress = Progress.init
+    , bfcache = Lru.empty 5
     }
 
 
@@ -212,8 +215,12 @@ updatePage page msg model =
 
       (ProgressDone, _) ->
         case model.pageState of
-          Loaded _ _ _ page route ->
-            { model | pageState = Displaying page route, progress = Progress.init, frameState = Frame.updateSearch route model.frameState } => Cmd.none
+          Loaded fromPage fromRoute _ page route ->
+            { model
+            | pageState = Displaying page route, progress = Progress.init
+            , frameState = Frame.updateSearch route model.frameState
+            , bfcache = Lru.insert (Route.toString fromRoute) fromPage model.bfcache
+            } => Cmd.none
 
           _ ->
             model => Cmd.none
@@ -340,10 +347,22 @@ loadRoute route =
 -- needs to be called by init as well as update
 uriUpdate : Route -> Model -> ( Model, Cmd Msg )
 uriUpdate newRoute model =
+  let
+    (_, cachedPage) = Lru.get (Route.toString newRoute) model.bfcache
+  in
   case model.pageState of
-    Displaying page route ->
+    Displaying fromPage route ->
       if newRoute /= route then
-        { model | pageState = Transitioning page route False newRoute, progress = Progress.start } => loadRoute newRoute
+        -- try to get from cache
+        case cachedPage of
+          Nothing ->
+            { model | pageState = Transitioning fromPage route False newRoute, progress = Progress.start } => loadRoute newRoute
+
+          Just toPage ->
+            { model
+            | pageState = Displaying toPage newRoute
+            , bfcache = Lru.insert (Route.toString route) fromPage model.bfcache
+            } => Cmd.none
       else
         model => Cmd.none
 
@@ -352,16 +371,27 @@ uriUpdate newRoute model =
         -- user likely hit back. "finish" loading
         { model | pageState = Loaded page route history page route, progress = Progress.done model.progress } => Cmd.none
       else if newRoute /= toRoute then
-        { model | pageState = Transitioning page route history newRoute, progress = Progress.start } => loadRoute newRoute
+        -- unlikely to happen. but meh
+        case cachedPage of
+          Nothing ->
+            { model | pageState = Transitioning page route history newRoute, progress = Progress.start } => loadRoute newRoute
+
+          Just toPage ->
+            { model | pageState = Loaded page route history toPage newRoute, progress = Progress.done model.progress } => Cmd.none
       else
         model => Cmd.none
 
     Loaded page route history _ toRoute ->
       if newRoute == route then
         -- user likely hit back. "finish" loading
-        { model | pageState = Loaded page route history page route, progress = Progress.done model.progress } => Cmd.none
+        { model | pageState = Loaded page route history page route } => Cmd.none
       else if newRoute /= toRoute then
-        { model | pageState = Transitioning page route history newRoute, progress = Progress.start } => loadRoute newRoute
+        case cachedPage of
+          Nothing ->
+            { model | pageState = Transitioning page route history newRoute, progress = Progress.start } => loadRoute newRoute
+
+          Just toPage ->
+            { model | pageState = Loaded page route history toPage newRoute } => Cmd.none
       else
          model => Cmd.none
 

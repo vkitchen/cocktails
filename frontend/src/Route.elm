@@ -1,4 +1,4 @@
-module Route exposing (Route(..), href, modifyUrl, newUrl, fromLocation)
+module Route exposing (Route(..), toString, href, modifyUrl, newUrl, fromLocation)
 
 import Html exposing (Attribute)
 import Html.Attributes as Attr
@@ -32,14 +32,17 @@ route =
         , Url.map Search (s "search" </> decodedString)
         ]
 
-routeToString : Route -> String
-routeToString page =
+
+-- PUBLIC HELPERS --
+
+toString : Route -> String
+toString page =
   let
     pieces =
       case page of
         None ->
-          []
-          
+          [ "NONE" ]
+
         Home ->
           []
 
@@ -52,21 +55,20 @@ routeToString page =
   in
   "/" ++ (String.join "/" (List.map encodeUri pieces))
 
--- PUBLIC HELPERS --
 
 href : Route -> Attribute msg
 href route =
-  Attr.href (routeToString route)
+  Attr.href (toString route)
 
 
 modifyUrl : Route -> Cmd msg
 modifyUrl =
-  routeToString >> Navigation.modifyUrl
+  toString >> Navigation.modifyUrl
 
 
 newUrl : Route -> Cmd msg
 newUrl =
-  routeToString >> Navigation.newUrl
+  toString >> Navigation.newUrl
 
 
 fromLocation : Location -> Route
