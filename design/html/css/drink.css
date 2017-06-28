@@ -1,0 +1,44 @@
+/*
+  CONTENT
+  -------
+*/
+
+.content {
+  margin: 20px 60px;
+  flex: 1;
+  display: flex;
+}
+
+.content img {
+  height: 600px;
+  width: 600px;
+}
+
+.related {
+  margin-left: auto;
+}
+
+.related h3 {
+  margin-top: 0;
+}
+
+.related-drink {
+  display: flex;
+  margin: 10px 0;
+}
+
+.related-drink img {
+  height: 100px;
+  width: 100px;
+}
+
+.related-drink .drink-info {
+  margin-left: 5px;
+}
+
+.related-drink .drink-info div {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
