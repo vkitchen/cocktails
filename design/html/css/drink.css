@@ -4,18 +4,22 @@
 */
 
 .content {
-  margin: 20px 60px;
+  margin: 20px auto;
   flex: 1;
   display: flex;
 }
 
-.content img {
+.recipe > img {
   height: 600px;
   width: 600px;
 }
 
+.recipe-title {
+  font-size: 24px;
+}
+
 .related {
-  margin-left: auto;
+  margin-left: 60px;
 }
 
 .related h3 {
@@ -37,8 +41,14 @@
 }
 
 .related-drink .drink-info div {
+  margin-top: 5px;
   width: 200px;
+  line-height: initial;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.comment {
+  display: flex;
 }
