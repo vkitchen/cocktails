@@ -56,3 +56,16 @@
 .recipe-social {
   margin-top: auto;
 }
+
+.recipe-favorite {
+  color: #000;
+  text-decoration: none;
+}
+
+.recipe-favorite:hover {
+  color: #bf0b0b;
+}
+
+.recipe-favorite:active {
+  color: #cc0c0c;
+}
