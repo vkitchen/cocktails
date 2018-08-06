@@ -21,8 +21,9 @@ sub parse_file {
         return \%drink;
     }
 
-    for (@{$drink{'ingredients'}}) {
-        if (index(lc %{$_}{'name'}, lc $query) != -1) {
+    for my $ingredient (@{$drink{'ingredients'}}) {
+        my %ingredient = %{$ingredient};
+        if (index(lc $ingredient{'name'}, lc $query) != -1) {
             return \%drink;
         }
     }
