@@ -1,33 +1,37 @@
 #!/usr/bin/env perl
-use v5.20;
+use v5.16;
 use strict;
 use warnings;
-use feature qw(signatures);
 
 use Mojolicious::Lite;
 use Mojo::Log;
 use Data::Dumper;
 use File::Slurp;
 use JSON;
-use List::Util qw(any);
-
-no warnings qw(experimental::signatures);
-
 
 my $log = Mojo::Log->new;
 
-sub parse_file($file, $query) {
+sub parse_file {
+    my $file = shift;
+    my $query = shift;
     my $contents = read_file $file;
     my %drink = %{decode_json $contents};
 
-    if (any { index(lc %{$_}{'name'}, lc $query) != -1 } @{$drink{'ingredients'}}
-            or index(lc $drink{'name'}, lc $query) != -1) {
+    if (index(lc $drink{'name'}, lc $query) != -1) {
         return \%drink;
     }
+
+    for (@{$drink{'ingredients'}}) {
+        if (index(lc %{$_}{'name'}, lc $query) != -1) {
+            return \%drink;
+        }
+    }
+
     return undef;
 }
 
-sub filter($query) {
+sub filter {
+    my $query = shift;
     my @files = glob("public/drinks/*.json");
 
     my @drinks;
@@ -41,7 +45,7 @@ sub filter($query) {
     return \@drinks;
 }
 
-sub index_drinks() {
+sub index_drinks {
     my @files = glob("public/drinks/*.json");
 
     my @drinks;
