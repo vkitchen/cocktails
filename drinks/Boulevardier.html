@@ -1,0 +1,15 @@
+define(`NAME', Boulevardier)
+define(`SERVE', On the rocks)
+define(`GARNISH', Orange peel or cherry)
+define(`DRINKWARE', Old Fashioned glass)
+define(`INGREDIENTS',
+<li>30-45 ml Bourbon</li>
+<li>30 ml Sweet vermouth</li>
+<li>30 ml Campari</li>
+)
+define(`METHOD', `Stir with ice, strain, garnish and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

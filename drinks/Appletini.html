@@ -1,0 +1,16 @@
+define(`NAME', Appletini)
+define(`IMG', Appletini.jpg)
+define(`SERVE', Straight up)
+define(`GARNISH', `Apple slice, cherry')
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>4.5 cl Vodka</li>
+<li>1.5 cl Apple schnapps / Calvados</li>
+<li>1.5 cl Cointreau</li>
+)
+define(`METHOD', `Mix in a shaker, then pour into a chilled glass. Garnish and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

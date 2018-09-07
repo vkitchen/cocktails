@@ -1,0 +1,15 @@
+define(`NAME', 7 and 7)
+define(`IMG', 7%20and%207.jpg)
+define(`SERVE', On the rocks)
+define(`GARNISH', Lime wedge)
+define(`DRINKWARE', Collins glass)
+define(`INGREDIENTS',
+<li>30 ml Seagrem's Seven Crown whiskey</li>
+<li>260 ml 7 up</li>
+)
+define(`METHOD', `Pour whiskey into Collins glass filled with ice. Fill to desired level with 7 Up. Stir lightly.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

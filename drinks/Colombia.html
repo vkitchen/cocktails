@@ -1,0 +1,16 @@
+define(`NAME', Colombia)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>2 parts Vodka or Brandy</li>
+<li>1 part Blue Curaçao</li>
+<li>1 part Grenadine</li>
+<li>1 part Lemon juice</li>
+<li>6 parts Orange juice</li>
+)
+define(`METHOD', `Shake the vodka and citrus juices in a mixer, then strain into the glass. Slide the grenadine down one side of the glass, where it will sink to the bottom. Slide the curacao down the other side, to lie between the vodka and grenadine, and serve before the layers have a chance to mix.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

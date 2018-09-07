@@ -1,0 +1,21 @@
+define(`NAME', Vampiro)
+define(`SERVE', On the rocks)
+define(`GARNISH', Chili pepper)
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>5 cl Tequila (silver)</li>
+<li>7 cl Tomato juice</li>
+<li>3 cl Orange juice</li>
+<li>1 cl Lime juice</li>
+<li>1 tsp Clear honey</li>
+<li>A half slice onion finely chopped</li>
+<li>A few slices red hot chili peppers</li>
+<li>3-4 drops Worchestershire sauce</li>
+<li>Salt</li>
+)
+define(`METHOD', `Stirring gently, pour all ingredients into highball glass. Garnish.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

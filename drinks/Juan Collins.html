@@ -1,0 +1,16 @@
+define(`NAME', Juan Collins)
+define(`SERVE', On the rocks)
+define(`GARNISH', Lime wedge and maraschino cherry)
+define(`DRINKWARE', Collins glass)
+define(`INGREDIENTS',
+<li>1 1/2 oz Tequila</li>
+<li>1 oz Lemon juice</li>
+<li>1/2 oz Agave nectar</li>
+<li>A splash of Soda water</li>
+)
+define(`METHOD', `Pour the tequila, lemon juice, and nectar into a collins glass over ice, stir. Add splash of club soda and garnish with lime and cherry.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

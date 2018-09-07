@@ -1,0 +1,14 @@
+define(`NAME', Lorraine)
+define(`SERVE', On the rocks)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>2 parts Gin</li>
+<li>1 part Lillet</li>
+<li>1 part Grand Marnier</li>
+)
+define(`METHOD', `Stir with ice, strain into glass, and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

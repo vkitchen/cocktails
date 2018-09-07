@@ -1,0 +1,16 @@
+define(`NAME', Piña Colada)
+define(`IMG', Piña%20Colada.jpg)
+define(`SERVE', Blended)
+define(`GARNISH', `Pineapple slice, Maraschino cherry')
+define(`DRINKWARE', Poco)
+define(`INGREDIENTS',
+<li>3 cl White rum</li>
+<li>3 cl Coconut milk</li>
+<li>9 cl Pineapple juice</li>
+)
+define(`METHOD', `Mix with crushed ice in blender until smooth. Pour into chilled glass, garnish and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

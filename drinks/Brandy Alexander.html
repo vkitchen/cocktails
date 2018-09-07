@@ -1,0 +1,15 @@
+define(`NAME', Brandy Alexander)
+define(`SERVE', Straight up)
+define(`GARNISH', Nutmeg)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>3 cl Cognac</li>
+<li>3 cl Brown Crème de Cacao</li>
+<li>3 cl Light Cream</li>
+)
+define(`METHOD', `Shake all ingredients with ice and strain contents into a cocktail glass. Sprinkle nutmeg on top and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

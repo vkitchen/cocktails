@@ -1,0 +1,15 @@
+define(`NAME', Culto A La Vida)
+define(`SERVE', On the rocks)
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>60 ml Havana Club Añejo 7 Años</li>
+<li>120 ml Cranberry juice</li>
+<li>15 ml Lime juice</li>
+<li>1 tsp Sugar</li>
+)
+define(`METHOD', `Mixing in the glass. Dissolve sugar in lime. Add ice, cranberry and run.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

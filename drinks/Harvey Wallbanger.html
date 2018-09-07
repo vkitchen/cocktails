@@ -1,0 +1,16 @@
+define(`NAME', Harvey Wallbanger)
+define(`IMG', Harvey%20Wallbanger.jpg)
+define(`SERVE', On the rocks)
+define(`GARNISH', `Orange slice, Cherry')
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>4.5 cl Vodka</li>
+<li>1.5 cl Galliano</li>
+<li>9 cl Orange juice</li>
+)
+define(`METHOD', `Stir the vodka and orange juice with ice in the glass, then float the Galliano on top. Garnish and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

@@ -1,0 +1,16 @@
+define(`NAME', Orgasm)
+define(`IMG', Orgasm.jpg)
+define(`SERVE', On the rocks)
+define(`GARNISH', Cherry)
+define(`DRINKWARE', Old Fashioned glass)
+define(`INGREDIENTS',
+<li>3/4 oz Amaretto</li>
+<li>3/4 oz Kahlúa</li>
+<li>3/4 oz Baileys Irish Cream</li>
+)
+define(`METHOD', `Build all ingredients over ice in an old fashioned glass or shot glass.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

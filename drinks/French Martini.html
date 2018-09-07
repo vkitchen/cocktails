@@ -1,0 +1,14 @@
+define(`NAME', French Martini)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>4.5 cl Vodka</li>
+<li>1.5 cl Raspberry liqueur</li>
+<li>1.5 cl Pineapple juice</li>
+)
+define(`METHOD', `Pour all ingredients into shaker with ice cubes. Shake well and strain into a chilled cocktail glass. Squeeze oil from lemon peel onto the drink.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

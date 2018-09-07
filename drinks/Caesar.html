@@ -1,0 +1,19 @@
+define(`NAME', Caesar)
+define(`IMG', Caesar.jpg)
+define(`SERVE', On the rocks)
+define(`GARNISH', `Stalk of celery, wedge of lime')
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>6 oz Clamato juice</li>
+<li>1-1 1/2 oz Vodka</li>
+<li>2 dashes Hot sauce</li>
+<li>4 dashes Worcestershire suace</li>
+<li>Celery salt</li>
+<li>Ground black pepper</li>
+)
+define(`METHOD', `Rim glass with celery salt, and a lime wedge.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

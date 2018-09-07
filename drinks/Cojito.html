@@ -1,0 +1,16 @@
+define(`NAME', Cojito)
+define(`SERVE', Straight up)
+define(`GARNISH', Trimmed coconut and mint leaf)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>15 ml White rum</li>
+<li>5 ml Malibu</li>
+<li>5 ml Lime juice</li>
+<li>A Sprig of mint</li>
+)
+define(`METHOD', `In a shaker add white rum, Malibu, lime juice, some mint leaves and crushed ice, garnish with the sprig of mint.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

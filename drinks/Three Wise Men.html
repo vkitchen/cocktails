@@ -1,0 +1,14 @@
+define(`NAME', Three Wise Men)
+define(`SERVE', Neat or On the rocks)
+define(`DRINKWARE', Old Fashioned glass)
+define(`INGREDIENTS',
+<li>1 part Scotch Whisky</li>
+<li>1 part Tennessee Whiskey</li>
+<li>1 part Bourbon Whiskey</li>
+)
+define(`METHOD', `Mix in an old fashioned glass')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

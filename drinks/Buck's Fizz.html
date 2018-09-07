@@ -1,0 +1,15 @@
+define(`NAME', Buck's Fizz)
+define(`IMG', Buck's%20Fizz.jpg)
+define(`SERVE', Neat)
+define(`GARNISH', Orange twist)
+define(`DRINKWARE', Champagne flute)
+define(`INGREDIENTS',
+<li>5 cl Orange juice</li>
+<li>10 cl Champagne</li>
+)
+define(`METHOD', `Pour the orange juice into glass and top up Champagne. Stir gently, garnish and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

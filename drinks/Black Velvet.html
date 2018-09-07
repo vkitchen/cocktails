@@ -1,0 +1,14 @@
+define(`NAME', Black Velvet)
+define(`IMG', Black%20Velvet.jpg)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Pilsner glass)
+define(`INGREDIENTS',
+<li>1 part Stout</li>
+<li>1 part Champagne</li>
+)
+define(`METHOD', `Mix equal parts stout and Champagne')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

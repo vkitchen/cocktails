@@ -1,0 +1,15 @@
+define(`NAME', Blueberry Tea)
+define(`SERVE', Hot)
+define(`GARNISH', Lemon slice)
+define(`DRINKWARE', Brandy snifter)
+define(`INGREDIENTS',
+<li>1 oz Grand Marnier</li>
+<li>1 oz Amaretto</li>
+<li>Hot Orange pekoe tea to taste</li>
+)
+define(`METHOD', `Add both liqueurs to the snifter and then fill with hot tea to taste. Swaddle the brandy snifter in serviettes or a cloth to protect the hands. Some suggest a sugared rim, or adding sugar to the tea, or a lemon garnish.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

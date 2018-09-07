@@ -1,0 +1,15 @@
+define(`NAME', Orange Tundra)
+define(`SERVE', On the rocks)
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>25 ml Vodka</li>
+<li>25 ml Cream Soda</li>
+<li>25 ml Kahlua</li>
+<li>25 ml Orange juice</li>
+)
+define(`METHOD', `In a glass without stirring add in order: vodka, cream, soda, coffee liqueur, orange juice. Serve immediately')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

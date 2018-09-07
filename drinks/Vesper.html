@@ -1,0 +1,16 @@
+define(`NAME', Vesper)
+define(`IMG', Vesper.jpg)
+define(`SERVE', Straight up)
+define(`GARNISH', Lemon peel)
+define(`DRINKWARE', Champagne coupe)
+define(`INGREDIENTS',
+<li>6 cl Gin</li>
+<li>1.5 cl Vodka</li>
+<li>0.75 cl Lillet Blanc</li>
+)
+define(`METHOD', `Shake over ice until well chilled, then strain into a deep goblet and garnish with a thin slice of lemon peel.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

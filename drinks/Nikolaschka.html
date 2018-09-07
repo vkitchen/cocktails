@@ -1,0 +1,16 @@
+define(`NAME', Nikolaschka)
+define(`IMG', Nikolaschka.jpg)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Snifter)
+define(`INGREDIENTS',
+<li>1 1/2 oz Cognac</li>
+<li>A Lemon disk</li>
+<li>1 tsp Sugar</li>
+<li>1 tsp Instant coffee</li>
+)
+define(`METHOD', `Pour cognac into brandy snifter, place lemon disk across the top of the glass and top with sugar and coffee.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

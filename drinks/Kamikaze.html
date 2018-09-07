@@ -1,0 +1,16 @@
+define(`NAME', Kamikaze)
+define(`IMG', Kamikaze.jpg)
+define(`SERVE', Straight up)
+define(`GARNISH', Lime slice)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>3 cl Vodka</li>
+<li>3 cl Triple sec</li>
+<li>3 cl Lime juice</li>
+)
+define(`METHOD', `Shake all ingredients together with ice. Strain into glass, garnish and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

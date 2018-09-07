@@ -1,0 +1,15 @@
+define(`NAME', Rickey)
+define(`SERVE', On the rocks)
+define(`GARNISH', Lime half shell)
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+`<li>2 oz Bourbon, Rye whiskey, or Gin</li>'
+<li>Half of a lime squeezed and dropped in the glass</li>
+<li>Sparkling mineral water</li>
+)
+define(`METHOD', `Combine spirit, lime and shell in a highball or wine glass. Add ice, stir and then add sparkling mineral water.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

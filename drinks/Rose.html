@@ -1,0 +1,16 @@
+define(`NAME', Rose)
+define(`IMG', Rose.jpg)
+define(`SERVE', Straight up)
+define(`GARNISH', Maraschino cherry)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>4 cl Dry vermouth</li>
+<li>2 cl Kirsch</li>
+<li>3 dashes Strawberry syrup</li>
+)
+define(`METHOD', `Shake together in a cocktail shaker, then strain into chilled glass. Garnish and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

@@ -1,0 +1,17 @@
+define(`NAME', Whiskey sour)
+define(`IMG', Whiskey%20sour.jpg)
+define(`SERVE', On the rocks)
+define(`GARNISH', `Maraschino cherry, Half orange slice')
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>4.5 cl Bourbon whiskey</li>
+<li>3 cl Lemon juice</li>
+<li>1.5 cl Gomme syrup</li>
+<li>A dash of Egg white (optional)</li>
+)
+define(`METHOD', `Shake with ice. Strain into chilled glass, garnish and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

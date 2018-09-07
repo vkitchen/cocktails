@@ -1,0 +1,17 @@
+define(`NAME', Gin Fizz)
+define(`IMG', Gin%20Fizz.jpg)
+define(`SERVE', On the rocks)
+define(`GARNISH', Lemon slice)
+define(`DRINKWARE', Old Fashioned glass)
+define(`INGREDIENTS',
+<li>4.5 cl Gin</li>
+<li>3 cl Lemon juice</li>
+<li>1 cl Gomme syrup</li>
+<li>8 cl Soda water</li>
+)
+define(`METHOD', `Shake all ingredients with ice cubes, except soda water. Pour into glass. Top with soda water.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

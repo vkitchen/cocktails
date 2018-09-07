@@ -1,0 +1,16 @@
+define(`NAME', Prince of Wales)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Champagne flute)
+define(`INGREDIENTS',
+<li>1 part Lemon juice</li>
+<li>1 part Cherry brandy</li>
+<li>1 part Strawberry</li>
+<li>1 tsp Sugar</li>
+<li>Champagne</li>
+)
+define(`METHOD', `Blend and then pour into a champagne glass and fill with champagne.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

@@ -1,0 +1,14 @@
+define(`NAME', Bellini)
+define(`IMG', Bellini.jpg)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Champagne flute)
+define(`INGREDIENTS',
+<li>10 cl Prosecco</li>
+<li>5 cl White Peach purée</li>
+)
+define(`METHOD', `Pour peach purée into chilled flute, add sparkling wine. Stir gently.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

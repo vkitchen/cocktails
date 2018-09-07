@@ -1,0 +1,15 @@
+define(`NAME', Paradise)
+define(`IMG', Paradise.jpg)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>3.5 cl Gin</li>
+<li>2 cl Apricot brandy</li>
+<li>1.5 cl Orange juice</li>
+)
+define(`METHOD', `Shake together over ice. Strain into cocktail glass and serve chilled.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

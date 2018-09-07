@@ -1,0 +1,16 @@
+define(`NAME', Hanky Panky)
+define(`IMG', Hanky%20Panky.jpg)
+define(`SERVE', Straight up)
+define(`GARNISH', Orange peel)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>1 1/2 oz Gin</li>
+<li>1 1/2 oz Italian Vermouth</li>
+<li>2 dashes Fernet Branca</li>
+)
+define(`METHOD', `Shake with ice. Strain into cocktail glass. Garnish by squeezing an orange peel over the top.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

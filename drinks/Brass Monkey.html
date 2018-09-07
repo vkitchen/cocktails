@@ -1,0 +1,14 @@
+define(`NAME', Brass Monkey)
+define(`SERVE', On the rocks)
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>1 part Dark rum</li>
+<li>1 part Vodka</li>
+<li>1 part Orange juice</li>
+)
+define(`METHOD', `Stir together and serve over ice.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

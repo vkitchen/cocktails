@@ -1,0 +1,14 @@
+define(`NAME', Godfather)
+define(`IMG', Godfather.jpg)
+define(`SERVE', On the rocks)
+define(`DRINKWARE', Old Fashioned glass)
+define(`INGREDIENTS',
+<li>3.5 cl Scotch</li>
+<li>3.5 cl Disaronno</li>
+)
+define(`METHOD', `Pour all ingredients directly into old fashioned glass filled with ice cubes. Stir gently.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

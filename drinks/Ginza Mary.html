@@ -1,0 +1,18 @@
+define(`NAME', Ginza Mary)
+define(`SERVE', Straight up)
+define(`GARNISH', Black pepper)
+define(`DRINKWARE', Old Fashioned glass)
+define(`INGREDIENTS',
+<li>2 oz Vodka</li>
+<li>1 1/2 oz Sake</li>
+<li>2 oz Tomato juice</li>
+<li>1/2 oz Lemon juice</li>
+<li>3-5 dashes Tobasco Sauce</li>
+<li>2 dashes Soy sauce</li>
+)
+define(`METHOD', `Combine ingredients and cracked ice, mix, pour into chilled Old Fashioned Glass')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

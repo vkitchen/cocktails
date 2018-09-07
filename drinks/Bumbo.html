@@ -1,0 +1,17 @@
+define(`NAME', Bumbo)
+define(`SERVE', Straight up)
+define(`GARNISH', `Nutmeg, Cinnamon')
+define(`DRINKWARE', Old Fashioned glass)
+define(`INGREDIENTS',
+<li>2 oz Rum</li>
+<li>1 oz Water</li>
+<li>2 Sugar cubes</li>
+<li>1/4 tsp Cinnamon</li>
+<li>1/4 tsp Nutmeg</li>
+)
+define(`METHOD', `Mix and garnish.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

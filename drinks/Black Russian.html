@@ -1,0 +1,14 @@
+define(`NAME', Black Russian)
+define(`IMG', Black%20Russian.jpg)
+define(`SERVE', On the rocks)
+define(`DRINKWARE', Old Fashioned glass)
+define(`INGREDIENTS',
+<li>5 cl Vodka</li>
+<li>2 cl Coffee liqueur</li>
+)
+define(`METHOD', `Pour the ingredients into an old fashioned glass filled with ice cubes. Stir gently.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

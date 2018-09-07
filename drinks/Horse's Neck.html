@@ -1,0 +1,16 @@
+define(`NAME', Horse's Neck)
+define(`IMG', Horse's%20Neck.jpg)
+define(`SERVE', On the rocks)
+define(`GARNISH', Long spiral of lemon zest)
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>4 cl Brandy</li>
+<li>12 cl Ginger ale</li>
+<li>A dash of Angostura bitters</li>
+)
+define(`METHOD', `Pour brandy and ginger ale directly into highball glass with ice cubes. Stir gently. Garnish with lemon zest. If desired, add dashes of Angostura Bitter.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

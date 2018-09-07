@@ -1,0 +1,14 @@
+define(`NAME', Kir Royal)
+define(`IMG', Kir%20Royal.jpg)
+define(`SERVE', Neat)
+define(`DRINKWARE', Champagne flute)
+define(`INGREDIENTS',
+<li>9 cl Champagne</li>
+<li>1 cl Crème de Cassis</li>
+)
+define(`METHOD', `Add the crème de cassis to the bottom of the glass, then top up champagne.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

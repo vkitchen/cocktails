@@ -1,0 +1,13 @@
+define(`NAME', Snakebite)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Pint glass)
+define(`INGREDIENTS',
+<li>1 part Beer</li>
+<li>1 part Cider</li>
+)
+define(`METHOD', `Mix in equal volumes in a standard pint glass')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

@@ -1,0 +1,15 @@
+define(`NAME', Brandy Daisy)
+define(`SERVE', On the rocks)
+define(`DRINKWARE', Collins glass)
+define(`INGREDIENTS',
+<li>1 1/2 oz Brandy</li>
+<li>3/4 oz Yellow Chartreuse</li>
+<li>3/4 oz Lemon juice</li>
+<li>A splash of Soda water</li>
+)
+define(`METHOD', `Stir well with cracked ice in a cocktail shaker, then strain into a chilled Collins glass and top with a splash of chilled club soda or seltzer.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

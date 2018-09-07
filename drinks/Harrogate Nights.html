@@ -1,0 +1,18 @@
+define(`NAME', Harrogate Nights)
+define(`SERVE', On the rocks)
+define(`GARNISH', Orange slice)
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>2.5 cl Vodka</li>
+<li>1.25 cl Archers Peach Schnapps</li>
+<li>1.25 cl Malibu</li>
+<li>2.5 cl Orange juice</li>
+<li>2.5 cl Pineapple juice</li>
+<li>A dash of Cranberry juice</li>
+)
+define(`METHOD', `Fill a Highball glass with ice then add a dash of cranberry juice. Add the rest of the ingredients to the Boston glass, shake and strain into the Highball glass. Garnish and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

@@ -1,0 +1,23 @@
+define(`NAME', Ramos Gin Fizz)
+define(`IMG', Ramos%20Gin%20Fizz.jpg)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Collins glass)
+define(`INGREDIENTS',
+<li>4.5 cl Gin</li>
+<li>1.5 cl Lime juice</li>
+<li>1.5 cl Lemon juice</li>
+<li>3 cl Simple syrup</li>
+<li>6 cl Cream</li>
+<li>A Egg white</li>
+<li>3 dashes Orange blossom water</li>
+<li>2 drops Vanilla extract</li>
+<li>Soda water</li>
+)
+define(`METHOD', `All ingredients except the soda are poured in a mixing glass, dry shaken (no ice) for two minutes, then ice is added and shaken hard for another minute
+
+Strained into a highball glass without ice and topped with soda')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

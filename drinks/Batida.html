@@ -1,0 +1,14 @@
+define(`NAME', Batida)
+define(`SERVE', On the rocks)
+define(`DRINKWARE', Zombie glass)
+define(`INGREDIENTS',
+<li>2 parts Cachaça</li>
+<li>1 part Fruit juice</li>
+<li>1 Tbsp Sugar</li>
+)
+define(`METHOD', `Mix and pour into chilled glass.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

@@ -1,0 +1,14 @@
+define(`NAME', Pink Gin)
+define(`SERVE', Straight up)
+define(`GARNISH', Shave of lemon rind)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>1 part Plymouth gin</li>
+<li>A dash of Angostura Bitters</li>
+)
+define(`METHOD', `Chill the glass, then coat the inside with the Bitters. Add the gin very well chilled, garnish and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

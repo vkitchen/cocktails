@@ -1,0 +1,15 @@
+define(`NAME', White Russian)
+define(`IMG', White%20Russian.jpg)
+define(`SERVE', On the rocks)
+define(`DRINKWARE', Old Fashioned glass)
+define(`INGREDIENTS',
+<li>5 cl Vodka</li>
+<li>2 cl Coffee liqueur</li>
+<li>3 cl Fresh cream</li>
+)
+define(`METHOD', `Pour coffee liqueur and vodka into an Old Fashioned glass filled with ice. Float fresh cream on top and stir slowly.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

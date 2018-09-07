@@ -1,0 +1,14 @@
+define(`NAME', Angel Face)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>3 cl Gin</li>
+<li>3 cl Apricot Brandy</li>
+<li>3 cl Calvados</li>
+)
+define(`METHOD', `Shake all ingredients with ice and strain contents into a cocktail glass.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

@@ -1,0 +1,15 @@
+define(`NAME', Savoy Royale)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Champagne flute)
+define(`INGREDIENTS',
+<li>1/2 Peach</li>
+<li>2 Strawberries</li>
+<li>1 tsp Sugar</li>
+<li>Champagne</li>
+)
+define(`METHOD', `Liquidise, strain into a champagne glass and fill with champagne.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

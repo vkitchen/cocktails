@@ -1,0 +1,13 @@
+define(`NAME', Baby Guinness)
+define(`SERVE', Neat)
+define(`DRINKWARE', Shot glass)
+define(`INGREDIENTS',
+<li>3/4 shot Coffee liqueur</li>
+<li>1/4 shot Irish cream</li>
+)
+define(`METHOD', `Float Irish cream on top of coffee liqueur')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

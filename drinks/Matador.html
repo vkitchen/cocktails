@@ -1,0 +1,15 @@
+define(`NAME', Matador)
+define(`SERVE', Straight up)
+define(`GARNISH', Lime slice or twist)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>1-1.5 parts Silver tequila</li>
+<li>2-3 parts Pineapple juice</li>
+<li>Juice of half a lime</li>
+)
+define(`METHOD', `Mix the ingredients in a shaker half full of ice. Strain and serve in a chilled cocktail glass or champagne flute.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

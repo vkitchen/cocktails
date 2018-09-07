@@ -1,0 +1,14 @@
+define(`NAME', Farnell)
+define(`SERVE', On the rocks)
+define(`GARNISH', Lime wedge and a sprig of mint)
+define(`DRINKWARE', Collins glass)
+define(`INGREDIENTS',
+<li>1 part Jack Daniel's Tennessee Whiskey</li>
+<li>3 parts Lemonade</li>
+)
+define(`METHOD', `Pour Jack Daniel's into Collins glass filled with ice. Fill to desired level with lemonade. Stir lightly and garnish with lime and mint.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

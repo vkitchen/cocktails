@@ -1,0 +1,14 @@
+define(`NAME', Stinger)
+define(`IMG', Stinger.jpg)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>5 cl Cognac</li>
+<li>2 cl Crème de Menthe (white)</li>
+)
+define(`METHOD', `Pour in a mixing glass with ice, stir and strain into a cocktail glass. May also be served on rocks in a rocks glass.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

@@ -1,0 +1,20 @@
+define(`NAME', Planter's Punch)
+define(`IMG', Planter's%20Punch.jpg)
+define(`SERVE', On the rocks)
+define(`GARNISH', `Cherry, Pineapple slice')
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>4.5 cl Dark rum</li>
+<li>3.5 cl Orange juice</li>
+<li>3.5 cl Pineapple juice</li>
+<li>2 cl Lemon juice</li>
+<li>1 cl Grenadine</li>
+<li>1 cl Simple syrup</li>
+<li>3-4 dashes Angostura bitters</li>
+)
+define(`METHOD', `Pour all ingredients, except the bitters, into shaker filled with ice. Shake well. Pour into large glass, filled with ice. Add Angostura bitters, "on top". Garnish with cocktail cherry and pineapple.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

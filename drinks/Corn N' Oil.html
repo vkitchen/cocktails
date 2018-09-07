@@ -1,0 +1,14 @@
+define(`NAME', Corn N' Oil)
+define(`SERVE', On the rocks)
+define(`GARNISH', Lime wedge)
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>60 ml (Cruzan) blackstrap rum</li>
+<li>10 ml Falernum</li>
+)
+define(`METHOD', `Pour the rum and falernum into a glass over ice and stir well. Squeeze in the lime wedge(s) and drop it in.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

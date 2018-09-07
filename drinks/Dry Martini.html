@@ -1,0 +1,15 @@
+define(`NAME', Dry Martini)
+define(`IMG', Martini.jpg)
+define(`SERVE', Straight up)
+define(`GARNISH', Olive or Lemon twist)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>6 cl Gin</li>
+<li>1 cl Dry vermouth</li>
+)
+define(`METHOD', `Straight: Pour all ingredients into mixing glass with ice cubes. Stir well. Strain in chilled martini cocktail glass. Squeeze oil from lemon peel onto the drink, or garnish with olive.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

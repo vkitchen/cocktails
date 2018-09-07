@@ -1,0 +1,17 @@
+define(`NAME', Pisco Sour)
+define(`IMG', Pisco%20Sour.jpg)
+define(`SERVE', Straight up)
+define(`GARNISH', Angostura bitters (1 dash))
+define(`DRINKWARE', Old Fashioned glass)
+define(`INGREDIENTS',
+<li>4.5 cl Pisco</li>
+<li>3 cl Lime juice</li>
+<li>2 cl Simple syrup</li>
+<li>A Egg white</li>
+)
+define(`METHOD', `Vigorously shake and strain contents in a cocktail shaker with ice cubes, then pour into glass and garnish with bitters.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

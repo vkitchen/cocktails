@@ -1,0 +1,18 @@
+define(`NAME', Mojito)
+define(`IMG', Mojito.jpg)
+define(`SERVE', On the rocks)
+define(`GARNISH', `Mint sprig, Lemon slice')
+define(`DRINKWARE', Collins glass)
+define(`INGREDIENTS',
+<li>4 cl White rum</li>
+<li>3 cl Lime juice</li>
+<li>6 Mint sprigs</li>
+<li>2 tsp Sugar</li>
+<li>Soda water</li>
+)
+define(`METHOD', `Muddle mint leaves with sugar and lime juice. Add a splash of soda water and fill the glass with cracked ice. Pour the rum and top with soda water. Garnish and serve with straw.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

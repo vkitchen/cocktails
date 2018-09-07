@@ -1,0 +1,15 @@
+define(`NAME', Salty Dog)
+define(`IMG', Salty%20Dog.jpg)
+define(`SERVE', Straight up)
+define(`GARNISH', Salted glass)
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>4 cl Gin</li>
+<li>10 cl Grapefruit juice</li>
+)
+define(`METHOD', `Shake gin and grapefruit juice in cocktail shaker. Strain into a salt-rimmed highball glass.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

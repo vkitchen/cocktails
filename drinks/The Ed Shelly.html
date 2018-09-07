@@ -1,0 +1,13 @@
+define(`NAME', The Ed Shelly)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Snifter)
+define(`INGREDIENTS',
+<li>1 part Canadian whisky</li>
+<li>1 part Apple Schnapps</li>
+)
+define(`METHOD', `Shake ingredients together. Serve straight or with one ice cube')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

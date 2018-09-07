@@ -1,0 +1,15 @@
+define(`NAME', Daiquiri)
+define(`IMG', Daiquiri.jpg)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>4.5 cl White rum</li>
+<li>2.5 cl Lime juice</li>
+<li>1.5 cl Simple syrup</li>
+)
+define(`METHOD', `Pour all ingredients into shaker with ice cubes. Shake well. Strain in chilled cocktail glass.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

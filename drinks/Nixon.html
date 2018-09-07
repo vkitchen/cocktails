@@ -1,0 +1,15 @@
+define(`NAME', Nixon)
+define(`SERVE', On the rocks)
+define(`GARNISH', A slice of peach and a cherry)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>1 part Bourbon</li>
+<li>1 part Sloe gin</li>
+<li>2 dashes Peach bitters</li>
+)
+define(`METHOD', `Stir and serve on the rocks, garnish.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

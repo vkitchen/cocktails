@@ -1,0 +1,16 @@
+define(`NAME', Flaming Doctor Pepper)
+define(`IMG', Flaming%20Doctor%20Pepper.jpg)
+define(`SERVE', Straight up)
+define(`GARNISH', Lemon twist)
+define(`DRINKWARE', Pint glass and shot glass)
+define(`INGREDIENTS',
+<li>1 pint Beer</li>
+<li>3 parts Amaretto</li>
+<li>1 part high-proof liquor</li>
+)
+define(`METHOD', `Layer the two spirits in the shot glass, with the high-proof liquor on top. Light the shot and allow it to burn; then extinguish it by dropping it into the beer glass. Drink immediately.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

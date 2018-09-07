@@ -1,0 +1,49 @@
+define(`SILENT')
+
+define(`DRINKINLINE', `
+<li class="drink">
+  <div class="drink-img">
+    <a href="/drinks/`'NAME`'.html" class="recipe-link">
+      <img src="/img/250x250/`'IMG`'">
+    </a>
+  </div>
+  <div class="recipe">
+    <h3><a href="/drinks/`'NAME`'.html" class="recipe-link"> NAME </a></h3>
+    <ul>
+      INGREDIENTS
+    </ul>
+  </div>
+</li>
+')
+
+define(`CONTENT', `
+<div class="content">
+  <div class="content-inner">
+    <div class="content-title">
+      <h3>Admin Picks</h3>
+    </div>
+    <ul class="drinks-list">
+      include(`drinks/Rob Roy.html')
+      DRINKINLINE
+      include(`drinks/Sazerac.html')
+      DRINKINLINE
+      include(`drinks/Americano.html')
+      DRINKINLINE
+      include(`drinks/Aperol Spritz.html')
+      DRINKINLINE
+      include(`drinks/The Last Word.html')
+      DRINKINLINE
+      include(`drinks/Corpse Reviver #2.html')
+      DRINKINLINE
+      include(`drinks/Negroni.html')
+      DRINKINLINE
+      include(`drinks/Tom Collins.html')
+      DRINKINLINE
+      include(`drinks/Bramble.html')
+      DRINKINLINE
+    </ul>
+  </div>
+</div>
+')
+
+include(`views/layout.html')

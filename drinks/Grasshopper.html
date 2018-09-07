@@ -1,0 +1,15 @@
+define(`NAME', Grasshopper)
+define(`IMG', Grasshopper.jpg)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>3 cl Crème de menthe (green)</li>
+<li>3 cl Crème de cacao (white)</li>
+<li>3 cl Cream</li>
+)
+define(`METHOD', `Pour ingredients into a cocktail shaker with ice. Shake briskly and then strain into a chilled cocktail glass.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

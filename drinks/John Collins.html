@@ -1,0 +1,17 @@
+define(`NAME', John Collins)
+define(`SERVE', On the rocks)
+define(`GARNISH', `Lemon slice, Maraschino cherry')
+define(`DRINKWARE', Collins glass)
+define(`INGREDIENTS',
+<li>4.5 cl Gin</li>
+<li>3 cl Lemon juice</li>
+<li>1.5 cl Sugar syrup</li>
+<li>6 cl Soda water</li>
+<li>A dash of Angostura bitters</li>
+)
+define(`METHOD', `Pour all ingredients directly into highball glass filled with ice. Stir gently. Garnish. Add a dash of Angostura bitters.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

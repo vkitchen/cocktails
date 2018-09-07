@@ -1,0 +1,17 @@
+define(`NAME', Lynchburg Lemonade)
+define(`IMG', Lynchburg%20Lemonade.jpg)
+define(`SERVE', On the rocks)
+define(`GARNISH', `Lemon wedge, maraschino cherry')
+define(`DRINKWARE', Collins glass)
+define(`INGREDIENTS',
+<li>1 1/4 oz Jack Daniel's</li>
+<li>3/4 oz Triple sec</li>
+<li>2 oz Sour mix</li>
+<li>Lemon-lime soda</li>
+)
+define(`METHOD', `Shake first 3 ingredients with ice and strain into ice-filled glass. Top with the lemonade or lemon-lime. Add ice and stir. Garnish with lemon slices and cherries.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

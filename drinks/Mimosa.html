@@ -1,0 +1,15 @@
+define(`NAME', Mimosa)
+define(`IMG', Mimosa.jpg)
+define(`SERVE', Neat)
+define(`GARNISH', Orange twist)
+define(`DRINKWARE', Champagne flute)
+define(`INGREDIENTS',
+<li>7.5 cl Champagne</li>
+<li>7.5 cl Orange juice</li>
+)
+define(`METHOD', `Ensure both ingredients are well chilled, then mix into the glass. Serve cold.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

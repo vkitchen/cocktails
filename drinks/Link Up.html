@@ -1,0 +1,14 @@
+define(`NAME', Link Up)
+define(`SERVE', On the rocks)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>1 part Southern Comfort</li>
+<li>1 part Vodka</li>
+<li>1 tsp Lime juice</li>
+)
+define(`METHOD', `Shake well, serve on the rocks.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

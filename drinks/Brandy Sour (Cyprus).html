@@ -1,0 +1,15 @@
+define(`NAME', Brandy Sour (Cyprus))
+define(`SERVE', On the rocks)
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>5 cl Cyprus brandy</li>
+<li>2.5 cl Lemon squash</li>
+<li>2-4 drops Bitters</li>
+<li>Top with carbonated water</li>
+)
+define(`METHOD', `Stir into glass over ice, garnish and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

@@ -1,0 +1,14 @@
+define(`NAME', Herbsaint Frappé)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>1 part Herbsaint</li>
+<li>1 part Soda water</li>
+<li>1/2 tsp Simple syrup or sugar</li>
+)
+define(`METHOD', `Stir together with plenty of ice, then strain into a very well chilled glass. Serve very cold.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

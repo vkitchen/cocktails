@@ -1,0 +1,15 @@
+define(`NAME', Gimlet)
+define(`SERVE', Straight up)
+define(`GARNISH', Lime)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>5 parts Gin</li>
+<li>1 part Simple syrup</li>
+<li>1 part Lime cordial</li>
+)
+define(`METHOD', `Mix and serve. Garnish with a slice of lime')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

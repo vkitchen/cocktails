@@ -1,0 +1,17 @@
+define(`NAME', Quentão)
+define(`SERVE', Hot)
+define(`GARNISH', Citrus peel)
+define(`DRINKWARE', Mug)
+define(`INGREDIENTS',
+<li>1 part Cachaça</li>
+<li>1 part Water</li>
+<li>Sugar to taste</li>
+<li>Peel of two oranges and a lime</li>
+`<li>Cloves, cinnamon and ginger to taste</li>'
+)
+define(`METHOD', `Caramelize the sugar with the spices and peels, then add the liquids. Boil for a few minutes then serve hot.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

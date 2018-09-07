@@ -1,0 +1,17 @@
+define(`NAME', Ward 8)
+define(`IMG', Ward%208.jpg)
+define(`SERVE', Straight up)
+define(`GARNISH', Maraschino cherry)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>2 oz Rye whiskey</li>
+<li>1/2 oz Lemon juice</li>
+<li>1/2 oz Orange juice</li>
+<li>1 tsp Grenadine</li>
+)
+define(`METHOD', `Shake the rye whiskey, lemon juice, orange juice, and grenadine with ice; then strain into a chilled cocktail glass. Garnish with a maraschino cherry, if desired. Originally the drink was decorated with a small paper Massachusetts flag.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

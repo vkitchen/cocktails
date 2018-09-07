@@ -1,0 +1,16 @@
+define(`NAME', The Blenheim)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>3 parts Brandy</li>
+<li>2 parts Yellow Chartreuse</li>
+<li>1 part Lillet</li>
+<li>1 part Orange juice</li>
+<li>1 part Dubonnet</li>
+)
+define(`METHOD', `Shake ingredients together with ice, and strain into a cocktail glass.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

@@ -1,0 +1,17 @@
+define(`NAME', Clover Club)
+define(`IMG', Clover%20Club.jpg)
+define(`SERVE', Straight up)
+define(`GARNISH', Nutmeg)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>4.5 cl Gin</li>
+<li>1.5 cl Lemon juice</li>
+<li>1.5 cl Raspberry syrup</li>
+<li>A Egg White</li>
+)
+define(`METHOD', `Dry shake ingredients to emulsify, add ice, shake and served straight up.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

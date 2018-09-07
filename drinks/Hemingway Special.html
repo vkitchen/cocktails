@@ -1,0 +1,16 @@
+define(`NAME', Hemingway Special)
+define(`IMG', Hemingway%20Special.jpg)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Double Cocktail glass)
+define(`INGREDIENTS',
+<li>6 cl Rum</li>
+<li>4 cl Grapefruit juice</li>
+<li>1.5 cl Maraschino liqueur</li>
+<li>1.5 cl Lime juice</li>
+)
+define(`METHOD', `Shake all ingredients with ice and strain contents into a cocktail glass.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

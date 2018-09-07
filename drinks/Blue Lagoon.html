@@ -1,0 +1,16 @@
+define(`NAME', Blue Lagoon)
+define(`IMG', Blue%20Lagoon.jpg)
+define(`SERVE', On the rocks)
+define(`GARNISH', Lemon or Orange slice)
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>50 ml Vodka</li>
+<li>20 ml Blue Curaçao</li>
+<li>100 ml Lemonade</li>
+)
+define(`METHOD', `Pour vodka and blue curacao in a shaker with ice, shake well & strain into ice filled highball glass, top with lemonade, garnish and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

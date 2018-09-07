@@ -1,0 +1,16 @@
+define(`NAME', Bloodhound)
+define(`SERVE', On the rocks)
+define(`GARNISH', Three strawberries)
+define(`DRINKWARE', Old Fashioned glass)
+define(`INGREDIENTS',
+<li>2 parts Gin</li>
+<li>1 part Dry Vermouth</li>
+<li>1 part Sweet Vermouth</li>
+<li>Strawberry coulis</li>
+)
+define(`METHOD', `Shake alcoholic ingredients and serve over crushed ice with strawberry coulis and strawberries garnish')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

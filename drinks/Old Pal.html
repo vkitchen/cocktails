@@ -1,0 +1,15 @@
+define(`NAME', Old Pal)
+define(`SERVE', Straight up)
+define(`GARNISH', Lemon twist)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>30 ml Rye whiskey</li>
+<li>30 ml Dry vermouth</li>
+<li>30 ml Campari</li>
+)
+define(`METHOD', `Mix the 3 ingredients in a mixing glass, and add ice. Stir to chill, and strain into a cocktail glass')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

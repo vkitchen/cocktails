@@ -1,0 +1,16 @@
+define(`NAME', Monkey Gland)
+define(`IMG', Monkey%20Gland.jpg)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>5 cl Gin</li>
+<li>3 cl Orange juice</li>
+<li>2 drops Absinthe</li>
+<li>2 drops Grenadine</li>
+)
+define(`METHOD', `Shake well over ice cubes in a shaker, strain into a chilled cocktail glass.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

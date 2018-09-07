@@ -1,0 +1,14 @@
+define(`NAME', Flirtini)
+define(`SERVE', On the rocks)
+define(`DRINKWARE', Highball glass)
+define(`INGREDIENTS',
+<li>1 oz Vodka</li>
+<li>2 oz Champagne</li>
+<li>2 oz Pineapple juice</li>
+)
+define(`METHOD', `Build ingredients in glass over ice. Stir')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

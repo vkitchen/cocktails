@@ -1,0 +1,16 @@
+define(`NAME', Bobby Burns)
+define(`IMG', Bobby%20Burns.jpg)
+define(`SERVE', Straight up)
+define(`GARNISH', Lemon peel)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>4.5 cl Scotch whisky</li>
+<li>4.5 cl Sweet vermouth</li>
+<li>3 dashes Bénédictine</li>
+)
+define(`METHOD', `Put all liquid ingredients in cocktail shaker filled with ice. Squeeze lemon peel on top. Shake, strain into glass.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

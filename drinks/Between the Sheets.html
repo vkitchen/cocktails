@@ -1,0 +1,16 @@
+define(`NAME', Between the Sheets)
+define(`IMG', Between%20the%20Sheets.jpg)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Cocktail glass)
+define(`INGREDIENTS',
+<li>3 cl White rum</li>
+<li>3 cl Cognac</li>
+<li>3 cl Triple sec</li>
+<li>2 cl Lemon juice</li>
+)
+define(`METHOD', `Pour all ingredients into shaker with ice cubes, shake, strain into chilled cocktail glass.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

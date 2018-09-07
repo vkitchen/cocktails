@@ -1,0 +1,15 @@
+define(`NAME', Moonwalk)
+define(`SERVE', Straight up)
+define(`DRINKWARE', Wine glass)
+define(`INGREDIENTS',
+<li>1 part Grapefruit juice</li>
+<li>1 part Grand Marnier</li>
+<li>2 dashes Rosewater</li>
+<li>Champagne</li>
+)
+define(`METHOD', `Shake well, strain into wine glass and top up with champagne.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

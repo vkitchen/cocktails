@@ -1,0 +1,17 @@
+define(`NAME', Tom Collins)
+define(`IMG', Tom%20Collins.jpg)
+define(`SERVE', On the rocks)
+define(`GARNISH', `Lemon slice, Maraschino cherry')
+define(`DRINKWARE', Collins glass)
+define(`INGREDIENTS',
+<li>4.5 cl Old Tom Gin</li>
+<li>3 cl Lemon juice</li>
+<li>1.5 cl Sugar syrup</li>
+<li>6 cl Soda water</li>
+)
+define(`METHOD', `Mix the gin, lemon juice and sugar syrup in a tall glass with ice, top up with soda water, garnish and serve.')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')

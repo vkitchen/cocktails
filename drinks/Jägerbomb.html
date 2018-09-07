@@ -1,0 +1,14 @@
+define(`NAME', Jägerbomb)
+define(`IMG', Jägerbomb.jpg)
+define(`SERVE', Neat)
+define(`DRINKWARE', Pint glass)
+define(`INGREDIENTS',
+<li>1 can Red Bull</li>
+<li>1 shot Jägermeister</li>
+)
+define(`METHOD', `Pour red bull into pint glass half filling it. Drop a shot glass full of Jägermeister in')
+
+ifdef(`SILENT', ,`
+include(`views/drink.html')
+include(`views/layout.html')
+')
