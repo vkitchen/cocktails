@@ -4,6 +4,7 @@ import Html exposing (Attribute)
 import Html.Attributes as Attr
 import Http exposing (decodeUri, encodeUri)
 import Navigation exposing (Location)
+import Request.Helpers as Req exposing (prefixUrl)
 import UrlParser as Url exposing (parsePath, s, (</>), custom, oneOf, Parser)
 
 type Route
@@ -23,14 +24,17 @@ decodedString =
         Just decoded ->
           Ok decoded
 
+prefix : Parser a b -> Parser a b
+prefix p =
+  s Req.prefix </> p
 
 route : Parser (Route -> a) a
 route =
     oneOf
-        [ Url.map Home Url.top
-        , Url.map Home (s "index.html")
-        , Url.map Drink (s "drinks" </> decodedString)
-        , Url.map Search (s "search" </> decodedString)
+        [ Url.map Home (prefix Url.top)
+        , Url.map Home (prefix (s "index.html"))
+        , Url.map Drink (prefix (s "drinks" </> decodedString))
+        , Url.map Search (prefix (s "search" </> decodedString))
         ]
 
 
@@ -59,17 +63,17 @@ toString page =
 
 href : Route -> Attribute msg
 href route =
-  Attr.href (toString route)
+  Attr.href (prefixUrl (toString route))
 
 
 modifyUrl : Route -> Cmd msg
 modifyUrl =
-  toString >> Navigation.modifyUrl
+  toString >> prefixUrl >> Navigation.modifyUrl
 
 
 newUrl : Route -> Cmd msg
 newUrl =
-  toString >> Navigation.newUrl
+  toString >> prefixUrl >> Navigation.newUrl
 
 
 fromLocation : Location -> Route

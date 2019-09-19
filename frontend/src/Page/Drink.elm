@@ -10,6 +10,7 @@ import Html.Attributes exposing (..)
 import Http exposing (encodeUri)
 import Page.Errored as Errored exposing (PageLoadError, pageLoadError)
 import Request.Drink
+import Request.Helpers exposing (prefixUrl)
 import Route exposing (Route)
 import Task exposing (Task)
 
@@ -77,7 +78,7 @@ view _ model =
                       img [ src (Image.missing model.drink.drinkware) ]
                         []
                     Just img_ ->
-                      img [ src ("/img/250x250/" ++ (encodeUri img_)) ]
+                      img [ src (prefixUrl "/img/250x250/" ++ (encodeUri img_)) ]
                         []
                 ]
             , div [ class "recipe" ]

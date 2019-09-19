@@ -10,6 +10,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Http exposing (encodeUri)
 import Page.Errored as Errored exposing (PageLoadError, pageLoadError)
+import Request.Helpers exposing (prefixUrl)
 import Request.Search
 import Route exposing (Route)
 import Task exposing (Task)
@@ -99,7 +100,7 @@ viewDrink (Config { changePage, toMsg }) drink =
                   img [ src (Image.missing drink.drinkware) ]
                     []
                 Just img_ ->
-                  img [ src ("/img/250x250/" ++ (encodeUri img_)) ]
+                  img [ src (prefixUrl "/img/250x250/" ++ (encodeUri img_)) ]
                     []
             ]
         ]
