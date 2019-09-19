@@ -1,6 +1,6 @@
 all:
 	elm package install
-	elm make src/Main.elm --output ../backend/public/tophat.js
+	elm make src/Main.elm --output ../backend/public/cocktails.js
 	postcss css/main.css -o ../backend/public/style.css
 
 dev:

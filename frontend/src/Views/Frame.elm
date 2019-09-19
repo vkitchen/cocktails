@@ -63,7 +63,7 @@ viewHeader : Config msg -> State -> Html msg
 viewHeader (Config { changePage, updateState } as config) query =
   nav [ class "masthead-container" ]
     [ div [ class "logo-container" ]
-        [ a [ class "logo", Route.href Route.Home, onPreventDefaultClick (changePage Route.Home) ] [ text "Tophat" ] ]
+        [ a [ class "logo", Route.href Route.Home, onPreventDefaultClick (changePage Route.Home) ] [ text "VK" ] ]
     , viewSearchBar config query
     ]
 
