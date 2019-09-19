@@ -28,6 +28,7 @@ route : Parser (Route -> a) a
 route =
     oneOf
         [ Url.map Home Url.top
+        , Url.map Home (s "index.html")
         , Url.map Drink (s "drinks" </> decodedString)
         , Url.map Search (s "search" </> decodedString)
         ]
