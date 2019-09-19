@@ -62,20 +62,31 @@ title model =
   model.query
 
 
+searchBy : String -> Drink -> Bool
+searchBy query drink =
+  String.contains (String.toLower query) (String.toLower drink.name)
+  || (drink.ingredients
+       |> List.map (String.toLower << .name)
+       |> List.any (String.contains (String.toLower query))
+     )
+
 
 -- VIEW --
 
 
 view : Config msg -> Model -> Html msg
 view config model =
-  div [ class "content" ]
-    [ div [ class "content-inner" ]
-        [ div [ class "content-title" ]
-            [ h3 [] [ text "Search Results" ] ]
-        , ul [ class "drinks-list" ]
-            (List.map (viewDrink config) model.results)
-        ]
-    ]
+  let
+    filtered = List.filter (searchBy model.query) model.results
+  in
+    div [ class "content" ]
+      [ div [ class "content-inner" ]
+          [ div [ class "content-title" ]
+              [ h3 [] [ text "Search Results" ] ]
+          , ul [ class "drinks-list" ]
+              (List.map (viewDrink config) filtered)
+          ]
+      ]
 
 
 viewDrink : Config msg -> Drink -> Html msg

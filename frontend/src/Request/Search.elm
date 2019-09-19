@@ -12,4 +12,4 @@ import Request.Helpers exposing (apiUrl)
 search : String -> Http.Request (List Drink)
 search slug =
   Decode.list Drink.drinkDecoder
-    |> Http.get (apiUrl ("/search/" ++ (encodeUri slug)))
+    |> Http.get (apiUrl "/drinks.json")
