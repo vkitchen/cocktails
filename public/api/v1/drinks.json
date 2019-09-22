@@ -359,28 +359,6 @@
 }
 ,
 {
-	"name": "B and B",
-	"img": [],
-	"lists": [],
-	"serve": "With or without ice",
-	"garnish": "",
-	"drinkware": "Snifter",
-	"ingredients": [
-		{
-			"name": "Cognac",
-			"measure": "1",
-			"unit": "part"
-		},
-		{
-			"name": "Bénédictine",
-			"measure": "1",
-			"unit": "part"
-		}
-	],
-	"method": "Combine and stir."
-}
-,
-{
 	"name": "B-52",
 	"img": [],
 	"lists": [
@@ -489,6 +467,28 @@
 		}
 	],
 	"method": "Fill the glass halfway (6oz.) with ice. Pour the tequila to the rim of the ice. Add the 99 Bananas liquor as well as the margarita mix; finish by adding the garnishes."
+}
+,
+{
+	"name": "B and B",
+	"img": [],
+	"lists": [],
+	"serve": "With or without ice",
+	"garnish": "",
+	"drinkware": "Snifter",
+	"ingredients": [
+		{
+			"name": "Cognac",
+			"measure": "1",
+			"unit": "part"
+		},
+		{
+			"name": "Bénédictine",
+			"measure": "1",
+			"unit": "part"
+		}
+	],
+	"method": "Combine and stir."
 }
 ,
 {
@@ -854,6 +854,33 @@
 }
 ,
 {
+	"name": "Blueberry Tea",
+	"img": [],
+	"lists": [],
+	"serve": "Hot",
+	"garnish": "Lemon slice",
+	"drinkware": "Brandy snifter",
+	"ingredients": [
+		{
+			"name": "Grand Marnier",
+			"measure": "1",
+			"unit": "oz"
+		},
+		{
+			"name": "Amaretto",
+			"measure": "1",
+			"unit": "oz"
+		},
+		{
+			"name": "Hot Orange pekoe tea to taste",
+			"measure": "0",
+			"unit": "none"
+		}
+	],
+	"method": "Add both liqueurs to the snifter and then fill with hot tea to taste. Swaddle the brandy snifter in serviettes or a cloth to protect the hands. Some suggest a sugared rim, or adding sugar to the tea, or a lemon garnish."
+}
+,
+{
 	"name": "Blue Hawaii",
 	"img": [
 		"Blue Hawaii.jpg"
@@ -919,33 +946,6 @@
 		}
 	],
 	"method": "Pour vodka and blue curacao in a shaker with ice, shake well & strain into ice filled highball glass, top with lemonade, garnish and serve."
-}
-,
-{
-	"name": "Blueberry Tea",
-	"img": [],
-	"lists": [],
-	"serve": "Hot",
-	"garnish": "Lemon slice",
-	"drinkware": "Brandy snifter",
-	"ingredients": [
-		{
-			"name": "Grand Marnier",
-			"measure": "1",
-			"unit": "oz"
-		},
-		{
-			"name": "Amaretto",
-			"measure": "1",
-			"unit": "oz"
-		},
-		{
-			"name": "Hot Orange pekoe tea to taste",
-			"measure": "0",
-			"unit": "none"
-		}
-	],
-	"method": "Add both liqueurs to the snifter and then fill with hot tea to taste. Swaddle the brandy snifter in serviettes or a cloth to protect the hands. Some suggest a sugared rim, or adding sugar to the tea, or a lemon garnish."
 }
 ,
 {
@@ -3442,6 +3442,30 @@
 }
 ,
 {
+	"name": "Jägerbomb",
+	"img": [
+		"Jägerbomb.jpg"
+	],
+	"lists": [],
+	"serve": "Neat",
+	"garnish": "",
+	"drinkware": "Pint glass",
+	"ingredients": [
+		{
+			"name": "Red Bull",
+			"measure": "1",
+			"unit": "can"
+		},
+		{
+			"name": "Jägermeister",
+			"measure": "1",
+			"unit": "shot"
+		}
+	],
+	"method": "Pour red bull into pint glass half filling it. Drop a shot glass full of Jägermeister in"
+}
+,
+{
 	"name": "Japanese Slipper",
 	"img": [
 		"Japanese Slipper.jpg"
@@ -3468,30 +3492,6 @@
 		}
 	],
 	"method": "Shake together in a mixer with ice. Strain into glass, garnish and serve."
-}
-,
-{
-	"name": "Jägerbomb",
-	"img": [
-		"Jägerbomb.jpg"
-	],
-	"lists": [],
-	"serve": "Neat",
-	"garnish": "",
-	"drinkware": "Pint glass",
-	"ingredients": [
-		{
-			"name": "Red Bull",
-			"measure": "1",
-			"unit": "can"
-		},
-		{
-			"name": "Jägermeister",
-			"measure": "1",
-			"unit": "shot"
-		}
-	],
-	"method": "Pour red bull into pint glass half filling it. Drop a shot glass full of Jägermeister in"
 }
 ,
 {
@@ -3689,30 +3689,6 @@
 }
 ,
 {
-	"name": "Kir Royal",
-	"img": [
-		"Kir Royal.jpg"
-	],
-	"lists": [],
-	"serve": "Neat",
-	"garnish": "",
-	"drinkware": "Champagne flute",
-	"ingredients": [
-    {
-			"name": "Champagne",
-			"measure": "9",
-			"unit": "cl"
-		},
-		{
-			"name": "Crème de Cassis",
-			"measure": "1",
-			"unit": "cl"
-		}
-	],
-	"method": "Add the crème de cassis to the bottom of the glass, then top up champagne."
-}
-,
-{
 	"name": "Kir",
 	"img": [
 		"Kir.jpg"
@@ -3737,6 +3713,30 @@
 		}
 	],
 	"method": "Add the crème de cassis to the bottom of the glass, then top up with wine."
+}
+,
+{
+	"name": "Kir Royal",
+	"img": [
+		"Kir Royal.jpg"
+	],
+	"lists": [],
+	"serve": "Neat",
+	"garnish": "",
+	"drinkware": "Champagne flute",
+	"ingredients": [
+    {
+			"name": "Champagne",
+			"measure": "9",
+			"unit": "cl"
+		},
+		{
+			"name": "Crème de Cassis",
+			"measure": "1",
+			"unit": "cl"
+		}
+	],
+	"method": "Add the crème de cassis to the bottom of the glass, then top up champagne."
 }
 ,
 {
@@ -4848,6 +4848,38 @@
 }
 ,
 {
+	"name": "Piña Colada",
+	"img": [
+		"Piña Colada.jpg"
+	],
+	"lists": [
+		"IBA",
+		"IBA Contemporary Classics"
+	],
+	"serve": "Blended",
+	"garnish": "Pineapple slice, Maraschino cherry",
+	"drinkware": "Poco",
+	"ingredients": [
+		{
+			"name": "White rum",
+			"measure": "3",
+			"unit": "cl"
+		},
+		{
+			"name": "Coconut milk",
+			"measure": "3",
+			"unit": "cl"
+		},
+		{
+			"name": "Pineapple juice",
+			"measure": "9",
+			"unit": "cl"
+		}
+	],
+	"method": "Mix with crushed ice in blender until smooth. Pour into chilled glass, garnish and serve."
+}
+,
+{
 	"name": "Pink Gin",
 	"img": [],
 	"lists": [],
@@ -4896,38 +4928,6 @@
 		}
 	],
 	"method": "Shake ingredients very well with ice and strain into cocktail glass. Garnish with a cherry."
-}
-,
-{
-	"name": "Piña Colada",
-	"img": [
-		"Piña Colada.jpg"
-	],
-	"lists": [
-		"IBA",
-		"IBA Contemporary Classics"
-	],
-	"serve": "Blended",
-	"garnish": "Pineapple slice, Maraschino cherry",
-	"drinkware": "Poco",
-	"ingredients": [
-		{
-			"name": "White rum",
-			"measure": "3",
-			"unit": "cl"
-		},
-		{
-			"name": "Coconut milk",
-			"measure": "3",
-			"unit": "cl"
-		},
-		{
-			"name": "Pineapple juice",
-			"measure": "9",
-			"unit": "cl"
-		}
-	],
-	"method": "Mix with crushed ice in blender until smooth. Pour into chilled glass, garnish and serve."
 }
 ,
 {
@@ -5380,35 +5380,6 @@
 }
 ,
 {
-	"name": "Rose Kennedy",
-	"img": [
-		"Rose Kennedy.jpg"
-	],
-	"lists": [],
-	"serve": "On the rocks",
-	"garnish": "Lime slice",
-	"drinkware": "Old Fashioned glass",
-	"ingredients": [
-		{
-			"name": "Vodka",
-			"measure": "5",
-			"unit": "cl"
-		},
-		{
-			"name": "Soda water",
-			"measure": "0",
-			"unit": "none"
-		},
-		{
-			"name": "Cranberry juice",
-			"measure": "1",
-			"unit": "splash"
-		}
-	],
-	"method": "Add ingredients to an Old Fashioned glass. Stir before serving"
-}
-,
-{
 	"name": "Rose",
 	"img": [
 		"Rose.jpg"
@@ -5438,6 +5409,35 @@
 		}
 	],
 	"method": "Shake together in a cocktail shaker, then strain into chilled glass. Garnish and serve."
+}
+,
+{
+	"name": "Rose Kennedy",
+	"img": [
+		"Rose Kennedy.jpg"
+	],
+	"lists": [],
+	"serve": "On the rocks",
+	"garnish": "Lime slice",
+	"drinkware": "Old Fashioned glass",
+	"ingredients": [
+		{
+			"name": "Vodka",
+			"measure": "5",
+			"unit": "cl"
+		},
+		{
+			"name": "Soda water",
+			"measure": "0",
+			"unit": "none"
+		},
+		{
+			"name": "Cranberry juice",
+			"measure": "1",
+			"unit": "splash"
+		}
+	],
+	"method": "Add ingredients to an Old Fashioned glass. Stir before serving"
 }
 ,
 {
